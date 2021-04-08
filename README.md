@@ -11,6 +11,10 @@ Then after a while start the audio stimulus.
 
 [YouTube](https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ)
 
+[Facebook](https://www.facebook.com/Dream-Hacker-102690111939418)
+
+[Instagram](https://www.instagram.com/proj_dreamhacker/)
+
 # Hardware Needed
 1. Raspberry pi
 1. Pressure Sensor
