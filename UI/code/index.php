@@ -4,10 +4,11 @@
     session_start();
 ?>
 
-<html lang="en">
+<html lang="en">  
+<head>
                             <!--        Meta Data       -->   
                                 
-<meta charset="utf-8">
+                            <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,19 +20,34 @@
 
 							<!--        Styler          -->   
 <link rel="stylesheet" type="text/css" href="css/main.css">						
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">       
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">     
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
-<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  
+<style>
+    li {
+    display: inline;
+    margin: 2%;
+    padding: 2%;
+    font-size: 36px;
+    border-radius: 25px;
+    border: 1px grey solid;
+    
+  }
+
+  ul {
+    list-style-type: none;
+    text-align: center;
+  }
+</style>
+  
+</head>
+
+<body>
     <div class='container'>
         <h1>Dream Hacker <hr></h1>
         
     </div>
-</head>
-
-<body>
     <div class="container">
         <h3>What is Dream Hacker</h3>
         <p> Here we will explain </p>
@@ -52,5 +68,6 @@
             <a href='history.php'><li> View Histroy</li></a>
         </ul>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

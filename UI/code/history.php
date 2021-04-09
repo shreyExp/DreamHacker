@@ -26,15 +26,15 @@
 
 <title>Dream Hacker</title>    
 
-<meta name="description" content="Home page for Dream Hacker">
+<meta name="description" content="History page for Dream Hacker">
 
 <meta name="author" content="Real Time Group">
 
 							<!--        Styler          -->   
 <link rel="stylesheet" type="text/css" href="css/main.css">						
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">       
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">       
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
 </head>
@@ -45,14 +45,15 @@
         
     </div>
 <div class="container">
-        <div class = "row">`
-            <div class = "col-md-11">
+        <div class = "row">
+            <div class = "col">
                 <h3>History</h3>
                 <hr>
             </div>
-            <div class = "col-md-1">
-            <a href='index.php'><p class="backButton w3-hover-red">Back<p></a>
-             </div>
+            <div class = "col-xs-2">
+                <a href='index.php'><h4 class="backButton w3-hover-red">Back<h4></a>
+                <hr>
+            </div>
         </div>
 </div>
 
@@ -76,20 +77,23 @@
     }
 ?>
     <div class="container">
-<table align=center>
+<table class="table table-striped"">
+<thead>
     <tr>
-        <th> Date</th>
-        <th> Rem Sleep Detected</th>
-        <th> Avg Heart Rate</th>
-        <th> Hours Slept</th>
-        <hr>
+        <th scope="col"> Date</th>
+        <th scope="col"> Rem Sleep Detected</th>
+        <th scope="col"> Avg Heart Rate</th>
+        <th scope="col"> Hours Slept</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td> <?= $record['date'] ?></td>
+        <td scope="row"> <?= $record['date'] ?></td>
         <td> <?= $record['remSleep'] ?></td>
         <td> <?= $record['heartRate'] ?></td>
         <td> <?= $record['hrsSlept'] ?></td>
     </tr>
+    </tbody>
 </table>             
 <?php endfor; ?>
         </div>
@@ -100,5 +104,9 @@
         }
         ?>
     </div>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
 </body>
 </html>
