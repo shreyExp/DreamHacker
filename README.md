@@ -10,7 +10,8 @@ To take data from pressure sensors, ecg, time of the day etc, to predict when th
 Then after a while start the audio stimulus.
 
 <p align="center">
-<a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img  src="Downloads/facebooklogo.jpg"  width="44" height="44">
+   </br>
+   <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img  src="image/facebooklogo.jpg"  width="44" height="44">
 
 # Social Media
 
