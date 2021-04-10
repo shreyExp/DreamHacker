@@ -20,8 +20,7 @@
 #include <time.h>
 #include <wiringPi.h>
 #include <mcp3004.h>
-#include "fft-real-pair.h"
-
+//A comment
 
 #define OPT_R 10        // min uS allowed lag btw alarm and callback
 #define OPT_U 2000      // sample time uS between alarms
@@ -53,7 +52,8 @@ unsigned int timeOutStart, dataRequestStart, m;
 // VARIABLES USED TO DETERMINE BPM
 volatile int Signal;
 volatile unsigned int sampleCounter;
-volatile int threshSetting,lastBeatTime,fadeLevel;
+//volatile int threshSetting,lastBeatTime,fadeLevel;
+volatile int threshSetting,lastBeatTime;
 volatile int thresh = 550;
 volatile int P = 512;                               // set P default
 volatile int T = 512;                               // set T default
@@ -147,68 +147,30 @@ void writeArray(const char* name, double array[], const int size);
 int main(int argc, char *argv[])
 {
     signal(SIGINT,sigHandler);
-    //int settings = 0;
-    // command line settings
-    //settings = initOpts(argc, argv);
     time_t now = time(NULL);
     timenow = gmtime(&now);
 
-    strftime(filename, sizeof(filename),
-    "/home/pi/Documents/PulseSensor/PULSE_DATA_%Y-%m-%d_%H:%M:%S.dat", timenow);
-    data = fopen(filename, "w+");
-    fprintf(data,"#Running with %d latency at %duS sample rate\n",OPT_R,OPT_U);
-    fprintf(data,"#sampleCount\tSignal\tBPM\tIBI\tjitter\n");
-
-    printf("Ready to run with %d latency at %duS sample rate\n",OPT_R,OPT_U);
-
     wiringPiSetup(); //use the wiringPi pin numbers
-    //piHiPri(99);
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
+    //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
     initPulseSensorVariables();  // initilaize Pulse Sensor beat finder
 
     startTimer(OPT_R, OPT_U);   // start sampling
+    //signal(SIGALRM, getPulse);
 
 
-    const int window_size = 4000;
-    double window_real[window_size];
-    double window_imaginary[window_size];
-    for(int i = 0; i < window_size; i++){
-	    window_imaginary[i] = 0.0;
-    }
-    time_t rec_time;
-    float sampling_rate;
     while(1)
     {
+	//printf("reached here\n");
         if(sampleFlag){
             sampleFlag = 0;
             timeOutStart = micros();
-            //digitalWrite(BLINK_LED,Pulse);
-            // PRINT DATA TO TERMINAL
-            //printf("%lu\t%d\t%d\t%d\t%d\n",
-            //sampleCounter,Signal,BPM,IBI,jitter
-            //);
-	    rec_time = time(NULL);
-            window_duration = micros();
-	    for(int i = 0; i < window_size; i++)
-		    window_real[i] = (double)Signal;
-            window_duration = micros()- window_duration;
-	    sampling_rate = (float)window_duration/(float)window_size;
-	    printf("Reached Here\n");
-	    writeArray("Data/timeDomain.dat", window_real, window_size);
-	    printf("Didn't Reached Here\n");
-	    Fft_transform(window_real, window_imaginary, window_size);
-	    writeArray("Data/fftReal.dat", window_real, window_size);
-	    writeArray("Data/fftImag.dat", window_imaginary, window_size);
-
-            // PRINT DATA TO FILE
-            //fprintf(data,"%d\t%d\t%d\t%d\t%d\t%d\n",
-            //sampleCounter,Signal,IBI,BPM,jitter,duration
-            //);
-         }
-         if((micros() - timeOutStart)>TIME_OUT){
-            fatal(0,"0-program timed out",0);
+            printf("%lu\t%d\t%d\t%d\t%d\n",
+            sampleCounter,Signal,BPM,IBI,jitter
+            );
+	    //rec_time = time(NULL);
+            //window_duration = micros();
          }
     }
 
@@ -216,20 +178,6 @@ int main(int argc, char *argv[])
 
 }//int main(int argc, char *argv[])
 
-void writeArray(const char* name, double input[], const int size){
-	FILE* fpt;
-	fpt = fopen(name, "w");
-	printf("Reached in te function\n");
-	for(int i = 0; i < size; i++){
-		if(i > 0){
-			fprintf(fpt, ", %f", input[i]);
-			printf("%d\n", i);
-		}
-		else
-			fprintf(fpt, "%f", input[i]);
-	}
-	fclose(fpt);
-}
 
 void startTimer(int r, unsigned int u){
 // What is a signal function
