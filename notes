@@ -1,4 +1,0 @@
-First I need to make a function which can run from a main function and print pulses.
-Then I need to fork to do a window fft.
-Send the fft samples to a server running a python code to store data in csv format.
-We must have the fft data for sleeping and non-sleeping class.
