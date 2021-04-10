@@ -186,18 +186,21 @@ int main(int argc, char *argv[])
             timeOutStart = micros();
             //digitalWrite(BLINK_LED,Pulse);
             // PRINT DATA TO TERMINAL
-            printf("%lu\t%d\t%d\t%d\t%d\n",
-            sampleCounter,Signal,BPM,IBI,jitter
-            );
+            //printf("%lu\t%d\t%d\t%d\t%d\n",
+            //sampleCounter,Signal,BPM,IBI,jitter
+            //);
 	    rec_time = time(NULL);
             window_duration = micros();
 	    for(int i = 0; i < window_size; i++)
-	            window_real[i] = (double)Signal;
-            //window_duration = micros()- window_duration;
-	    //sampling_rate = (float)window_duration/(float)window_size;
-	    //Fft_transform(window_real, window_imaginary, window_size);
-	    //writeArray("Data/fftReal.dat", window_real, window_size);
-	    //writeArray("Data/fftImag.dat", window_imaginary, window_size);
+		    window_real[i] = (double)Signal;
+            window_duration = micros()- window_duration;
+	    sampling_rate = (float)window_duration/(float)window_size;
+	    printf("Reached Here\n");
+	    writeArray("Data/timeDomain.dat", window_real, window_size);
+	    printf("Didn't Reached Here\n");
+	    Fft_transform(window_real, window_imaginary, window_size);
+	    writeArray("Data/fftReal.dat", window_real, window_size);
+	    writeArray("Data/fftImag.dat", window_imaginary, window_size);
 
             // PRINT DATA TO FILE
             //fprintf(data,"%d\t%d\t%d\t%d\t%d\t%d\n",
@@ -216,10 +219,11 @@ int main(int argc, char *argv[])
 void writeArray(const char* name, double input[], const int size){
 	FILE* fpt;
 	fpt = fopen(name, "w");
-	//printf("Reached in te function\n");
+	printf("Reached in te function\n");
 	for(int i = 0; i < size; i++){
 		if(i > 0){
 			fprintf(fpt, ", %f", input[i]);
+			printf("%d\n", i);
 		}
 		else
 			fprintf(fpt, "%f", input[i]);
