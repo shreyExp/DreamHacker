@@ -11,6 +11,7 @@
 #include <wiringPi.h>
 #include <mcp3004.h>
 
+
 #define OPT_R 10        // min uS allowed lag btw alarm and callback
 #define OPT_U 2000      // sample time uS between alarms
 #define OPT_O_ELAPSED 0 // output option uS elapsed time between alarms
@@ -33,15 +34,16 @@
 #define PULSE_DATA 3    // SEND DATA PACKET TO FIFO
 #define PULSE_CONNECT 9 // CONNECT TO OTHER END OF PIPE
 
+//Variables 
+
 // VARIABLES USED TO DETERMINE SAMPLE JITTER & TIME OUT
 volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
 volatile int sampleFlag = 0;
-volatile int sumJitter, firstTime, secondTime, duration, window_duration;
+volatile int sumJitter, firstTime, secondTime, duration;
 unsigned int timeOutStart, dataRequestStart, m;
 // VARIABLES USED TO DETERMINE BPM
 volatile int Signal;
 volatile unsigned int sampleCounter;
-//volatile int threshSetting,lastBeatTime,fadeLevel;
 volatile int threshSetting,lastBeatTime;
 volatile int thresh = 550;
 volatile int P = 512;                               // set P default
@@ -68,47 +70,94 @@ void initJitterVariables(void);
 
 FILE *data;
 
+void usage()
+{
+   fprintf
+   (stderr,
+      "\n" \
+      "Usage: sudo ./pulseProto ... [OPTION] ...\n" \
+      "   NO OPTIONS AVAILABLE YET\n"\
+      "\n"\
+      "   Data file saved as\n"\
+      "   /home/pi/Documents/PulseSensor/PULSE_DATA <timestamp>\n"\
+      "   Data format tab separated:\n"\
+      "     sampleCount  Signal  BPM  IBI  Pulse  Jitter\n"\
+      "\n"
+   );
+}
+
 void sigHandler(int sig_num){
 	printf("\nkilling timer\n");
     startRecording(OPT_R,0); // kill the alarm
 	exit(EXIT_SUCCESS);
 }
 
-
-// SAVED FOR FUTURE FEATURES
-static int initOpts(int argc, char *argv[])
+void fatal(int show_usage, char *fmt, ...)
 {
-   //int i, opt;
-   //while ((opt = getopt(argc, argv, ":")) != -1)
-   //{
-      //i = -1;
-      //switch (opt)
-      //{
-        //case '':
-        //default: /* '?' */
-           //usage();
-        //}
-    //}
-   return optind;
+   char buf[128];
+   va_list ap;
+   char kill[20];
+
+   va_start(ap, fmt);
+   vsnprintf(buf, sizeof(buf), fmt, ap);
+   va_end(ap);
+
+   fprintf(stderr, "%s\n", buf);
+
+   if (show_usage) usage();
+
+   fflush(stderr);
+   printf("killing timer\n");
+   startRecording(OPT_R,0); // kill the alarm
+   fprintf(data,"#%s",fmt);
+   fclose(data);
+
+   exit(EXIT_FAILURE);
 }
 
+// SAVED FOR FUTURE FEATURES
+//static int initOpts(int argc, char *argv[])
+//{
+//   //int i, opt;
+//   //while ((opt = getopt(argc, argv, ":")) != -1)
+//   //{
+//      //i = -1;
+//      //switch (opt)
+//      //{
+//        //case '':
+//        //default: /* '?' */
+//           //usage();
+//        //}
+//    //}
+//   return optind;
+//}
 
-void writeArray(const char* name, double array[], const int size);
 
 int main(int argc, char *argv[])
 {
     signal(SIGINT,sigHandler);
+    //int settings = 0;
+    // command line settings
+    //settings = initOpts(argc, argv);
     time_t now = time(NULL);
     timenow = gmtime(&now);
 
+    //strftime(filename, sizeof(filename),
+    //"/home/pi/Documents/PulseSensor/PULSE_DATA_%Y-%m-%d_%H:%M:%S.dat", timenow);
+    //data = fopen(filename, "w+");
+    //fprintf(data,"#Running with %d latency at %duS sample rate\n",OPT_R,OPT_U);
+    //fprintf(data,"#sampleCount\tSignal\tBPM\tIBI\tjitter\n");
+
+    //printf("Ready to run with %d latency at %duS sample rate\n",OPT_R,OPT_U);
+
     wiringPiSetup(); //use the wiringPi pin numbers
+    //piHiPri(99);
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
+    //inMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
     initPulseSensorVariables();  // initilaize Pulse Sensor beat finder
 
     startRecording(OPT_R, OPT_U);   // start sampling
-    //signal(SIGALRM, getPulse);
 
 
     while(1)
@@ -116,19 +165,26 @@ int main(int argc, char *argv[])
         if(sampleFlag){
             sampleFlag = 0;
             timeOutStart = micros();
+            //digitalWrite(BLINK_LED,Pulse);
+            // PRINT DATA TO TERMINAL
             printf("%lu\t%d\t%d\t%d\t%d\n",
             sampleCounter,Signal,BPM,IBI,jitter
             );
+            // PRINT DATA TO FILE
+            //fprintf(data,"%d\t%d\t%d\t%d\t%d\t%d\n",
+            //sampleCounter,Signal,IBI,BPM,jitter,duration
+            //);
          }
+         //if((micros() - timeOutStart)>TIME_OUT){
+          //  fatal(0,"0-program timed out",0);
+        // }
     }
 
     return 0;
 
 }//int main(int argc, char *argv[])
 
-
 void startRecording(int r, unsigned int u){
-// What is a signal function
     int latency = r;
     unsigned int micros = u;
 
@@ -167,8 +223,8 @@ void initPulseSensorVariables(void){
 
 void getPulse(int sig_num){
 
-    //if(sig_num == SIGALRM)
-    //{
+    if(sig_num == SIGALRM)
+    {
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -180,6 +236,7 @@ void getPulse(int sig_num){
 
   sampleCounter += 2;         // keep track of the time in mS with this variable
   int N = sampleCounter - lastBeatTime;      // monitor the time since the last beat to avoid noise
+
 
   //  find the peak and trough of the pulse wave
   if (Signal < thresh && N > (IBI / 5) * 3) { // avoid dichrotic noise by waiting 3/5 of last IBI
@@ -257,6 +314,6 @@ void getPulse(int sig_num){
 
     duration = micros()-thisTime;
 
-    //}
+    }
 
 }
