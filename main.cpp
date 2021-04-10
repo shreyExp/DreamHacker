@@ -1,13 +1,3 @@
-/*
-
-		THIS CODE IS RELEASED WITHOUT WARRANTY OF FITNESS
-		OR ANY PROMISE THAT IT WORKS, EVEN. WYSIWYG.
-
-		YOU SHOULD HAVE RECEIVED A LICENSE FROM THE MAIN
-		BRANCH OF THIS REPO. IF NOT, IT IS USING THE
-		MIT FLAVOR OF LICENSE
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,7 +10,6 @@
 #include <time.h>
 #include <wiringPi.h>
 #include <mcp3004.h>
-//A comment
 
 #define OPT_R 10        // min uS allowed lag btw alarm and callback
 #define OPT_U 2000      // sample time uS between alarms
@@ -72,57 +61,19 @@ char filename [100];
 struct tm *timenow;
 // FUNCTION PROTOTYPES
 void getPulse(int sig_num);
-void startTimer(int r, unsigned int u);
+void startRecording(int r, unsigned int u);
 void stopTimer(void);
 void initPulseSensorVariables(void);
 void initJitterVariables(void);
 
 FILE *data;
 
-void usage()
-{
-   fprintf
-   (stderr,
-      "\n" \
-      "Usage: sudo ./pulseProto ... [OPTION] ...\n" \
-      "   NO OPTIONS AVAILABLE YET\n"\
-      "\n"\
-      "   Data file saved as\n"\
-      "   /home/pi/Documents/PulseSensor/PULSE_DATA <timestamp>\n"\
-      "   Data format tab separated:\n"\
-      "     sampleCount  Signal  BPM  IBI  Pulse  Jitter\n"\
-      "\n"
-   );
-}
-
 void sigHandler(int sig_num){
 	printf("\nkilling timer\n");
-    startTimer(OPT_R,0); // kill the alarm
+    startRecording(OPT_R,0); // kill the alarm
 	exit(EXIT_SUCCESS);
 }
 
-void fatal(int show_usage, char *fmt, ...)
-{
-   char buf[128];
-   va_list ap;
-   char kill[20];
-
-   va_start(ap, fmt);
-   vsnprintf(buf, sizeof(buf), fmt, ap);
-   va_end(ap);
-
-   fprintf(stderr, "%s\n", buf);
-
-   if (show_usage) usage();
-
-   fflush(stderr);
-   printf("killing timer\n");
-   startTimer(OPT_R,0); // kill the alarm
-   fprintf(data,"#%s",fmt);
-   fclose(data);
-
-   exit(EXIT_FAILURE);
-}
 
 // SAVED FOR FUTURE FEATURES
 static int initOpts(int argc, char *argv[])
@@ -156,21 +107,18 @@ int main(int argc, char *argv[])
 
     initPulseSensorVariables();  // initilaize Pulse Sensor beat finder
 
-    startTimer(OPT_R, OPT_U);   // start sampling
+    startRecording(OPT_R, OPT_U);   // start sampling
     //signal(SIGALRM, getPulse);
 
 
     while(1)
     {
-	//printf("reached here\n");
         if(sampleFlag){
             sampleFlag = 0;
             timeOutStart = micros();
             printf("%lu\t%d\t%d\t%d\t%d\n",
             sampleCounter,Signal,BPM,IBI,jitter
             );
-	    //rec_time = time(NULL);
-            //window_duration = micros();
          }
     }
 
@@ -179,7 +127,7 @@ int main(int argc, char *argv[])
 }//int main(int argc, char *argv[])
 
 
-void startTimer(int r, unsigned int u){
+void startRecording(int r, unsigned int u){
 // What is a signal function
     int latency = r;
     unsigned int micros = u;
@@ -219,8 +167,8 @@ void initPulseSensorVariables(void){
 
 void getPulse(int sig_num){
 
-    if(sig_num == SIGALRM)
-    {
+    //if(sig_num == SIGALRM)
+    //{
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -232,8 +180,6 @@ void getPulse(int sig_num){
 
   sampleCounter += 2;         // keep track of the time in mS with this variable
   int N = sampleCounter - lastBeatTime;      // monitor the time since the last beat to avoid noise
-
-// FADE LED HERE, IF WE COULD FADE...
 
   //  find the peak and trough of the pulse wave
   if (Signal < thresh && N > (IBI / 5) * 3) { // avoid dichrotic noise by waiting 3/5 of last IBI
@@ -311,6 +257,6 @@ void getPulse(int sig_num){
 
     duration = micros()-thisTime;
 
-    }
+    //}
 
 }
