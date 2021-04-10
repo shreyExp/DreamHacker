@@ -11,7 +11,7 @@ Then after a while start the audio stimulus.
 
 <p align="center">
    </br>
-   <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img  src="image/facebooklogo.jpg"  width="44" height="44">
+   <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img  src="Downloads/fb_logo.png"  width="44" height="44">
 
 # Social Media
 
