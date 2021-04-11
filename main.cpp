@@ -198,7 +198,7 @@ int main(int argc, char* argv[])
 
             // starting the fastCGI handler with the callback and the
             // socket for nginx.
-            JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/fastcgi.sock");
+            JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/php-fpm.sock");
         }
     }
 
