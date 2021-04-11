@@ -102,6 +102,7 @@ void initJitterVariables(void);
 
 // Function prototype for analyzing beats per minute.
 bool analyzeBeatsForSleep(int);
+void initializeVariablesForSleep();
 
 FILE* data;
 
@@ -184,7 +185,8 @@ int main(int argc, char* argv[])
             sampleFlag = 0;
             timeOutStart = micros();
             // PRINT DATA TO TERMINAL
-            printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
+            //printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
+	    
             beats = BPM;
             sleep = analyzeBeatsForSleep(beats);
 
@@ -203,11 +205,16 @@ int main(int argc, char* argv[])
 
     return 0;
 }//int main(int argc, char *argv[])
+
+
 void initializeVariablesForSleep(void){
 	time_t current_time = time(NULL);
-	struct *time_split = localtime(&current_time);
-	struct *night_time_split = {0, 0, 22, time_split->tm_mday, 
+	struct tm *time_split = localtime(&current_time);
+	struct tm night_time_split = {0, 0, 22, time_split->tm_mday, 
 		time_split->tm_mon, time_split->tm_year, time_split->tm_wday, time_split->tm_yday, time_split->tm_isdst};
+	nightTime = mktime(&night_time_split);
+	time_t estimatedSleepLength = 60*60*8;
+	wakeTime = nightTime + estimatedSleepLength;
 }
 
 bool analyzeBeatsForSleep(int bpm)
