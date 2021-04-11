@@ -177,6 +177,8 @@ int main(int argc, char* argv[])
     bool sleep;
     int beats;
 
+    initializeVariablesForSleep();
+
     while (1) {
         if (sampleFlag) {
             sampleFlag = 0;
@@ -201,6 +203,12 @@ int main(int argc, char* argv[])
 
     return 0;
 }//int main(int argc, char *argv[])
+void initializeVariablesForSleep(void){
+	time_t current_time = time(NULL);
+	struct *time_split = localtime(&current_time);
+	struct *night_time_split = {0, 0, 22, time_split->tm_mday, 
+		time_split->tm_mon, time_split->tm_year, time_split->tm_wday, time_split->tm_yday, time_split->tm_isdst};
+}
 
 bool analyzeBeatsForSleep(int bpm)
 {
@@ -212,27 +220,26 @@ bool analyzeBeatsForSleep(int bpm)
   * if mayBeSleep is on for a while
   * then return 1;
   */
-    //time_t now = time(NULL);
-    //if (now > nightTime && now < wakeTime) {
-    //    if (bpm < bpmThreshold && maybeSleep == 0) {
-    //        startOfProspectiveSleep = time(NULL);
-    //        maybeSleep = 1;
-    //    }
-    //    if (bpm < bpmThreshold && maybeSleep == 1) {
-    //        maybeSleepTime = time(NULL) - startOfProspectiveSleep;
-    //        if (maybeSleepTime > surelySleptTime) {
-    //            sleep = 1;
-    //        }
-    //    }
-    //    if (bpm > bpmThreshold && maybeSleep == 1) {
-    //        maybeSleep == 0;
-    //    }
-    //}
-    //else {
-    //    sleep = 0;
-    //}
-    //return sleep;
-    return 1;
+    time_t now = time(NULL);
+    if (now > nightTime && now < wakeTime) {
+        if (bpm < bpmThreshold && maybeSleep == 0) {
+            startOfProspectiveSleep = time(NULL);
+            maybeSleep = 1;
+        }
+        if (bpm < bpmThreshold && maybeSleep == 1) {
+            maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+            if (maybeSleepTime > surelySleptTime) {
+                sleep = 1;
+            }
+        }
+        if (bpm > bpmThreshold && maybeSleep == 1) {
+            maybeSleep == 0;
+        }
+    }
+    else {
+        sleep = 0;
+    }
+    return sleep;
 }
 
 void startRecording(int r, unsigned int u)
