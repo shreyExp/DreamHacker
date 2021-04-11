@@ -34,7 +34,7 @@
 #define PULSE_DATA 3    // SEND DATA PACKET TO FIFO
 #define PULSE_CONNECT 9 // CONNECT TO OTHER END OF PIPE
 
-//Variables 
+//Variables for Sleep Detection
 
 // VARIABLES USED TO DETERMINE SAMPLE JITTER & TIME OUT
 volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
@@ -56,81 +56,36 @@ volatile int BPM = 0;
 volatile int IBI = 600;                  // 600ms per beat = 100 Beats Per Minute (BPM)
 volatile int Pulse = 0;
 volatile int amp = 100;                  // beat amplitude 1/10 of input range.
-// LED CONTROL
-volatile int fadeLevel = 0;
-// FILE STUFF
-char filename [100];
+
 struct tm *timenow;
-// FUNCTION PROTOTYPES
+
+
+//Variables for sleep detection
+volatile time_t startOfProspectiveSleep;
+time_t surelySleptTime = 1800;
+volatile time_t nightTime;
+volatile time_t wakeTime;
+volatile bool maybeSleep = 0;
+volatile int bpmThreshold = 75; 
+
+
+
 void getPulse(int sig_num);
 void startRecording(int r, unsigned int u);
 void stopTimer(void);
 void initPulseSensorVariables(void);
 void initJitterVariables(void);
 
-FILE *data;
+// Function prototype for analyzing beats per minute.
+bool analyzeBeatsForSleep(int);
 
-void usage()
-{
-   fprintf
-   (stderr,
-      "\n" \
-      "Usage: sudo ./pulseProto ... [OPTION] ...\n" \
-      "   NO OPTIONS AVAILABLE YET\n"\
-      "\n"\
-      "   Data file saved as\n"\
-      "   /home/pi/Documents/PulseSensor/PULSE_DATA <timestamp>\n"\
-      "   Data format tab separated:\n"\
-      "     sampleCount  Signal  BPM  IBI  Pulse  Jitter\n"\
-      "\n"
-   );
-}
+FILE *data;
 
 void sigHandler(int sig_num){
 	printf("\nkilling timer\n");
     startRecording(OPT_R,0); // kill the alarm
 	exit(EXIT_SUCCESS);
 }
-
-void fatal(int show_usage, char *fmt, ...)
-{
-   char buf[128];
-   va_list ap;
-   char kill[20];
-
-   va_start(ap, fmt);
-   vsnprintf(buf, sizeof(buf), fmt, ap);
-   va_end(ap);
-
-   fprintf(stderr, "%s\n", buf);
-
-   if (show_usage) usage();
-
-   fflush(stderr);
-   printf("killing timer\n");
-   startRecording(OPT_R,0); // kill the alarm
-   fprintf(data,"#%s",fmt);
-   fclose(data);
-
-   exit(EXIT_FAILURE);
-}
-
-// SAVED FOR FUTURE FEATURES
-//static int initOpts(int argc, char *argv[])
-//{
-//   //int i, opt;
-//   //while ((opt = getopt(argc, argv, ":")) != -1)
-//   //{
-//      //i = -1;
-//      //switch (opt)
-//      //{
-//        //case '':
-//        //default: /* '?' */
-//           //usage();
-//        //}
-//    //}
-//   return optind;
-//}
 
 
 int main(int argc, char *argv[])
@@ -142,47 +97,64 @@ int main(int argc, char *argv[])
     time_t now = time(NULL);
     timenow = gmtime(&now);
 
-    //strftime(filename, sizeof(filename),
-    //"/home/pi/Documents/PulseSensor/PULSE_DATA_%Y-%m-%d_%H:%M:%S.dat", timenow);
-    //data = fopen(filename, "w+");
-    //fprintf(data,"#Running with %d latency at %duS sample rate\n",OPT_R,OPT_U);
-    //fprintf(data,"#sampleCount\tSignal\tBPM\tIBI\tjitter\n");
-
-    //printf("Ready to run with %d latency at %duS sample rate\n",OPT_R,OPT_U);
 
     wiringPiSetup(); //use the wiringPi pin numbers
-    //piHiPri(99);
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    //inMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
     initPulseSensorVariables();  // initilaize Pulse Sensor beat finder
 
     startRecording(OPT_R, OPT_U);   // start sampling
 
+    bool sleep;
+    int beats;
 
     while(1)
     {
         if(sampleFlag){
             sampleFlag = 0;
             timeOutStart = micros();
-            //digitalWrite(BLINK_LED,Pulse);
             // PRINT DATA TO TERMINAL
             printf("%lu\t%d\t%d\t%d\t%d\n",
             sampleCounter,Signal,BPM,IBI,jitter
             );
-            // PRINT DATA TO FILE
-            //fprintf(data,"%d\t%d\t%d\t%d\t%d\t%d\n",
-            //sampleCounter,Signal,IBI,BPM,jitter,duration
-            //);
+	    beats = BPM;
+	    sleep = analyzeBeatsForSleep(beats);
          }
-         //if((micros() - timeOutStart)>TIME_OUT){
-          //  fatal(0,"0-program timed out",0);
-        // }
     }
 
     return 0;
 
 }//int main(int argc, char *argv[])
+
+bool analyzeBeatsForSleep(int bpm){
+	bool sleep = 0;
+	time_t maybeSleepTime;
+	/*
+	* if BPM is below a certain threshold
+	* mayBeSleep should be on
+	* if mayBeSleep is on for a while
+	* then return 1;
+	*/
+	time_t now = time(NULL);
+	if(now > nightTime && now < wakeTime){
+		if(bpm < bpmThreshold && maybeSleep == 0){
+			startOfProspectiveSleep = time(NULL);
+			maybeSleep = 1;
+		}
+		if(bpm < bpmThreshold &&  maybeSleep == 1){
+			maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+			if(maybeSleepTime > surelySleptTime){
+				sleep = 1;
+			}
+		}
+		if(bpm > bpmThreshold &&  maybeSleep == 1){
+			maybeSleep == 0;
+		}
+	}else{
+		sleep = 0;
+	}
+	return sleep;
+}
 
 void startRecording(int r, unsigned int u){
     int latency = r;
