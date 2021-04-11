@@ -10,7 +10,7 @@
 #include <time.h>
 #include <wiringPi.h>
 #include <mcp3004.h>
-#include <json_fastcgi_web_api.h>
+#include "json_fastcgi_web_api.h"
 
 /*
 * min uS allowed lag btw alarm and callback
@@ -70,7 +70,8 @@ unsigned int timeOutStart, dataRequestStart, m;
 // VARIABLES USED TO DETERMINE BPM
 volatile int Signal;
 volatile unsigned int sampleCounter;
-volatile int threshSetting, lastBeatTime;
+//volatile int threshSetting,lastBeatTime,fadeLevel;
+volatile int threshSetting,lastBeatTime;
 volatile int thresh = 550;
 volatile int P = 512; // set P default
 volatile int T = 512; // set T default
@@ -163,18 +164,14 @@ int main(int argc, char* argv[])
     //settings = initOpts(argc, argv);
     time_t now = time(NULL);
 
+    wiringPiSetup(); //use the wiringPi pin numbers
+    mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
+    //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
     timenow = gmtime(&now);
-
-    //use the wiringPi pin numbers
-    wiringPiSetup();
-
-    // setup the mcp3004 library
-    mcp3004Setup(BASE, SPI_CHAN);
 
     // initilaize Pulse Sensor beat finder
     initPulseSensorVariables();
 
-    // start sampling
     startRecording(OPT_R, OPT_U);
 
     bool sleep;
@@ -203,7 +200,7 @@ int main(int argc, char* argv[])
     }
 
     return 0;
-}
+}//int main(int argc, char *argv[])
 
 bool analyzeBeatsForSleep(int bpm)
 {
@@ -215,26 +212,27 @@ bool analyzeBeatsForSleep(int bpm)
   * if mayBeSleep is on for a while
   * then return 1;
   */
-    time_t now = time(NULL);
-    if (now > nightTime && now < wakeTime) {
-        if (bpm < bpmThreshold && maybeSleep == 0) {
-            startOfProspectiveSleep = time(NULL);
-            maybeSleep = 1;
-        }
-        if (bpm < bpmThreshold && maybeSleep == 1) {
-            maybeSleepTime = time(NULL) - startOfProspectiveSleep;
-            if (maybeSleepTime > surelySleptTime) {
-                sleep = 1;
-            }
-        }
-        if (bpm > bpmThreshold && maybeSleep == 1) {
-            maybeSleep == 0;
-        }
-    }
-    else {
-        sleep = 0;
-    }
-    return sleep;
+    //time_t now = time(NULL);
+    //if (now > nightTime && now < wakeTime) {
+    //    if (bpm < bpmThreshold && maybeSleep == 0) {
+    //        startOfProspectiveSleep = time(NULL);
+    //        maybeSleep = 1;
+    //    }
+    //    if (bpm < bpmThreshold && maybeSleep == 1) {
+    //        maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+    //        if (maybeSleepTime > surelySleptTime) {
+    //            sleep = 1;
+    //        }
+    //    }
+    //    if (bpm > bpmThreshold && maybeSleep == 1) {
+    //        maybeSleep == 0;
+    //    }
+    //}
+    //else {
+    //    sleep = 0;
+    //}
+    //return sleep;
+    return 1;
 }
 
 void startRecording(int r, unsigned int u)
