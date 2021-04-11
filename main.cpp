@@ -1,13 +1,3 @@
-/*
-
-		THIS CODE IS RELEASED WITHOUT WARRANTY OF FITNESS
-		OR ANY PROMISE THAT IT WORKS, EVEN. WYSIWYG.
-
-		YOU SHOULD HAVE RECEIVED A LICENSE FROM THE MAIN
-		BRANCH OF THIS REPO. IF NOT, IT IS USING THE
-		MIT FLAVOR OF LICENSE
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,20 +10,46 @@
 #include <time.h>
 #include <wiringPi.h>
 #include <mcp3004.h>
-#include "fft-real-pair.h"
+
+/*
+* min uS allowed lag btw alarm and callback
+*/
+#define OPT_R 10        
 
 
-#define OPT_R 10        // min uS allowed lag btw alarm and callback
-#define OPT_U 2000      // sample time uS between alarms
-#define OPT_O_ELAPSED 0 // output option uS elapsed time between alarms
-#define OPT_O_JITTER 1  // output option uS jitter (elapsed time - sample time)
-#define OPT_O 1         // defaoult output option
-#define OPT_C 10000     // number of samples to run (testing)
-#define OPT_N 1         // number of Pulse Sensors (only 1 supported)
+/*
+*sample time uS between alarms
+*/
+#define OPT_U 2000      
+
+/*
+ * output option uS elapsed time between alarms
+ */
+#define OPT_O_ELAPSED 0 
+
+/*
+ * output option uS jitter (elapsed time - sample time)
+ */
+#define OPT_O_JITTER 1
+
+/*
+ * default output option
+ */
+#define OPT_O 1         
+
+/*
+ * number of samples to run (testing)
+ */
+#define OPT_C 10000     
+
+
+/*
+ * number of Pulse Sensors (only 1 supported)
+ */
+#define OPT_N 1         
 
 #define TIME_OUT 30000000    // uS time allowed without callback response
-// PULSE SENSOR LEDS
-#define BLINK_LED 0
+
 // MCP3004/8 SETTINGS
 #define BASE 100
 #define SPI_CHAN 0
@@ -45,15 +61,17 @@
 #define PULSE_DATA 3    // SEND DATA PACKET TO FIFO
 #define PULSE_CONNECT 9 // CONNECT TO OTHER END OF PIPE
 
+//Variables for Sleep Detection
+
 // VARIABLES USED TO DETERMINE SAMPLE JITTER & TIME OUT
 volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
 volatile int sampleFlag = 0;
-volatile int sumJitter, firstTime, secondTime, duration, window_duration;
+volatile int sumJitter, firstTime, secondTime, duration;
 unsigned int timeOutStart, dataRequestStart, m;
 // VARIABLES USED TO DETERMINE BPM
 volatile int Signal;
 volatile unsigned int sampleCounter;
-volatile int threshSetting,lastBeatTime,fadeLevel;
+volatile int threshSetting,lastBeatTime;
 volatile int thresh = 550;
 volatile int P = 512;                               // set P default
 volatile int T = 512;                               // set T default
@@ -65,84 +83,37 @@ volatile int BPM = 0;
 volatile int IBI = 600;                  // 600ms per beat = 100 Beats Per Minute (BPM)
 volatile int Pulse = 0;
 volatile int amp = 100;                  // beat amplitude 1/10 of input range.
-// LED CONTROL
-volatile int fadeLevel = 0;
-// FILE STUFF
-char filename [100];
+
 struct tm *timenow;
-// FUNCTION PROTOTYPES
+
+
+//Variables for sleep detection
+volatile time_t startOfProspectiveSleep;
+time_t surelySleptTime = 1800;
+volatile time_t nightTime;
+volatile time_t wakeTime;
+volatile bool maybeSleep = 0;
+volatile int bpmThreshold = 75; 
+
+
+
 void getPulse(int sig_num);
-void startTimer(int r, unsigned int u);
+void startRecording(int r, unsigned int u);
 void stopTimer(void);
 void initPulseSensorVariables(void);
 void initJitterVariables(void);
 
-FILE *data;
+// Function prototype for analyzing beats per minute.
+bool analyzeBeatsForSleep(int);
 
-void usage()
-{
-   fprintf
-   (stderr,
-      "\n" \
-      "Usage: sudo ./pulseProto ... [OPTION] ...\n" \
-      "   NO OPTIONS AVAILABLE YET\n"\
-      "\n"\
-      "   Data file saved as\n"\
-      "   /home/pi/Documents/PulseSensor/PULSE_DATA <timestamp>\n"\
-      "   Data format tab separated:\n"\
-      "     sampleCount  Signal  BPM  IBI  Pulse  Jitter\n"\
-      "\n"
-   );
-}
+FILE *data;
 
 void sigHandler(int sig_num){
 	printf("\nkilling timer\n");
-    startTimer(OPT_R,0); // kill the alarm
+    startRecording(OPT_R,0); // kill the alarm
 	exit(EXIT_SUCCESS);
 }
 
-void fatal(int show_usage, char *fmt, ...)
-{
-   char buf[128];
-   va_list ap;
-   char kill[20];
-
-   va_start(ap, fmt);
-   vsnprintf(buf, sizeof(buf), fmt, ap);
-   va_end(ap);
-
-   fprintf(stderr, "%s\n", buf);
-
-   if (show_usage) usage();
-
-   fflush(stderr);
-   printf("killing timer\n");
-   startTimer(OPT_R,0); // kill the alarm
-   fprintf(data,"#%s",fmt);
-   fclose(data);
-
-   exit(EXIT_FAILURE);
-}
-
-// SAVED FOR FUTURE FEATURES
-static int initOpts(int argc, char *argv[])
-{
-   //int i, opt;
-   //while ((opt = getopt(argc, argv, ":")) != -1)
-   //{
-      //i = -1;
-      //switch (opt)
-      //{
-        //case '':
-        //default: /* '?' */
-           //usage();
-        //}
-    //}
-   return optind;
-}
-
-
-void writeArray(const char* name, double array[], const int size);
 
 int main(int argc, char *argv[])
 {
@@ -153,62 +124,28 @@ int main(int argc, char *argv[])
     time_t now = time(NULL);
     timenow = gmtime(&now);
 
-    strftime(filename, sizeof(filename),
-    "/home/pi/Documents/PulseSensor/PULSE_DATA_%Y-%m-%d_%H:%M:%S.dat", timenow);
-    data = fopen(filename, "w+");
-    fprintf(data,"#Running with %d latency at %duS sample rate\n",OPT_R,OPT_U);
-    fprintf(data,"#sampleCount\tSignal\tBPM\tIBI\tjitter\n");
-
-    printf("Ready to run with %d latency at %duS sample rate\n",OPT_R,OPT_U);
 
     wiringPiSetup(); //use the wiringPi pin numbers
-    //piHiPri(99);
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
     initPulseSensorVariables();  // initilaize Pulse Sensor beat finder
 
-    startTimer(OPT_R, OPT_U);   // start sampling
+    startRecording(OPT_R, OPT_U);   // start sampling
 
+    bool sleep;
+    int beats;
 
-    const int window_size = 4000;
-    double window_real[window_size];
-    double window_imaginary[window_size];
-    for(int i = 0; i < window_size; i++){
-	    window_imaginary[i] = 0.0;
-    }
-    time_t rec_time;
-    float sampling_rate;
     while(1)
     {
         if(sampleFlag){
             sampleFlag = 0;
             timeOutStart = micros();
-            //digitalWrite(BLINK_LED,Pulse);
             // PRINT DATA TO TERMINAL
-            //printf("%lu\t%d\t%d\t%d\t%d\n",
-            //sampleCounter,Signal,BPM,IBI,jitter
-            //);
-	    rec_time = time(NULL);
-            window_duration = micros();
-	    for(int i = 0; i < window_size; i++)
-		    window_real[i] = (double)Signal;
-            window_duration = micros()- window_duration;
-	    sampling_rate = (float)window_duration/(float)window_size;
-	    printf("Reached Here\n");
-	    writeArray("Data/timeDomain.dat", window_real, window_size);
-	    printf("Didn't Reached Here\n");
-	    Fft_transform(window_real, window_imaginary, window_size);
-	    writeArray("Data/fftReal.dat", window_real, window_size);
-	    writeArray("Data/fftImag.dat", window_imaginary, window_size);
-
-            // PRINT DATA TO FILE
-            //fprintf(data,"%d\t%d\t%d\t%d\t%d\t%d\n",
-            //sampleCounter,Signal,IBI,BPM,jitter,duration
-            //);
-         }
-         if((micros() - timeOutStart)>TIME_OUT){
-            fatal(0,"0-program timed out",0);
+            printf("%lu\t%d\t%d\t%d\t%d\n",
+            sampleCounter,Signal,BPM,IBI,jitter
+            );
+	    beats = BPM;
+	    sleep = analyzeBeatsForSleep(beats);
          }
     }
 
@@ -216,23 +153,37 @@ int main(int argc, char *argv[])
 
 }//int main(int argc, char *argv[])
 
-void writeArray(const char* name, double input[], const int size){
-	FILE* fpt;
-	fpt = fopen(name, "w");
-	printf("Reached in te function\n");
-	for(int i = 0; i < size; i++){
-		if(i > 0){
-			fprintf(fpt, ", %f", input[i]);
-			printf("%d\n", i);
+bool analyzeBeatsForSleep(int bpm){
+	bool sleep = 0;
+	time_t maybeSleepTime;
+	/*
+	* if BPM is below a certain threshold
+	* mayBeSleep should be on
+	* if mayBeSleep is on for a while
+	* then return 1;
+	*/
+	time_t now = time(NULL);
+	if(now > nightTime && now < wakeTime){
+		if(bpm < bpmThreshold && maybeSleep == 0){
+			startOfProspectiveSleep = time(NULL);
+			maybeSleep = 1;
 		}
-		else
-			fprintf(fpt, "%f", input[i]);
+		if(bpm < bpmThreshold &&  maybeSleep == 1){
+			maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+			if(maybeSleepTime > surelySleptTime){
+				sleep = 1;
+			}
+		}
+		if(bpm > bpmThreshold &&  maybeSleep == 1){
+			maybeSleep == 0;
+		}
+	}else{
+		sleep = 0;
 	}
-	fclose(fpt);
+	return sleep;
 }
 
-void startTimer(int r, unsigned int u){
-// What is a signal function
+void startRecording(int r, unsigned int u){
     int latency = r;
     unsigned int micros = u;
 
@@ -285,7 +236,6 @@ void getPulse(int sig_num){
   sampleCounter += 2;         // keep track of the time in mS with this variable
   int N = sampleCounter - lastBeatTime;      // monitor the time since the last beat to avoid noise
 
-// FADE LED HERE, IF WE COULD FADE...
 
   //  find the peak and trough of the pulse wave
   if (Signal < thresh && N > (IBI / 5) * 3) { // avoid dichrotic noise by waiting 3/5 of last IBI
