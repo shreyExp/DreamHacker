@@ -11,18 +11,45 @@
 #include <wiringPi.h>
 #include <mcp3004.h>
 
+/*
+* min uS allowed lag btw alarm and callback
+*/
+#define OPT_R 10        
 
-#define OPT_R 10        // min uS allowed lag btw alarm and callback
-#define OPT_U 2000      // sample time uS between alarms
-#define OPT_O_ELAPSED 0 // output option uS elapsed time between alarms
-#define OPT_O_JITTER 1  // output option uS jitter (elapsed time - sample time)
-#define OPT_O 1         // defaoult output option
-#define OPT_C 10000     // number of samples to run (testing)
-#define OPT_N 1         // number of Pulse Sensors (only 1 supported)
+
+/*
+*sample time uS between alarms
+*/
+#define OPT_U 2000      
+
+/*
+ * output option uS elapsed time between alarms
+ */
+#define OPT_O_ELAPSED 0 
+
+/*
+ * output option uS jitter (elapsed time - sample time)
+ */
+#define OPT_O_JITTER 1
+
+/*
+ * default output option
+ */
+#define OPT_O 1         
+
+/*
+ * number of samples to run (testing)
+ */
+#define OPT_C 10000     
+
+
+/*
+ * number of Pulse Sensors (only 1 supported)
+ */
+#define OPT_N 1         
 
 #define TIME_OUT 30000000    // uS time allowed without callback response
-// PULSE SENSOR LEDS
-#define BLINK_LED 0
+
 // MCP3004/8 SETTINGS
 #define BASE 100
 #define SPI_CHAN 0
