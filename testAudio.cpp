@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <cstring>
 #include <stdlib.h>
+#include <unistd.h>
 
 int main(int argc, char** argv){
         if(argc > 1){ 
@@ -15,11 +16,21 @@ int main(int argc, char** argv){
                         fscanf(fptr,"%s", c); 
                         printf("Data from the file:\n%s", c); 
                         fclose(fptr);
-			char command[1000];
-			sprintf(command, "omxplayer ");
-			sprintf(command + strlen(command), c);
-			printf("Command is: %s\n", command);
-			system(command);
+			char song_name[1000];
+			sprintf(song_name, c);
+			printf("song_name is: %s\n", song_name);
+			char kil[100];
+
+			pid_t audio_pid;
+
+			if(0 == (audio_pid = fork())){
+				//child process
+				execlp("mpg123", "mpg123", "-q", song_name, 0);
+			}else{
+				sprintf(kil,"%s%d",kil,audio_pid);
+				getchar();  // wait for user input
+				system(kil);
+			}
 
                 }
         }

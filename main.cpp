@@ -178,6 +178,11 @@ int main(int argc, char* argv[])
     bool sleep;
     int beats;
 
+JSONCGIADCCallback fastCGIADCCallback(BPM, 0);
+
+            // starting the fastCGI handler with the callback and the
+            // socket for nginx.
+    JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
     initializeVariablesForSleep();
 
     while (1) {
@@ -185,7 +190,7 @@ int main(int argc, char* argv[])
             sampleFlag = 0;
             timeOutStart = micros();
             // PRINT DATA TO TERMINAL
-            //printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
+            printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
 	    
             beats = BPM;
             sleep = analyzeBeatsForSleep(beats);
@@ -195,11 +200,11 @@ int main(int argc, char* argv[])
             // gets a pointer to the SENSOR callback class which
             // contains the samples. Remember this is just a simple
             // example to have access to some data.
-            JSONCGIADCCallback fastCGIADCCallback(beats, sleep);
+           // JSONCGIADCCallback fastCGIADCCallback(beats, sleep);
 
             // starting the fastCGI handler with the callback and the
             // socket for nginx.
-            JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/fastcgi.sock");
+            //JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
         }
     }
 
