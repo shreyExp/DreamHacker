@@ -1,0 +1,3 @@
+Learn to play music in a different thread which can be killed later.
+Test whether the messages are going to the server and a correct response is received.
+Test if keeping a high enough threshold plays some music at all.
