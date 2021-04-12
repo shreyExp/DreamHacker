@@ -85,7 +85,11 @@ public:
 	}
 
 
-	
+	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
+	volatile int sampleFlag = 0;
+	volatile int sumJitter, firstTime, secondTime, duration;
+	unsigned int timeOutStart, dataRequestStart, m;
+
 	// Pulse detection output variables.
     // Volatile because our pulse detection code could be called from an Interrupt
     volatile int BPM;                // int that holds raw Analog in 0. updated every call to readSensor()
