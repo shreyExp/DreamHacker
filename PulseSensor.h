@@ -6,7 +6,6 @@
  **/
 
 #include <math.h>
-#include "CppTimer.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +16,7 @@
 #include <stdarg.h>
 #include <signal.h>
 #include <time.h>
+#include "CppTimer.h"
 
 /*
 * min uS allowed lag btw alarm and callback
@@ -88,13 +88,13 @@ class PulseSensor : public CppTimer  {
 
 public:
 	// Constructs a PulseSensor manager using a default configuration.
-    PulseSensor();
+    PulseSensor() {
+
+    }
 
 	~PulseSensor() {
 		stop();
 	}
-
-    void getPulse(int sig_num);
 
 	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
 	volatile int sampleFlag = 0;
