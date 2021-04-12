@@ -111,7 +111,7 @@ public:
 	 * Fake the arrival of data
 	 **/
 	void timerEvent() {
-		printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
+		printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI);
 		if (nullptr != sensorCallback) {
                         sensorCallback->hasSample(sampleCounter, Signal, BPM, IBI);
         }
@@ -137,7 +137,7 @@ public:
 
 
 
-	void initPulseSensorVariables(void) {
+	static void initPulseSensorVariables(void) {
 	    for (int i = 0; i < 10; ++i) {
 	        rate[i] = 0;
 	    }
@@ -159,7 +159,34 @@ public:
 	}
 
 
-	void getPulse(int sig_num) {
+private:
+	SensorCallback* sensorCallback = nullptr;
+	float t = 0;
+
+	// Pulse detection output variables.
+    // Volatile because our pulse detection code could be called from an Interrupt
+    volatile int BPM;                // int that holds raw Analog in 0. updated every call to readSensor()
+    volatile int Signal;             // holds the latest incoming raw data (0..1023)
+    volatile int IBI;                // int that holds the time interval (ms) between beats! Must be seeded!
+    volatile bool Pulse;          // "True" when User's live heartbeat is detected. "False" when not a "live beat".
+    volatile bool QS;            // The start of beat has been detected and not read by the Sketch.
+    volatile int FadeLevel;          // brightness of the FadePin, in scaled PWM units. See FADE_SCALE
+    volatile int threshSetting;      // used to seed and reset the thresh variable
+    volatile int amp;                         // used to hold amplitude of pulse waveform, seeded (sample value)
+    volatile unsigned long lastBeatTime;      // used to find IBI. Time (sampleCounter) of the previous detected beat start.
+
+    // Variables internal to the pulse detection algorithm.
+    // Not volatile because we use them only internally to the pulse detection.
+    unsigned long sampleIntervalMs;  // expected time between calls to readSensor(), in milliseconds.
+    int rate[10];                    // array to hold last ten IBI values (ms)
+    unsigned long sampleCounter;     // used to determine pulse timing. Milliseconds since we started.
+    int P;                           // used to find peak in pulse wave, seeded (sample value)
+    int T;                           // used to find trough in pulse wave, seeded (sample value)
+    int thresh;                      // used to find instant moment of heart beat, seeded (sample value)
+    bool firstBeat;               // used to seed rate array so we startup with reasonable BPM
+    bool secondBeat;              // used to seed rate array so we startup with reasonable BPM
+
+    void getPulse(int sig_num) {
 	    if (sig_num == SIGALRM) {
 	        thisTime = micros();
 	        Signal = analogRead(BASE);
@@ -247,35 +274,6 @@ public:
 	        duration = micros() - thisTime;
 	    }
 	}
-
-
-
-private:
-	SensorCallback* sensorCallback = nullptr;
-	float t = 0;
-
-	// Pulse detection output variables.
-    // Volatile because our pulse detection code could be called from an Interrupt
-    volatile int BPM;                // int that holds raw Analog in 0. updated every call to readSensor()
-    volatile int Signal;             // holds the latest incoming raw data (0..1023)
-    volatile int IBI;                // int that holds the time interval (ms) between beats! Must be seeded!
-    volatile boolean Pulse;          // "True" when User's live heartbeat is detected. "False" when not a "live beat".
-    volatile boolean QS;             // The start of beat has been detected and not read by the Sketch.
-    volatile int FadeLevel;          // brightness of the FadePin, in scaled PWM units. See FADE_SCALE
-    volatile int threshSetting;      // used to seed and reset the thresh variable
-    volatile int amp;                         // used to hold amplitude of pulse waveform, seeded (sample value)
-    volatile unsigned long lastBeatTime;      // used to find IBI. Time (sampleCounter) of the previous detected beat start.
-
-    // Variables internal to the pulse detection algorithm.
-    // Not volatile because we use them only internally to the pulse detection.
-    unsigned long sampleIntervalMs;  // expected time between calls to readSensor(), in milliseconds.
-    int rate[10];                    // array to hold last ten IBI values (ms)
-    unsigned long sampleCounter;     // used to determine pulse timing. Milliseconds since we started.
-    int P;                           // used to find peak in pulse wave, seeded (sample value)
-    int T;                           // used to find trough in pulse wave, seeded (sample value)
-    int thresh;                      // used to find instant moment of heart beat, seeded (sample value)
-    boolean firstBeat;               // used to seed rate array so we startup with reasonable BPM
-    boolean secondBeat;              // used to seed rate array so we startup with reasonable BPM
 };
 
 

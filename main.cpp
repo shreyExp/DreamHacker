@@ -152,8 +152,6 @@ public:
    * of the data is happening.
    **/
   virtual void hasSample(long counter, int signal, int beats, int ibi) {
-    // crude conversion to temperature
-    currentTemperature = v;
     sleep = analyzeBeatsForSleep(beats);
     beatsPerMinute = beats;
     // timestamp
