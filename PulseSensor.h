@@ -94,6 +94,7 @@ public:
 		stop();
 	}
 
+    void getPulse(int sig_num);
 
 	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
 	volatile int sampleFlag = 0;
@@ -123,8 +124,82 @@ public:
     bool firstBeat;               // used to seed rate array so we startup with reasonable BPM
     bool secondBeat;              // used to seed rate array so we startup with reasonable BPM
 
+	/**
+	 * Sets the callback which is called whenever there is a sample
+	 **/
+	void setCallback(SensorCallback* cb) {
+		sensorCallback = cb;
+	}
 
-    void getPulse(int sig_num) {
+	/**
+	 * Starts the data acquisition in the background and the
+	 * callback is called with new samples
+	 **/
+	void startSensor() {
+		startRecording(OPT_R, OPT_U);
+		start(250000000);
+	}
+
+	/**
+	 * Stops the data acquistion
+	 **/
+	void stopSensor() {
+		stop();
+	}
+
+	/**
+	 * Fake the arrival of data
+	 **/
+	void timerEvent() {
+		printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI);
+		if (nullptr != sensorCallback) {
+                        sensorCallback->hasSample(sampleCounter, Signal, BPM, IBI);
+        }
+    }
+
+
+	void startRecording(int r, unsigned int u) {
+	    int latency = r;
+	    unsigned int micros = u;
+
+	    signal(SIGALRM, getPulse);
+	    int err = ualarm(latency, micros);
+	    if (err == 0) {
+	        if (micros > 0) {
+	            printf("ualarm ON\n");
+	        }
+	        else {
+	            printf("ualarm OFF\n");
+	        }
+	    }
+	}
+
+
+
+
+	void initPulseSensorVariables(void) {
+	    for (int i = 0; i < 10; ++i) {
+	        rate[i] = 0;
+	    }
+	    QS = 0;
+	    BPM = 0;
+	    IBI = 600; // 600ms per beat = 100 Beats Per Minute (BPM)
+	    Pulse = 0;
+	    sampleCounter = 0;
+	    lastBeatTime = 0;
+	    P = 512; // peak at 1/2 the input range of 0..1023
+	    T = 512; // trough at 1/2 the input range.
+	    threshSetting = 550; // used to seed and reset the thresh variable
+	    thresh = 550; // threshold a little above the trough
+	    amp = 100; // beat amplitude 1/10 of input range.
+	    firstBeat = 1; // looking for the first beat
+	    secondBeat = 0; // not yet looking for the second beat in a row
+	    lastTime = micros();
+	    timeOutStart = lastTime;
+	}
+
+
+	void getPulse(int sig_num) {
 	    if (sig_num == SIGALRM) {
 	        thisTime = micros();
 	        Signal = analogRead(BASE);
@@ -211,80 +286,6 @@ public:
 
 	        duration = micros() - thisTime;
 	    }
-	}
-
-	/**
-	 * Sets the callback which is called whenever there is a sample
-	 **/
-	void setCallback(SensorCallback* cb) {
-		sensorCallback = cb;
-	}
-
-	/**
-	 * Starts the data acquisition in the background and the
-	 * callback is called with new samples
-	 **/
-	void startSensor() {
-		startRecording(OPT_R, OPT_U);
-		start(250000000);
-	}
-
-	/**
-	 * Stops the data acquistion
-	 **/
-	void stopSensor() {
-		stop();
-	}
-
-	/**
-	 * Fake the arrival of data
-	 **/
-	void timerEvent() {
-		printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI);
-		if (nullptr != sensorCallback) {
-                        sensorCallback->hasSample(sampleCounter, Signal, BPM, IBI);
-        }
-    }
-
-
-	void startRecording(int r, unsigned int u) {
-	    int latency = r;
-	    unsigned int micros = u;
-
-	    signal(SIGALRM, getPulse);
-	    int err = ualarm(latency, micros);
-	    if (err == 0) {
-	        if (micros > 0) {
-	            printf("ualarm ON\n");
-	        }
-	        else {
-	            printf("ualarm OFF\n");
-	        }
-	    }
-	}
-
-
-
-
-	void initPulseSensorVariables(void) {
-	    for (int i = 0; i < 10; ++i) {
-	        rate[i] = 0;
-	    }
-	    QS = 0;
-	    BPM = 0;
-	    IBI = 600; // 600ms per beat = 100 Beats Per Minute (BPM)
-	    Pulse = 0;
-	    sampleCounter = 0;
-	    lastBeatTime = 0;
-	    P = 512; // peak at 1/2 the input range of 0..1023
-	    T = 512; // trough at 1/2 the input range.
-	    threshSetting = 550; // used to seed and reset the thresh variable
-	    thresh = 550; // threshold a little above the trough
-	    amp = 100; // beat amplitude 1/10 of input range.
-	    firstBeat = 1; // looking for the first beat
-	    secondBeat = 0; // not yet looking for the second beat in a row
-	    lastTime = micros();
-	    timeOutStart = lastTime;
 	}
 
 
