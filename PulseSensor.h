@@ -162,7 +162,8 @@ public:
 	    int latency = r;
 	    unsigned int micros = u;
 
-	    signal(SIGALRM, getPulse);
+	    //signal(SIGALRM, getPulse);
+	    getPulse(SIGALRM);
 	    int err = ualarm(latency, micros);
 	    if (err == 0) {
 	        if (micros > 0) {

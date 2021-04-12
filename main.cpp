@@ -259,7 +259,7 @@ int main(int argc, char* argv[])
 
     // starting the fastCGI handler with the callback and the
     // socket for nginx.
-    JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/php-fpm.sock");
+    JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
 
     // initilaize Pulse Sensor beat finder
     sensorcomm->initPulseSensorVariables();
