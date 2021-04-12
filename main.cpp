@@ -100,9 +100,13 @@ void stopTimer(void);
 void initPulseSensorVariables(void);
 void initJitterVariables(void);
 
-// Function prototype for analyzing beats per minute.
+// Function prototype for analyzing sleep.
 bool analyzeBeatsForSleep(int);
 void initializeVariablesForSleep();
+
+//Function prototype for playing audio
+pid_t play_audio(char* audio_name);
+void kill_the_pid(pid_t x);
 
 FILE* data;
 
@@ -175,15 +179,32 @@ int main(int argc, char* argv[])
 
     startRecording(OPT_R, OPT_U);
 
-    bool sleep;
-    int beats;
 
-JSONCGIADCCallback fastCGIADCCallback(BPM, 0);
+
+
+    JSONCGIADCCallback fastCGIADCCallback(BPM, 0);
 
             // starting the fastCGI handler with the callback and the
             // socket for nginx.
     JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
     initializeVariablesForSleep();
+
+    bool play_audio_locally = 0;
+    char audio_name[500];
+    FILE *fptr;
+    if ((fptr = fopen("audio.txt", "r")) == NULL) {
+        printf("Error! opening audio.txt");
+    }else{
+          fscanf(fptr,"%s", audio_name); 
+          fclose(fptr);
+	  play_audio_locally = 1;
+    }
+
+    bool sleep;
+    int beats;
+
+    pid_t audio_pid = 0;
+    bool is_audio_playing = 0;
 
     while (1) {
         if (sampleFlag) {
@@ -193,7 +214,37 @@ JSONCGIADCCallback fastCGIADCCallback(BPM, 0);
             printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
 	    
             beats = BPM;
+	    /*
+	     * sleep will be true if person is asleep
+	     */
             sleep = analyzeBeatsForSleep(beats);
+	    /*
+	     * Play audio locally if person is asleep, the audio is not playing
+	     */
+	    if(sleep == 1 && is_audio_playing == 0 && play_audio_locally){
+		    audio_pid = play_audio(audio_name);
+		    /*
+		     * If child process then the audio is already ended exit while loop and hence end the process.
+		     */
+		    if(audio_pid == 0){
+			    break;
+		    }else{
+			/*
+			 * If parent process then continue and put the is_audio_playing flag to be true
+			 */
+		    	is_audio_playing = 1;
+		    }
+	    }
+	    else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally){
+		    /*
+		     * When the person wakes up again kill the pid which runs the audio
+		     */
+		    if(audio_pid > 0){
+		    	kill_the_pid(audio_pid);
+		    	is_audio_playing = 0;
+		    }
+	    }
+
 
             // Setting up the JSONCGI communication
             // The callback which is called when fastCGI needs data
@@ -211,6 +262,20 @@ JSONCGIADCCallback fastCGIADCCallback(BPM, 0);
     return 0;
 }//int main(int argc, char *argv[])
 
+pid_t play_audio(char* audio_name){
+	pid_t audio_pid;
+	if(0 == (audio_pid = fork())){
+		//child process
+		execlp("mpg123", "mpg123", "-q", audio_name, 0);
+	}
+	return audio_pid;
+}
+
+void kill_the_pid(pid_t x){
+	char kil[50];
+	sprintf(kil,"%s%d",kil, x);
+	system(kil);
+}
 
 void initializeVariablesForSleep(void){
 	time_t current_time = time(NULL);
