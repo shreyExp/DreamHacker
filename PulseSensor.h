@@ -7,6 +7,16 @@
 
 #include <math.h>
 #include "CppTimer.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdarg.h>
+#include <signal.h>
+#include <time.h>
 
 /*
 * min uS allowed lag btw alarm and callback
