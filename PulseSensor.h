@@ -6,6 +6,7 @@
  **/
 
 #include <math.h>
+#include "CppTimer.h"
 
 /*
 * min uS allowed lag btw alarm and callback
@@ -73,7 +74,7 @@ public:
  * This class reads data from a fake sensor in the background
  * and calls a callback function whenever data is available.
  **/
-class PulseSensor  {
+class PulseSensor : public CppTimer  {
 
 public:
 	// Constructs a PulseSensor manager using a default configuration.
