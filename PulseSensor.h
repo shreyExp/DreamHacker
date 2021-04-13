@@ -151,9 +151,9 @@ public:
 	 * Check the new data and pass to callback
 	 **/
 	void timerEvent() {
+		printf("beats before %d\n", BPM);
 		getPulse();
-		printf("beats updated\n");
-		printf("%d\n",BPM);
+		printf("beats after %d\n", BPM);
 		if (nullptr != sensorCallback) {
                         sensorCallback->hasSample(BPM);
         }
@@ -184,6 +184,7 @@ public:
 
 
 	void getPulse() {
+		printf("getPulse()\n");
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -191,6 +192,8 @@ public:
         jitter = elapsedTime - OPT_U;
         sumJitter += jitter;
         sampleFlag = 1;
+
+        printf("%d\n", Signal);
 
         sampleCounter += 2; // keep track of the time in mS with this variable
         int N = sampleCounter - lastBeatTime; // monitor the time since the last beat to avoid noise
