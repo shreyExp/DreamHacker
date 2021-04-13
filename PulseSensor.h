@@ -156,7 +156,7 @@ public:
 		printf("beats updated\n");
 		printf("%d\n",BPM);
 		if (nullptr != sensorCallback) {
-                        sensorCallback->hasSample();
+                        sensorCallback->hasSample(BPM);
         }
     }
 
