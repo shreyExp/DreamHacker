@@ -137,8 +137,7 @@ public:
 	 **/
 	void startSensor() {
 		printf("startSensor \n");
-		//startRecording(OPT_R, OPT_U);
-		start(250000000);
+		start(2000000);
 	}
 
 	/**
@@ -149,7 +148,7 @@ public:
 	}
 
 	/**
-	 * Fake the arrival of data
+	 * Check the new data and pass to callback
 	 **/
 	void timerEvent() {
 		getPulse();
@@ -159,26 +158,6 @@ public:
                         sensorCallback->hasSample(BPM);
         }
     }
-
-/*
-	void startRecording(int r, unsigned int u) {
-	    int latency = r;
-	    unsigned int micros = u;
-
-	    //signal(SIGALRM, getPulse);
-	    //getPulse();
-	    int err = ualarm(latency, micros);
-	    if (err == 0) {
-	        if (micros > 0) {
-	            printf("ualarm ON\n");
-	        }
-	        else {
-	            printf("ualarm OFF\n");
-	        }
-	    }
-	}
-*/
-
 
 
 	void initPulseSensorVariables(void) {
@@ -294,7 +273,6 @@ public:
 
 private:
 	SensorCallback* sensorCallback = nullptr;
-	float t = 0;
 
 };
 
