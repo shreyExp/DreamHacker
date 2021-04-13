@@ -190,7 +190,7 @@ int main(int argc, char* argv[]) {
 
     printf("starting sensor\n");
     // initilaize Pulse Sensor beat finder
-    //sensorcomm->initPulseSensorVariables();
+    sensorcomm->initPulseSensorVariables();
 
     sensorcomm->startSensor();
 
