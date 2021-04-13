@@ -76,7 +76,7 @@ public:
 	/**
 	 * Called after a sample has arrived.
 	 **/
-	virtual void hasSample(long sampleCounter, int signal, int beats, int ibi) = 0;
+	virtual void hasSample(int beats) = 0;
 };
 
 

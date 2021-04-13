@@ -13,78 +13,6 @@
 #include "json_fastcgi_web_api.h"
 #include "PulseSensor.h"
 
-/*
-* min uS allowed lag btw alarm and callback
-*/
-#define OPT_R 10
-
-/*
-*sample time uS between alarms
-*/
-#define OPT_U 2000
-
-/*
- * output option uS elapsed time between alarms
- */
-#define OPT_O_ELAPSED 0
-
-/*
- * output option uS jitter (elapsed time - sample time)
- */
-#define OPT_O_JITTER 1
-
-/*
- * default output option
- */
-#define OPT_O 1
-
-/*
- * number of samples to run (testing)
- */
-#define OPT_C 10000
-
-/*
- * number of Pulse Sensors (only 1 supported)
- */
-#define OPT_N 1
-
-#define TIME_OUT 30000000 // uS time allowed without callback response
-
-// MCP3004/8 SETTINGS
-#define BASE 100
-#define SPI_CHAN 0
-
-// FIFO STUFF
-#define PULSE_EXIT 0 // CLEAN UP AND SHUT DOWN
-#define PULSE_IDLE 1 // STOP SAMPLING, STAND BY
-#define PULSE_ON 2 // START SAMPLING, WRITE DATA TO FILE
-#define PULSE_DATA 3 // SEND DATA PACKET TO FIFO
-#define PULSE_CONNECT 9 // CONNECT TO OTHER END OF PIPE
-
-//Variables for Sleep Detection
-
-// VARIABLES USED TO DETERMINE SAMPLE JITTER & TIME OUT
-volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
-volatile int sampleFlag = 0;
-volatile int sumJitter, firstTime, secondTime, duration;
-unsigned int timeOutStart, dataRequestStart, m;
-// VARIABLES USED TO DETERMINE BPM
-volatile int Signal;
-volatile unsigned int sampleCounter;
-//volatile int threshSetting,lastBeatTime,fadeLevel;
-volatile int threshSetting,lastBeatTime;
-volatile int thresh = 550;
-volatile int P = 512; // set P default
-volatile int T = 512; // set T default
-volatile int firstBeat = 1; // set these to avoid noise
-volatile int secondBeat = 0; // when we get the heartbeat back
-volatile int QS = 0;
-volatile int rate[10];
-volatile int BPM = 0;
-volatile int IBI = 600; // 600ms per beat = 100 Beats Per Minute (BPM)
-volatile int Pulse = 0;
-volatile int amp = 100; // beat amplitude 1/10 of input range.
-
 struct tm* timenow;
 
 //Variables for sleep detection
@@ -151,7 +79,7 @@ public:
    * That's where all the internal processing
    * of the data is happening.
    **/
-  virtual void hasSample(long counter, int signal, int beats, int ibi) {
+  virtual void hasSample(int beats) {
     sleep = analyzeBeatsForSleep(beats);
     beatsPerMinute = beats;
     // timestamp
