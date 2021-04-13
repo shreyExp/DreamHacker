@@ -15,6 +15,10 @@
 
 struct tm* timenow;
 
+// MCP3004/8 SETTINGS
+#define BASE 100
+#define SPI_CHAN 0
+
 //Variables for sleep detection
 volatile time_t startOfProspectiveSleep;
 time_t surelySleptTime = 1800;
