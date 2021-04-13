@@ -235,7 +235,7 @@ public:
 
 int main(int argc, char* argv[])
 {
-    signal(SIGINT, sigHandler);
+    //signal(SIGINT, sigHandler);
 
     time_t now = time(NULL);
 
@@ -261,6 +261,7 @@ int main(int argc, char* argv[])
     // socket for nginx.
     JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
 
+printf("starting sensor\n");
     // initilaize Pulse Sensor beat finder
     sensorcomm->initPulseSensorVariables();
 

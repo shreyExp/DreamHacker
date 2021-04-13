@@ -136,6 +136,7 @@ public:
 	 * callback is called with new samples
 	 **/
 	void startSensor() {
+		printf("startSensor \n");
 		startRecording(OPT_R, OPT_U);
 		start(250000000);
 	}
@@ -151,6 +152,7 @@ public:
 	 * Fake the arrival of data
 	 **/
 	void timerEvent() {
+		getPulse(SIGALRM);
 		printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI);
 		if (nullptr != sensorCallback) {
                         sensorCallback->hasSample(sampleCounter, Signal, BPM, IBI);
@@ -179,6 +181,7 @@ public:
 
 
 	void initPulseSensorVariables(void) {
+		printf("initPulseSensorVariables \n");
 	    for (int i = 0; i < 10; ++i) {
 	        rate[i] = 0;
 	    }
