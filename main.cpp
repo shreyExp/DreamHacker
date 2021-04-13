@@ -261,9 +261,9 @@ int main(int argc, char* argv[])
     // socket for nginx.
     JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
 
-printf("starting sensor\n");
+    printf("starting sensor\n");
     // initilaize Pulse Sensor beat finder
-    sensorcomm->initPulseSensorVariables();
+    //sensorcomm->initPulseSensorVariables();
 
     sensorcomm->startSensor();
 
