@@ -154,7 +154,7 @@ public:
 		printf("beats before %d\n", BPM);
 		getPulse();
 		printf("beats after %d\n", BPM);
-		if (nullptr != sensorCallback) {
+		if (sampleFlag && ( nullptr != sensorCallback) ) {
                         sensorCallback->hasSample(BPM);
         }
     }
