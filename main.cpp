@@ -233,8 +233,7 @@ public:
     }
 };
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     //signal(SIGINT, sigHandler);
 
     time_t now = time(NULL);
@@ -273,17 +272,9 @@ int main(int argc, char* argv[])
     fprintf(stderr,"'%s' up and running.\n",argv[0]);
 
     while (mainRunning) sleep(1);
-/*
-    while (1) {
-        if (sampleFlag) {
-            sampleFlag = 0;
-            timeOutStart = micros();
-            // PRINT DATA TO TERMINAL
-            printf("%lu\t%d\t%d\t%d\t%d\n", sampleCounter, Signal, BPM, IBI, jitter);
 
 
-        }
-    }*/
+    fprintf(stderr,"'%s' shutting down.\n",argv[0]);
 
     // stopping ADC
     delete sensorcomm;
@@ -292,7 +283,7 @@ int main(int argc, char* argv[])
     delete fastCGIHandler;
 
     return 0;
-}//int main(int argc, char *argv[])
+  }
 
 
 
