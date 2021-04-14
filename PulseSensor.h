@@ -290,7 +290,7 @@ public:
 	}
 
 	static void static_myHandler(int signum) {
-        instance->getPulse(signum);
+        instance.getPulse(signum);
     }
 
 
@@ -300,6 +300,6 @@ private:
 
 };
 
-PulseSensor::instance = nullptr;
+//PulseSensor::instance = nullptr;
 
 #endif

@@ -27,8 +27,9 @@ volatile time_t wakeTime;
 volatile bool maybeSleep = 0;
 volatile int bpmThreshold = 75;
 
+PulseSensor PulseSensor::instance;
 
-FILE* data;
+//FILE* data;
 
 /**
  * Flag to indicate that we are running.
@@ -169,7 +170,6 @@ int main(int argc, char* argv[]) {
     //signal(SIGINT, sigHandler);
 
     time_t now = time(NULL);
-
     wiringPiSetup(); //use the wiringPi pin numbers
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
     //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
