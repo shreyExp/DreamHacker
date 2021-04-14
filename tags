@@ -1,0 +1,198 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BASE	PulseSensor.h	59;"	d
+BASE	main.cpp	19;"	d	file:
+BPM	PulseSensor.h	/^    volatile int BPM;                \/\/ int that holds raw Analog in 0. updated every call to readSensor()$/;"	m	class:PulseSensor
+CLOCKID	CppTimer.h	19;"	d
+CppTimer	CppTimer.cpp	/^CppTimer::CppTimer() {$/;"	f	class:CppTimer
+CppTimer	CppTimer.h	/^class CppTimer {$/;"	c
+FAST_CGI_H	json_fastcgi_web_api.h	2;"	d
+FadeLevel	PulseSensor.h	/^    volatile int FadeLevel;          \/\/ brightness of the FadePin, in scaled PWM units. See FADE_SCALE$/;"	m	class:PulseSensor
+GETCallback	json_fastcgi_web_api.h	/^	class GETCallback {$/;"	c	class:JSONCGIHandler
+IBI	PulseSensor.h	/^    volatile int IBI;                \/\/ int that holds the time interval (ms) between beats! Must be seeded!$/;"	m	class:PulseSensor
+JSONCGIADCCallback	main.cpp	/^  JSONCGIADCCallback(SENSORfastcgicallback* argSENSORfastcgi) {$/;"	f	class:JSONCGIADCCallback
+JSONCGIADCCallback	main.cpp	/^class JSONCGIADCCallback : public JSONCGIHandler::GETCallback {$/;"	c	file:
+JSONCGIHandler	json_fastcgi_web_api.h	/^	JSONCGIHandler(GETCallback* argGetCallback,$/;"	f	class:JSONCGIHandler
+JSONCGIHandler	json_fastcgi_web_api.h	/^class JSONCGIHandler {$/;"	c
+JSONGenerator	json_fastcgi_web_api.h	/^	class JSONGenerator {$/;"	c	class:JSONCGIHandler
+ONESHOT	CppTimer.h	/^	ONESHOT$/;"	e	enum:cppTimerType_t
+OPT_C	PulseSensor.h	49;"	d
+OPT_N	PulseSensor.h	54;"	d
+OPT_O	PulseSensor.h	44;"	d
+OPT_O_ELAPSED	PulseSensor.h	34;"	d
+OPT_O_JITTER	PulseSensor.h	39;"	d
+OPT_R	PulseSensor.h	24;"	d
+OPT_U	PulseSensor.h	29;"	d
+P	PulseSensor.h	/^    int P;                           \/\/ used to find peak in pulse wave, seeded (sample value)$/;"	m	class:PulseSensor
+PERIODIC	CppTimer.h	/^	PERIODIC,$/;"	e	enum:cppTimerType_t
+POSTCallback	json_fastcgi_web_api.h	/^	class POSTCallback {$/;"	c	class:JSONCGIHandler
+PULSE_CONNECT	PulseSensor.h	67;"	d
+PULSE_DATA	PulseSensor.h	66;"	d
+PULSE_EXIT	PulseSensor.h	63;"	d
+PULSE_IDLE	PulseSensor.h	64;"	d
+PULSE_ON	PulseSensor.h	65;"	d
+Paginator	UI/code/functions/paginator.php	/^class Paginator {$/;"	c
+Pulse	PulseSensor.h	/^    volatile bool Pulse;          \/\/ "True" when User's live heartbeat is detected. "False" when not a "live beat".$/;"	m	class:PulseSensor
+PulseSensor	PulseSensor.h	/^    PulseSensor() {$/;"	f	class:PulseSensor
+PulseSensor	PulseSensor.h	/^class PulseSensor : public CppTimer  {$/;"	c
+QS	PulseSensor.h	/^    volatile bool QS;            \/\/ The start of beat has been detected and not read by the Sketch.$/;"	m	class:PulseSensor
+ROOTPATH	UI/code/history.php	/^    define("ROOTPATH", 'C:\/Apache24\/htdocs\/dreamHacker');$/;"	d
+ROOTPATH	UI/code/index.php	/^    define("ROOTPATH", 'C:\/Apache24\/htdocs\/dreamHacker');$/;"	d
+ROOTPATH	UI/code/liveReading.php	/^    define("ROOTPATH", 'C:\/Apache24\/htdocs\/dreamHacker');$/;"	d
+ROOTPATH	UI/code/musicChoice.php	/^    define("ROOTPATH", 'C:\/Apache24\/htdocs\/dreamHacker');$/;"	d
+SENSORfastcgicallback	main.cpp	/^class SENSORfastcgicallback : public SensorCallback {$/;"	c	file:
+SIG	CppTimer.h	20;"	d
+SPI_CHAN	PulseSensor.h	60;"	d
+SPI_CHAN	main.cpp	20;"	d	file:
+SensorCallback	PulseSensor.h	/^class SensorCallback {$/;"	c
+Signal	PulseSensor.h	/^    volatile int Signal;             \/\/ holds the latest incoming raw data (0..1023)$/;"	m	class:PulseSensor
+T	PulseSensor.h	/^    int T;                           \/\/ used to find trough in pulse wave, seeded (sample value)$/;"	m	class:PulseSensor
+TIME_OUT	PulseSensor.h	56;"	d
+__CPP_TIMER_H_	CppTimer.h	2;"	d
+__PULSESENSOR_H	PulseSensor.h	2;"	d
+__construct	UI/code/functions/paginator.php	/^    public function __construct( $conn, $query ) $/;"	f
+_conn	UI/code/functions/paginator.php	/^    $this->_conn = $conn; \/\/mysql connection resource$/;"	v
+_conn	UI/code/functions/paginator.php	/^    private $_conn;$/;"	v
+_limit	UI/code/functions/paginator.php	/^        $this->_limit = $limit;$/;"	v
+_limit	UI/code/functions/paginator.php	/^    private $_limit; \/\/records (rows) to show per page$/;"	v
+_page	UI/code/functions/paginator.php	/^        $this->_page = $page;$/;"	v
+_page	UI/code/functions/paginator.php	/^    private $_page; \/\/current page$/;"	v
+_query	UI/code/functions/paginator.php	/^    $this->_query = $query; \/\/mysql query string$/;"	v
+_query	UI/code/functions/paginator.php	/^    private $_query;$/;"	v
+_row_start	UI/code/functions/paginator.php	/^            $this->_row_start = ( ( $this->_page - 1 ) * $this->_limit );$/;"	v
+_row_start	UI/code/functions/paginator.php	/^    private $_row_start;$/;"	v
+_total	UI/code/functions/paginator.php	/^    $this->_total = $rs->num_rows; \/\/total number of rows$/;"	v
+_total	UI/code/functions/paginator.php	/^    private $_total;$/;"	v
+add	json_fastcgi_web_api.h	/^		void add(std::string key, double value) {$/;"	f	class:JSONCGIHandler::JSONGenerator
+add	json_fastcgi_web_api.h	/^		void add(std::string key, float value) {$/;"	f	class:JSONCGIHandler::JSONGenerator
+add	json_fastcgi_web_api.h	/^		void add(std::string key, int value) {$/;"	f	class:JSONCGIHandler::JSONGenerator
+add	json_fastcgi_web_api.h	/^		void add(std::string key, long value) {$/;"	f	class:JSONCGIHandler::JSONGenerator
+add	json_fastcgi_web_api.h	/^		void add(std::string key, std::string value) {$/;"	f	class:JSONCGIHandler::JSONGenerator
+amp	PulseSensor.h	/^    volatile int amp;                         \/\/ used to hold amplitude of pulse waveform, seeded (sample value)$/;"	m	class:PulseSensor
+analyzeBeatsForSleep	main.cpp	/^  bool analyzeBeatsForSleep(int bpm)$/;"	f	class:SENSORfastcgicallback
+audio_name	main.cpp	/^  char audio_name[500];$/;"	m	class:SENSORfastcgicallback	file:
+audio_pid	main.cpp	/^  pid_t audio_pid;$/;"	m	class:SENSORfastcgicallback	file:
+beatsPerMinute	main.cpp	/^  int beatsPerMinute;$/;"	m	class:SENSORfastcgicallback	file:
+bpm	UI/code/index.php	/^        $bpm = $_GET["beats"]; $/;"	v
+bpmThreshold	main.cpp	/^  int bpmThreshold = 75;$/;"	m	class:SENSORfastcgicallback	file:
+class	UI/code/functions/paginator.php	/^            $class = ( $this->_page == $i ) ? "active" : ""; \/\/highlight current page$/;"	v
+class	UI/code/functions/paginator.php	/^        $class = ( $this->_page == $last ) ? "disabled" : ""; \/\/disable (>>> next page link)$/;"	v
+class	UI/code/functions/paginator.php	/^        $class = ( $this->_page == 1 ) ? "disabled" : ""; \/\/disable previous page link <<<$/;"	v
+conn	UI/code/history.php	/^    $conn = mysqli_connect($host, $user, $pass, $db);$/;"	v
+cppTimerType_t	CppTimer.h	/^typedef enum cppTimerType_t{$/;"	g
+cppTimerType_t	CppTimer.h	/^}cppTimerType_t;$/;"	t	typeref:enum:cppTimerType_t
+createLinks	UI/code/functions/paginator.php	/^    public function createLinks( $links, $list_class ) $/;"	f
+curPageURL	UI/code/functions/paginator.php	/^	function curPageURL() {$/;"	f
+dataPoints	UI/code/liveReading.php	/^    $dataPoints = array();$/;"	v
+dataRequestStart	PulseSensor.h	/^	unsigned int timeOutStart, dataRequestStart, m;$/;"	m	class:PulseSensor
+db	UI/code/database/db.php	/^$db = 'dreamHacker';$/;"	v
+duration	PulseSensor.h	/^	volatile int sumJitter, firstTime, secondTime, duration;$/;"	m	class:PulseSensor
+elapsedTime	PulseSensor.h	/^	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;$/;"	m	class:PulseSensor
+end	UI/code/functions/paginator.php	/^        $end = ( ( $this->_page + $links ) < $last ) ? $this->_page + $links : $last;$/;"	v
+epoch	UI/code/index.php	/^        $epoch = $_GET["epoch"]; $/;"	v
+eventCounter	PulseSensor.h	/^	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;$/;"	m	class:PulseSensor
+exec	json_fastcgi_web_api.h	/^	static void exec(JSONCGIHandler* fastCGIHandler) {$/;"	f	class:JSONCGIHandler
+firstBeat	PulseSensor.h	/^    bool firstBeat;               \/\/ used to seed rate array so we startup with reasonable BPM$/;"	m	class:PulseSensor
+firstEntry	json_fastcgi_web_api.h	/^		int firstEntry = 1;$/;"	m	class:JSONCGIHandler::JSONGenerator
+firstTime	PulseSensor.h	/^	volatile int sumJitter, firstTime, secondTime, duration;$/;"	m	class:PulseSensor
+getCallback	json_fastcgi_web_api.h	/^	GETCallback* getCallback = nullptr;$/;"	m	class:JSONCGIHandler
+getContentType	json_fastcgi_web_api.h	/^		virtual std::string getContentType() { return "application\/json"; }$/;"	f	class:JSONCGIHandler::GETCallback
+getData	UI/code/functions/paginator.php	/^    public function getData( $limit = 5, $page = 1 ) { \/\/set default argument values$/;"	f
+getJSON	json_fastcgi_web_api.h	/^		std::string getJSON() { return json + "}"; }$/;"	f	class:JSONCGIHandler::JSONGenerator
+getJSONString	main.cpp	/^    virtual std::string getJSONString()$/;"	f	class:JSONCGIADCCallback
+getPulse	PulseSensor.h	/^	void getPulse(int sig_num) {$/;"	f	class:PulseSensor
+handler	CppTimer.h	/^	static void handler(int sig, siginfo_t *si, void *uc ) {$/;"	f	class:CppTimer
+hasSample	main.cpp	/^  virtual void hasSample(int beats) {$/;"	f	class:SENSORfastcgicallback
+host	UI/code/database/db.php	/^$host = 'localhost';$/;"	v
+html	UI/code/functions/paginator.php	/^        $html = '<ul class="' . $list_class . '">';$/;"	v
+initPulseSensorVariables	PulseSensor.h	/^	void initPulseSensorVariables(void) {$/;"	f	class:PulseSensor
+initializeVariablesForSleep	main.cpp	/^  void initializeVariablesForSleep(void){$/;"	f	class:SENSORfastcgicallback
+instance	PulseSensor.h	/^	static PulseSensor instance;$/;"	m	class:PulseSensor
+instance	main.cpp	/^PulseSensor PulseSensor::instance;$/;"	m	class:PulseSensor	file:
+is_audio_playing	main.cpp	/^  bool is_audio_playing = 0;$/;"	m	class:SENSORfastcgicallback	file:
+its	CppTimer.h	/^	struct itimerspec its;$/;"	m	class:CppTimer	typeref:struct:CppTimer::itimerspec
+jitter	PulseSensor.h	/^	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;$/;"	m	class:PulseSensor
+json	json_fastcgi_web_api.h	/^		std::string json = "{";$/;"	m	class:JSONCGIHandler::JSONGenerator
+kill_the_pid	main.cpp	/^  void kill_the_pid(pid_t x){$/;"	f	class:SENSORfastcgicallback
+last	UI/code/functions/paginator.php	/^        $last = ceil( $this->_total \/ $this->_limit );$/;"	v
+lastBeatTime	PulseSensor.h	/^    volatile unsigned long lastBeatTime;      \/\/ used to find IBI. Time (sampleCounter) of the previous detected beat start.$/;"	m	class:PulseSensor
+lastTime	PulseSensor.h	/^	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;$/;"	m	class:PulseSensor
+limit	UI/code/history.php	/^    $limit = ( isset( $_GET['limit'])) ? $_GET['limit'] : 10; \/\/ items per page$/;"	v
+links	UI/code/history.php	/^    $links = 10;$/;"	v
+m	PulseSensor.h	/^	unsigned int timeOutStart, dataRequestStart, m;$/;"	m	class:PulseSensor
+main	main.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+mainRunning	main.cpp	/^int mainRunning = 1;$/;"	v
+mainThread	json_fastcgi_web_api.h	/^	std::thread* mainThread = nullptr;$/;"	m	class:JSONCGIHandler
+maybeSleep	main.cpp	/^  bool maybeSleep = 0;$/;"	m	class:SENSORfastcgicallback	file:
+mysqli	UI/code/database/db.php	/^$mysqli = new mysqli($host,$user,$pass, $db) or die($mysqli->error);$/;"	v
+next_page	UI/code/functions/paginator.php	/^        $next_page = ( $this->_page == $last) ? $/;"	v
+nightTime	main.cpp	/^  time_t nightTime;$/;"	m	class:SENSORfastcgicallback	file:
+onload	UI/code/liveReading.php	/^window.onload = function() {$/;"	j
+page	UI/code/history.php	/^    $page = (isset ($_GET['page'])) ? $_GET['page'] : 1; \/\/starting page$/;"	v
+pageURL	UI/code/functions/paginator.php	/^ $pageURL = 'http';$/;"	v
+paginator	UI/code/history.php	/^    $paginator = new Paginator ( $mysqli, $query); \/\/__constructor is called$/;"	v
+pass	UI/code/database/db.php	/^$pass = ''; \/* insert your password *\/$/;"	v
+play_audio	main.cpp	/^  pid_t play_audio(char* audio_name){$/;"	f	class:SENSORfastcgicallback
+play_audio_locally	main.cpp	/^  bool play_audio_locally = 0;$/;"	m	class:SENSORfastcgicallback	file:
+play_audio_wrapper	main.cpp	/^  void play_audio_wrapper(){$/;"	f	class:SENSORfastcgicallback
+postCallback	json_fastcgi_web_api.h	/^	POSTCallback* postCallback = nullptr;$/;"	m	class:JSONCGIHandler
+postDecoder	json_fastcgi_web_api.h	/^	static std::map<std::string,std::string> postDecoder(std::string s) {$/;"	f	class:JSONCGIHandler
+previous_page	UI/code/functions/paginator.php	/^        $previous_page = ( $this->_page == 1 ) ? $/;"	v
+query	UI/code/functions/paginator.php	/^            $query = $this->_query . $/;"	v
+query	UI/code/functions/paginator.php	/^            $query = $this->_query;$/;"	v
+query	UI/code/history.php	/^    $query = "SELECT * FROM records ORDER BY 'date'";$/;"	v
+rate	PulseSensor.h	/^    int rate[10];                    \/\/ array to hold last ten IBI values (ms)$/;"	m	class:PulseSensor
+record	UI/code/history.php	/^    $record = $results->data[$p];$/;"	v
+request	json_fastcgi_web_api.h	/^	FCGX_Request request;$/;"	m	class:JSONCGIHandler
+result	UI/code/functions/paginator.php	/^        $result         = new stdClass();$/;"	v
+results	UI/code/history.php	/^    $results = $paginator->getData( $limit, $page);$/;"	v
+rs	UI/code/functions/paginator.php	/^        $rs = $this->_conn->query( $query ) or die($this->_conn->error);$/;"	v
+rs	UI/code/functions/paginator.php	/^    $rs = $this->_conn->query( $this->_query );$/;"	v
+running	json_fastcgi_web_api.h	/^	int running = 1;$/;"	m	class:JSONCGIHandler
+sa	CppTimer.h	/^	struct sigaction sa;$/;"	m	class:CppTimer	typeref:struct:CppTimer::sigaction
+sampleCounter	PulseSensor.h	/^    unsigned long sampleCounter;     \/\/ used to determine pulse timing. Milliseconds since we started.$/;"	m	class:PulseSensor
+sampleFlag	PulseSensor.h	/^	volatile int sampleFlag = 0;$/;"	m	class:PulseSensor
+sampleIntervalMs	PulseSensor.h	/^    unsigned long sampleIntervalMs;  \/\/ expected time between calls to readSensor(), in milliseconds.$/;"	m	class:PulseSensor
+secondBeat	PulseSensor.h	/^    bool secondBeat;              \/\/ used to seed rate array so we startup with reasonable BPM$/;"	m	class:PulseSensor
+secondTime	PulseSensor.h	/^	volatile int sumJitter, firstTime, secondTime, duration;$/;"	m	class:PulseSensor
+sensorCallback	PulseSensor.h	/^	SensorCallback* sensorCallback = nullptr;$/;"	m	class:PulseSensor
+sensorfastcgi	main.cpp	/^  SENSORfastcgicallback* sensorfastcgi;$/;"	m	class:JSONCGIADCCallback	file:
+setCallback	PulseSensor.h	/^	void setCallback(SensorCallback* cb) {$/;"	f	class:PulseSensor
+setHUPHandler	main.cpp	/^void setHUPHandler() {$/;"	f
+set_audio_name	main.cpp	/^  void set_audio_name(){$/;"	f	class:SENSORfastcgicallback
+sev	CppTimer.h	/^	struct sigevent sev;$/;"	m	class:CppTimer	typeref:struct:CppTimer::sigevent
+sigHandler	main.cpp	/^void sigHandler(int sig) { $/;"	f
+sleep	UI/code/index.php	/^        $sleep = $_GET["sleep"]; $/;"	v
+sleep	main.cpp	/^  bool sleep;$/;"	m	class:SENSORfastcgicallback	file:
+sock_fd	json_fastcgi_web_api.h	/^	int sock_fd = 0;$/;"	m	class:JSONCGIHandler
+start	CppTimer.cpp	/^void CppTimer::start(long nanosecs, cppTimerType_t type) {$/;"	f	class:CppTimer
+start	UI/code/functions/paginator.php	/^        $start = ( ( $this->_page - $links ) > 0 ) ? $this->_page - $links : 1;$/;"	v
+startOfProspectiveSleep	main.cpp	/^  time_t startOfProspectiveSleep;$/;"	m	class:SENSORfastcgicallback	file:
+startRecording	PulseSensor.h	/^    void startRecording(int r, unsigned int u) {$/;"	f	class:PulseSensor
+startSensor	PulseSensor.h	/^	void startSensor() {$/;"	f	class:PulseSensor
+static_myHandler	PulseSensor.h	/^	static void static_myHandler(int signum) {$/;"	f	class:PulseSensor
+stop	CppTimer.cpp	/^void CppTimer::stop() {$/;"	f	class:CppTimer
+stopSensor	PulseSensor.h	/^	void stopSensor() {$/;"	f	class:PulseSensor
+sumJitter	PulseSensor.h	/^	volatile int sumJitter, firstTime, secondTime, duration;$/;"	m	class:PulseSensor
+surelySleptTime	main.cpp	/^  time_t surelySleptTime = 1800;$/;"	m	class:SENSORfastcgicallback	file:
+t	main.cpp	/^  long t;$/;"	m	class:SENSORfastcgicallback	file:
+thisTime	PulseSensor.h	/^	volatile unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;$/;"	m	class:PulseSensor
+thresh	PulseSensor.h	/^    int thresh;                      \/\/ used to find instant moment of heart beat, seeded (sample value)$/;"	m	class:PulseSensor
+threshSetting	PulseSensor.h	/^    volatile int threshSetting;      \/\/ used to seed and reset the thresh variable$/;"	m	class:PulseSensor
+timeOutStart	PulseSensor.h	/^	unsigned int timeOutStart, dataRequestStart, m;$/;"	m	class:PulseSensor
+timenow	main.cpp	/^struct tm* timenow;$/;"	v	typeref:struct:tm
+timerEvent	PulseSensor.h	/^	void timerEvent() {$/;"	f	class:PulseSensor
+timerid	CppTimer.h	/^	timer_t timerid = 0;$/;"	m	class:CppTimer
+updateChart	UI/code/liveReading.php	/^function updateChart() {$/;"	f
+user	UI/code/database/db.php	/^$user = ''; \/* insert your username *\/$/;"	v
+wakeTime	main.cpp	/^  time_t wakeTime;$/;"	m	class:SENSORfastcgicallback	file:
+window.onload	UI/code/liveReading.php	/^window.onload = function() {$/;"	j
+y	UI/code/history.php	/^    $y=0;$/;"	v
+y	UI/code/liveReading.php	/^    $y = 5;$/;"	v
+~CppTimer	CppTimer.cpp	/^CppTimer::~CppTimer() {$/;"	f	class:CppTimer
+~JSONCGIHandler	json_fastcgi_web_api.h	/^	~JSONCGIHandler() {$/;"	f	class:JSONCGIHandler
+~PulseSensor	PulseSensor.h	/^	~PulseSensor() {$/;"	f	class:PulseSensor
