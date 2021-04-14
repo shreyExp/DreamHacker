@@ -153,8 +153,9 @@ public:
 	 * Check the new data and pass to callback
 	 **/
 	void timerEvent() {
-		printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
+		getPulse(SIGALRM);
 		if (sampleFlag && ( nullptr != sensorCallback) ) {
+			printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
             sensorCallback->hasSample(BPM);
         }
 
@@ -202,6 +203,7 @@ public:
 
 void getPulse(int sig_num) {
     if (sig_num == SIGALRM) {
+    	printf("Main if loop");
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
