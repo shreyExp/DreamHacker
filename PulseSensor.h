@@ -128,6 +128,7 @@ public:
 	 * Sets the callback which is called whenever there is a sample
 	 **/
 	void setCallback(SensorCallback* cb) {
+		printf("pointer: %p\n", cb);
 		sensorCallback = cb;
 	}
 
@@ -137,8 +138,8 @@ public:
 	 **/
 	void startSensor() {
 		printf("startSensor \n");
-		//start(2000000);
 		startRecording(OPT_R, OPT_U);
+		start(100000000);
 	}
 
 	/**
@@ -152,9 +153,10 @@ public:
 	 * Check the new data and pass to callback
 	 **/
 	void timerEvent() {
-		if (sampleFlag == 0) {
-			delay(0.01);
-		}
+		printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
+		if (sampleFlag && ( nullptr != sensorCallback) ) {
+            sensorCallback->hasSample(BPM);
+        }
 
     }
 
@@ -284,10 +286,6 @@ void getPulse(int sig_num) {
         }
 
         duration = micros() - thisTime;
-        printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
-		if (sampleFlag && ( nullptr != sensorCallback) ) {
-            sensorCallback->hasSample(BPM);
-        }
     }
 }
 
@@ -298,6 +296,7 @@ static void static_myHandler(int signum) {
 
 private:
 	SensorCallback* sensorCallback = nullptr;
+private:
 	static PulseSensor instance;
 
 };
