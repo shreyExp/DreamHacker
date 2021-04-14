@@ -138,6 +138,7 @@ public:
 	void startSensor() {
 		printf("startSensor \n");
 		start(2000000);
+		startRecording(OPT_R, OPT_U);
 	}
 
 	/**
@@ -154,12 +155,28 @@ public:
 		if (sampleFlag == 0) {
 			delay(0.01);
 		}
-		getPulse();
+		//getPulse();
 		printf("beats %d\n", BPM);
 		if (sampleFlag && ( nullptr != sensorCallback) ) {
                         sensorCallback->hasSample(BPM);
         }
     }
+
+    void startRecording(int r, unsigned int u) {
+	    int latency = r;
+	    unsigned int micros = u;
+
+	    signal(SIGALRM, PulseSensor::static_myHandler);
+	    int err = ualarm(latency, micros);
+	    if (err == 0) {
+	        if (micros > 0) {
+	            printf("ualarm ON\n");
+	        }
+	        else {
+	            printf("ualarm OFF\n");
+	        }
+	    }
+	}
 
 
 	void initPulseSensorVariables(void) {
@@ -272,9 +289,14 @@ public:
         duration = micros() - thisTime;
 	}
 
+	static void static_myHandler(int signum) {
+        instance.getPulse(signum);
+    }
+
 
 private:
 	SensorCallback* sensorCallback = nullptr;
+	static PulseSensor instance;
 
 };
 
