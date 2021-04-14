@@ -137,7 +137,7 @@ public:
 	 **/
 	void startSensor() {
 		printf("startSensor \n");
-		start(2000000);
+		//start(2000000);
 		startRecording(OPT_R, OPT_U);
 	}
 
@@ -155,11 +155,7 @@ public:
 		if (sampleFlag == 0) {
 			delay(0.01);
 		}
-		//getPulse();
-		printf("beats %d\n", BPM);
-		if (sampleFlag && ( nullptr != sensorCallback) ) {
-                        sensorCallback->hasSample(BPM);
-        }
+
     }
 
     void startRecording(int r, unsigned int u) {
@@ -202,7 +198,8 @@ public:
 	}
 
 
-	void getPulse(int sig_num) {
+void getPulse(int sig_num) {
+    if (sig_num == SIGALRM) {
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -287,10 +284,15 @@ public:
         }
 
         duration = micros() - thisTime;
-	}
+        printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
+		if (sampleFlag && ( nullptr != sensorCallback) ) {
+            sensorCallback->hasSample(BPM);
+        }
+    }
+}
 
-	static void static_myHandler(int signum) {
-        instance->getPulse(signum);
+static void static_myHandler(int signum) {
+        instance.getPulse(signum);
     }
 
 
@@ -300,6 +302,6 @@ private:
 
 };
 
-PulseSensor::instance = nullptr;
+PulseSensor PulseSensor::instance;
 
 #endif
