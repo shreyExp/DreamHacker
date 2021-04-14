@@ -296,9 +296,10 @@ public:
 
 private:
 	SensorCallback* sensorCallback = nullptr;
-	PulseSensor* instance = PulseSensor();
+	static PulseSensor instance;
 
 };
 
+PulseSensor::instance = nullptr;
 
 #endif
