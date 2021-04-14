@@ -202,7 +202,7 @@ public:
 	}
 
 
-	void getPulse() {
+	void getPulse(int sig_num) {
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -290,13 +290,13 @@ public:
 	}
 
 	static void static_myHandler(int signum) {
-        instance.getPulse(signum);
+        instance->getPulse(signum);
     }
 
 
 private:
 	SensorCallback* sensorCallback = nullptr;
-	static PulseSensor instance;
+	PulseSensor* instance = PulseSensor();
 
 };
 
