@@ -139,7 +139,7 @@ public:
 	void startSensor() {
 		printf("startSensor \n");
 		startRecording(OPT_R, OPT_U);
-		start(100000000);
+		start(2000000);
 	}
 
 	/**
@@ -153,7 +153,8 @@ public:
 	 * Check the new data and pass to callback
 	 **/
 	void timerEvent() {
-		getPulse(SIGALRM);
+	printf("SIGALRM: %d\n", SIGALRM);
+	getPulse(SIGALRM);
 		if (sampleFlag && ( nullptr != sensorCallback) ) {
 			printf("beats, pointer %d\n%p\n", BPM, sensorCallback);
             sensorCallback->hasSample(BPM);
@@ -203,7 +204,7 @@ public:
 
 void getPulse(int sig_num) {
     if (sig_num == SIGALRM) {
-    	printf("Main if loop");
+    	//printf("Main if loop");
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
@@ -288,11 +289,13 @@ void getPulse(int sig_num) {
         }
 
         duration = micros() - thisTime;
+printf("beats from getPulse: %d\n", BPM);
     }
 }
 
 static void static_myHandler(int signum) {
-        instance.getPulse(signum);
+        printf("signum: %d\n", signum);
+instance.getPulse(signum);
     }
 
 
