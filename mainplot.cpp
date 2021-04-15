@@ -1,3 +1,6 @@
+/*
+ * For reference
+ */
 #include <QApplication>
 #include "mainwindow.h"
 
