@@ -138,7 +138,7 @@ public:
 	 **/
 	void startSensor() {
 		printf("startSensor \n");
-		startRecording(OPT_R, OPT_U);
+		//startRecording(OPT_R, OPT_U);
 		start(100000000);
 	}
 
