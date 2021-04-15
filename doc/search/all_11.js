@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['samplecounter_66',['sampleCounter',['../class_pulse_sensor.html#a94223558ef8876cfabad879bc4a412b8',1,'PulseSensor']]],
+  ['sampleflag_67',['sampleFlag',['../class_pulse_sensor.html#a79ec3ba5feda98c701fe600a3cd33eb0',1,'PulseSensor']]],
+  ['sampleintervalms_68',['sampleIntervalMs',['../class_pulse_sensor.html#a98a9a543222fa3b39bdaa927befe724e',1,'PulseSensor']]],
+  ['secondbeat_69',['secondBeat',['../class_pulse_sensor.html#a80b3f97cb49a2f59a9c3e83a38286a4d',1,'PulseSensor']]],
+  ['secondtime_70',['secondTime',['../class_pulse_sensor.html#a99af156bb1e2b95e12d1909406e72a7a',1,'PulseSensor']]],
+  ['sensorcallback_71',['SensorCallback',['../class_sensor_callback.html',1,'']]],
+  ['sensorfastcgicallback_72',['SENSORfastcgicallback',['../class_s_e_n_s_o_rfastcgicallback.html',1,'']]],
+  ['setcallback_73',['setCallback',['../class_pulse_sensor.html#a81d8afa7631d59347df03ccf6c4458a1',1,'PulseSensor']]],
+  ['sethuphandler_74',['setHUPHandler',['../main_8cpp.html#a20a45737018ec41ab19cb4f5164b26ac',1,'main.cpp']]],
+  ['sig_75',['SIG',['../_cpp_timer_8h.html#ad6f1d374549d22100d676d5fcac0a7e5',1,'CppTimer.h']]],
+  ['sighandler_76',['sigHandler',['../main_8cpp.html#a844160e16f1a3e514df9ce65683e17bd',1,'main.cpp']]],
+  ['signal_77',['Signal',['../class_pulse_sensor.html#ad0d780a9de4a9235e4827057aec3cdf1',1,'PulseSensor']]],
+  ['sleep_78',['sleep',['../class_s_e_n_s_o_rfastcgicallback.html#aa667ff1226feb85d2684cc355ca6e644',1,'SENSORfastcgicallback']]],
+  ['spi_5fchan_79',['SPI_CHAN',['../main_8cpp.html#ae915de38397fbdc90276fa44e148c686',1,'SPI_CHAN():&#160;main.cpp'],['../_pulse_sensor_8h.html#ae915de38397fbdc90276fa44e148c686',1,'SPI_CHAN():&#160;PulseSensor.h']]],
+  ['start_80',['start',['../class_cpp_timer.html#a64989025caa3c030c6c397ca76a2d20b',1,'CppTimer']]],
+  ['startofprospectivesleep_81',['startOfProspectiveSleep',['../main_8cpp.html#a97bf6d3949e0ce44e114e9a2e37eb629',1,'main.cpp']]],
+  ['startrecording_82',['startRecording',['../class_pulse_sensor.html#a34fddd8568743c41f19671df7ea31d14',1,'PulseSensor']]],
+  ['startsensor_83',['startSensor',['../class_pulse_sensor.html#a4933b6f57d0696581a62c2c957e55dd4',1,'PulseSensor']]],
+  ['static_5fmyhandler_84',['static_myHandler',['../class_pulse_sensor.html#a81d84c8bf463311027dea563fde645c4',1,'PulseSensor']]],
+  ['stop_85',['stop',['../class_cpp_timer.html#a4bb95ddee98a536d0818b8f6096bf7e7',1,'CppTimer']]],
+  ['stopsensor_86',['stopSensor',['../class_pulse_sensor.html#a39187ec48df1cd0c12d5ac6bbee761a1',1,'PulseSensor']]],
+  ['sumjitter_87',['sumJitter',['../class_pulse_sensor.html#ae6544a9a2e8847b34d573d88cc830973',1,'PulseSensor']]],
+  ['surelyslepttime_88',['surelySleptTime',['../main_8cpp.html#ac4024481fbed0d67dd6f8dc466945e4f',1,'main.cpp']]]
+];
