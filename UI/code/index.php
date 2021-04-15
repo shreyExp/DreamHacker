@@ -2,6 +2,14 @@
     define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
     //include ROOTPATH . '/database/db.php';
     session_start();
+
+    if($$_GET) {  
+        $epoch = $_GET["epoch"]; 
+        $bpm = $_GET["beats"]; 
+        $sleep = $_GET["sleep"]; 
+
+    }
+
 ?>
 
 <html lang="en">  
@@ -67,6 +75,20 @@
             <a href='musicChoice.php'><li> Choose Music</li></a>
             <a href='history.php'><li> View Histroy</li></a>
         </ul>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Epoch</th>
+                <th>Beats</th>
+                <th>Sleep</th>
+            </tr>
+            <tr>
+                <td><?php echo $epoch;?></td>
+                <td><?php echo $bpm;?></td>
+                <td><?php echo $sleep;?></td>
+            </tr>
+        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
