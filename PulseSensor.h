@@ -7,14 +7,6 @@
 
 
 
-//class SenseWindow : public MainWindow{
-//	void timerEvent( QTimerEvent * ) {
-//		// demonstrates that adding a few samples before plotting speeds things up
-//		//addRealtimeSample(*Signal_value);
-//		addRealtimeSample(Signal);
-//		callPlot();
-//	}
-//};
 
 class SensorTimer : public CppTimer {
 	private:
@@ -40,7 +32,7 @@ class SensorTimer : public CppTimer {
 		int call_time_period = 2000; //in microseconds 2 milli s
 	public:
 
-		MyTimer(){
+		SensorTimer(){
 			initPulseSensorVariables();
 		}
 
@@ -175,3 +167,19 @@ class SensorTimer : public CppTimer {
 
 
 
+class SenseWindow : public MainWindow{
+	private:
+		int Signal;
+	public:
+		SenseWindow(){
+		    //wiringPiSetup(); //use the wiringPi pin numbers
+		    //mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
+		}
+	void timerEvent( QTimerEvent * ) {
+		// demonstrates that adding a few samples before plotting speeds things up
+		//addRealtimeSample(*Signal_value);
+		Signal = analogRead(BASE);
+		addRealtimeSample(Signal);
+		callPlot();
+	}
+};

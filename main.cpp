@@ -41,16 +41,16 @@ int main(int argc, char *argv[])
    // //pthread_attr_init(&attr);
    // //pthread_create(tid, &attr, window_thread, &Signal);
    // 
-   // //UNCOMMENT THE BELOW PART FOR GRAPH
-   // 	//QApplication a(argc, argv);
-   // 	//SenseWindow w;
-   // 	//w.showMaximized();
-   // 	//a.exec();
-
 	SensorTimer pulseMe;
 	pulseMe.startms(2);
+   // //UNCOMMENT THE BELOW PART FOR GRAPH
+   	QApplication a(argc, argv);
+   	SenseWindow w;
+   	w.showMaximized();
+   	a.exec();
 
-	std::this_thread::sleep_for(std::chrono::seconds(1000));
+
+//	std::this_thread::sleep_for(std::chrono::seconds(1000));
         pulseMe.stop();
 
     //pthread_join(tid, NULL);
