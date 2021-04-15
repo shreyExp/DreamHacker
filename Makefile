@@ -179,32 +179,32 @@ CppTimer.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CppTimer.cpp.s
 .PHONY : CppTimer.cpp.s
 
-PulseSensor_timer.o: PulseSensor_timer.cpp.o
+main.o: main.cpp.o
 
-.PHONY : PulseSensor_timer.o
+.PHONY : main.o
 
 # target to build an object file
-PulseSensor_timer.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/PulseSensor_timer.cpp.o
-.PHONY : PulseSensor_timer.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-PulseSensor_timer.i: PulseSensor_timer.cpp.i
+main.i: main.cpp.i
 
-.PHONY : PulseSensor_timer.i
+.PHONY : main.i
 
 # target to preprocess a source file
-PulseSensor_timer.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/PulseSensor_timer.cpp.i
-.PHONY : PulseSensor_timer.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-PulseSensor_timer.s: PulseSensor_timer.cpp.s
+main.s: main.cpp.s
 
-.PHONY : PulseSensor_timer.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-PulseSensor_timer.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/PulseSensor_timer.cpp.s
-.PHONY : PulseSensor_timer.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 main_autogen/mocs_compilation.o: main_autogen/mocs_compilation.cpp.o
 
@@ -274,9 +274,9 @@ help:
 	@echo "... CppTimer.o"
 	@echo "... CppTimer.i"
 	@echo "... CppTimer.s"
-	@echo "... PulseSensor_timer.o"
-	@echo "... PulseSensor_timer.i"
-	@echo "... PulseSensor_timer.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... main_autogen/mocs_compilation.o"
 	@echo "... main_autogen/mocs_compilation.i"
 	@echo "... main_autogen/mocs_compilation.s"

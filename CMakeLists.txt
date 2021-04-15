@@ -26,7 +26,7 @@ find_package(Threads REQUIRED)
 add_executable(main
   CppTimer.cpp
   mainwindow.cpp
-  PulseSensor_timer.cpp
+  main.cpp
 )
 
 target_link_libraries(main
