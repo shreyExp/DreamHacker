@@ -5,10 +5,22 @@
 #define BASE 100
 #define SPI_CHAN 0
 
-
+/**
+ * Callback for new samples which needs to be implemented by the main program.
+ * The function hasSample needs to be overloaded in the main program.
+ **/
+class SensorCallback {
+public:
+	/**
+	 * Called after a sample has arrived.
+	 **/
+	virtual void hasSample(int beats, bool mayBeSleep) = 0;
+};
 
 
 class SensorTimer : public CppTimer {
+    private:
+    	SensorCallback* sensorCallback = nullptr;
 	private:
 		unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
 		int sampleFlag = 0;
@@ -42,6 +54,7 @@ class SensorTimer : public CppTimer {
 		time_t startOfProspectiveSleep; 
 	public:
 		SensorTimer();
+		void setCallback(SensorCallback* cb);
 		void timerEvent(); 
 		void initPulseSensorVariables(void);
 		void getPulse(void);
@@ -53,10 +66,21 @@ SensorTimer::SensorTimer(){
 	initPulseSensorVariables();
 }
 
+/**
+ * Sets the callback which is called whenever there is a sample
+ **/
+void SensorTimer::setCallback(SensorCallback* cb) {
+	printf("pointer: %p\n", cb);
+	sensorCallback = cb;
+}
+
 void SensorTimer::timerEvent() {
 	getPulse();
 	sleep = analyzeBeatsForSleep(BPM);
 	printf("Value is: %d\n", BPM);
+	if (nullptr != sensorCallback) {
+        sensorCallback->hasSample(BPM, sleep);
+    }
 	fflush(stdout);
 }
 
@@ -191,6 +215,10 @@ void SensorTimer::initializeVariablesForSleep(void){
 	wakeTime = nightTime + estimatedSleepLength;
 }
 
+/**
+* Function to analyze sleep based on beats
+* per minute.
+**/
 bool SensorTimer::analyzeBeatsForSleep(int bpm)
 {
     bool sleep_local = 0;
