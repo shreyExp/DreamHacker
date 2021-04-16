@@ -1,10 +1,1 @@
-main
-cmake_install.cmake
-CMakeFiles/
-tags
-CMakeCache.txt
-CTestTestfile.cmake
-main_autogen/
-pul
-screenshot.png
-
+html/

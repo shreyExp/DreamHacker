@@ -18,11 +18,14 @@
 #include "json_fastcgi_web_api.h"
 
 
-/**
- * Handler which receives the data here just saves
- * the most recent sample with timestamp. Obviously,
- * in a real application the data would be stored
- * in a database and/or triggers events and other things!
+
+
+/** class SENSORfastcgicallback
+ * brief Callback class when beats data arrive
+ * details Handler which receives the data here just saves
+ *         the most recent sample with timestamp. Obviously,
+ *         the data would be forwarde to frontend for showing
+ *         to user.
  **/
 class SENSORfastcgicallback : public SensorCallback {
 public:
@@ -31,9 +34,15 @@ public:
   long t;
 
   /**
-   * Callback with the fresh ADC data.
-   * That's where all the internal processing
-   * of the data is happening.
+   * brief Callback with the fresh pulse data.
+   * details This function is called whenever
+   *         a new pulse data is arrived. It updates
+   *         the local variables, which in turn forwarded
+   *         to frontend.
+   * param beats int -- Beats per minute, real data from sensor
+   *       mayBeSleep boolean -- Sleep defining variable, true
+   *                             if person is asleep.
+   * return void
    **/
   virtual void hasSample(int beats, bool mayBeSleep) {
     sleep = mayBeSleep;
@@ -43,26 +52,26 @@ public:
 
 };
 
-/**
- * Callback handler which returns data to the
- * nginx server. Here, simply the current timestamp, sleeping possibility
- * and the beats per minute is transmitted to nginx and the
- * php application.
+/** class JSONCGIADCCallback
+ * brief FastCGI Callback handles
+ * details Callback handler which returns data to the
+ *         nginx server. Here, simply the current timestamp,
+ *         sleeping possibility and the beats per minute is 
+ *         transmitted to nginx and the php application.
  **/
+
 class JSONCGIADCCallback : public JSONCGIHandler::GETCallback {
 private:
   /**
    * Pointer to the ADC event handler because it keeps
-   * the data in this case. In a proper application
-   * that would be probably a database class or a
-   * controller keeping it all together.
+   * the data in this case. 
    **/
   SENSORfastcgicallback* sensorfastcgi;
 
 public:
   /**
    * Constructor: argument is the ADC callback handler
-   * which keeps the data as a simple example.
+   * which keeps the data.
    **/
   JSONCGIADCCallback(SENSORfastcgicallback* argSENSORfastcgi) {
     sensorfastcgi = argSENSORfastcgi;
@@ -88,6 +97,7 @@ public:
 
 
 int main(int argc, char *argv[]) {
+	// getting all the sensor related acquistion set up
 	SensorTimer pulseMe;
 	SENSORfastcgicallback sensorfastcgicallback;
     pulseMe.setCallback(&sensorfastcgicallback);
@@ -95,15 +105,14 @@ int main(int argc, char *argv[]) {
     // Setting up the JSONCGI communication
     // The callback which is called when fastCGI needs data
     // gets a pointer to the SENSOR callback class which
-    // contains the samples. Remember this is just a simple
-    // example to have access to some data.
+    // contains the samples.
     JSONCGIADCCallback fastCGIADCCallback(&sensorfastcgicallback);
-
 
     // starting the fastCGI handler with the callback and the
     // socket for nginx.
     JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
 
+    //starting the timer
 	pulseMe.startms(2);
    	QApplication a(argc, argv);
    	SenseWindow w;
