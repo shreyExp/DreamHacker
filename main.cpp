@@ -15,6 +15,7 @@
 #include "CppTimer.h"
 #include <thread>
 #include "PulseSensor.h"
+#include "json_fastcgi_web_api.h"
 
 
 /**
