@@ -51,12 +51,9 @@ Then after a while start the audio stimulus.
 <!-- Project descirption -->
 ## About
 DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
-<br />
-<br />
+
 Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
 The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
-<br />
-
 
 <div align="center">
 
@@ -75,14 +72,12 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 1. Wires, resistors, etc.
 
 ### Software
-<br />
+
 [Documentation]
-<br />
-<br />
+
 
 ### Roadmap
-<br />
-<br />
+
 
 <!-- Getting Started -->
 ## Getting Started
@@ -96,7 +91,7 @@ Hardware
  - Set up the circuit as shown in the diagram.
  - Put a speaker with it's audio jack in the audio output of the raspberry pi.
 ```
-</br.
+
 Software
 ```
 1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.
@@ -105,7 +100,7 @@ Software
  - `cmake .` 
  - `make`
 ```
-<br />
+
 ### Usage
 - Put your audio files inside the directory Audio/.
 - Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`. Make sure that the file has just one line.
