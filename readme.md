@@ -1,6 +1,6 @@
 # DreamHacker
 <p align="center">
-<img src="LogoDreamHacker.jpeg" alt="logo">
+<img height=40 src="LogoDreamHacker.jpeg"  alt="logo">
 </p>
 
 Giving audio stimulus to a sleeping person to manipulate his dreams.
