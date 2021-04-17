@@ -29,8 +29,8 @@ Then after a while start the audio stimulus.
     <li>
       <a href="#about">About</a>
       <ul>
-        <li><a href="#software">Hardware Required</a></li>
-        <li><a href="#hardware">Software Required</a></li>
+        <li><a href="#hardware">Hardware Required</a></li>
+        <li><a href="#software">Software Required</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
       </ul>
     </li>
@@ -63,14 +63,9 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 [![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/praveen1992/DreamHacker/network/contributors)
 [![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/praveen1992/DreamHacker/stargazers)
 [![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/issues)
-[![License](https://img.shields.io/github/license/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/blob/master/LICENSE)
 
 <br />
-
-  <!--  <a href="https://github.com/krogk/AgroPi"> -->
-  <!--  <img src="media/images/agropitopright.PNG" alt="Concept Render" >--> 
-  </a>
-
 
 </div>
 
