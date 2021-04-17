@@ -19,9 +19,8 @@ public:
 
 
 class SensorTimer : public CppTimer {
-    private:
-    	SensorCallback* sensorCallback = nullptr;
 	private:
+    		SensorCallback* sensorCallback = nullptr;
 		unsigned int eventCounter, thisTime, lastTime, elapsedTime;
 		int sampleFlag = 0;
 		int firstTime, secondTime, duration;
@@ -147,7 +146,6 @@ void SensorTimer::timerEvent() {
 	if(is_simulation)
 		beatsPerMinuteSimulation();
 	sleep = analyzeBeatsForSleep(BPM);
-	printf("Value is: %d\n", BPM);
 	audioprocess();
 	printf("BPM is: %d\n", BPM);
 	printf("Sleep is: %d\n", sleep);
