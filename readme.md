@@ -64,12 +64,25 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 
 <br />
 
+If you have
+any questions about DreamHacker or want to share some information with us, please go to one of
+the following places:
+
+* [Wiki](https://github.com/shreyExp/DreamHacker/wiki)
+* [FaceBook](https://www.facebook.com/Dream-Hacker-103619898510175).
+* [Mail](mailto:2620969T@student.gla.ac.uk).
+
+Before you file an issue, make sure you have read the _[known issues](#issues)_.
+
 </div>
 
 ### Hardware
-1. [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
-1. Pulse Sensor
-1. Wires, resistors, etc.
+
+* [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
+* Pulse Sensor
+* Wires
+* Resistors
+* Breadboard
 
 ### Software
 
