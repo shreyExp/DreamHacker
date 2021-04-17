@@ -10,9 +10,9 @@
 
 class SensorTimer : public CppTimer {
 	private:
-		unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
+		unsigned int eventCounter, thisTime, lastTime, elapsedTime;
 		int sampleFlag = 0;
-		int sumJitter, firstTime, secondTime, duration;
+		int firstTime, secondTime, duration;
 		int timeOutStart, dataRequestStart, m;
 		int Signal;
 		unsigned int sampleCounter;
@@ -191,9 +191,6 @@ void SensorTimer::getPulse(void){
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
         lastTime = thisTime;
-        //jitter = elapsedTime - OPT_U;
-        jitter = elapsedTime - call_time_period;
-        sumJitter += jitter;
         sampleFlag = 1;
 
 
