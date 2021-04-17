@@ -43,9 +43,9 @@ class SensorTimer : public CppTimer {
 		bool play_audio_locally;
 		pid_t audio_pid;
 		char audio_name[500];
-		bool is_simulation = 1;
+		bool is_simulation = 0;
 	public:
-		SensorTimer();
+		SensorTimer(int);
 		void timerEvent(); 
 		void initPulseSensorVariables(void);
 		void getPulse(void);
@@ -59,7 +59,9 @@ class SensorTimer : public CppTimer {
 		bool simulation_started = 0;
 };
 
-SensorTimer::SensorTimer(){
+SensorTimer::SensorTimer(int mode){
+	if(mode > 0)
+		is_simulation = 1;
 	initPulseSensorVariables();
 	initializeVariablesForSleep();
     	FILE *fptr;

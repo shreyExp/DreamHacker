@@ -19,19 +19,29 @@
 
 
 
+volatile int g_running = 1;
 
+void signalHandler(int signum){
+	g_running = 0;
+	printf("Program Terminated\n");
+}
 
 
 
 
 int main(int argc, char *argv[])
 {
+	int mode = 0;
+	if(argc > 1){
+		mode = atoi(argv[1]);
+	}
+	signal(SIGINT, signalHandler);
 	/**
 	 * SensorTimer runs in a thread
 	 * It reads the analog data from pulse sensor and calculates BPM.
 	 * BPM is used for other analysis.
 	 **/
-	SensorTimer pulseMe;
+	SensorTimer pulseMe(mode);
 	/**
 	 * startms function of Sensor timer is non blocking.
 	 * The control of the main program will just whiz pass it.
@@ -45,6 +55,13 @@ int main(int argc, char *argv[])
    	SenseWindow w;
    	w.showMaximized();
    	a.exec();
+
+	/**
+	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
+	 * the global variable bool runnig
+	 **/
+
+	while(g_running);
 
 
 	/**
