@@ -63,6 +63,7 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 [![License](https://img.shields.io/github/license/shreyExp/DreamHacker)](https://github.com/shreyExp/DreamHacker/blob/master/LICENSE)
 
 <br />
+</div>
 
 If you have
 any questions about DreamHacker or want to share some information with us, please go to one of
@@ -73,8 +74,6 @@ the following places:
 * [Mail](mailto:2620969T@student.gla.ac.uk).
 
 Before you file an issue, make sure you have read the _[known issues](#issues)_.
-
-</div>
 
 ### Hardware
 
