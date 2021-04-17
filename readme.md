@@ -29,8 +29,8 @@ Then after a while start the audio stimulus.
     <li>
       <a href="#about">About</a>
       <ul>
-        <li><a href="#software">Software</a></li>
-        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#software">Hardware Required</a></li>
+        <li><a href="#hardware">Software Required</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
       </ul>
     </li>
@@ -48,7 +48,34 @@ Then after a while start the audio stimulus.
   </ol>
 </details>
 
-## Hardware Needed
+<!-- Project descirption -->
+## About
+DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+<br />
+<br />
+Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
+The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+<br />
+
+
+<div align="center">
+
+[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)]
+[![Forks](https://img.shields.io/github/forks/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/network/members)
+[![Stars](https://img.shields.io/github/stars/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/stargazers)
+[![Issues](https://img.shields.io/github/issues/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/issues)
+[![License](https://img.shields.io/github/license/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/blob/main/LICENSE)
+
+<br />
+
+  <!--  <a href="https://github.com/krogk/AgroPi"> -->
+  <!--  <img src="media/images/agropitopright.PNG" alt="Concept Render" >--> 
+  </a>
+
+
+</div>
+
+### Hardware Needed
 1. Raspberry pi
 1. Pulse Sensor
 1. Wires, resistors, etc.
