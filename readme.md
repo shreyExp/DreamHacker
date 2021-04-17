@@ -57,10 +57,10 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 
 <div align="center">
 
-[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/praveen1992/DreamHacker/network/contributors)
-[![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/praveen1992/DreamHacker/stargazers)
-[![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/issues)
-[![License](https://img.shields.io/github/license/shreyExp/DreamHacker)](https://github.com/praveen1992/DreamHacker/blob/master/LICENSE)
+[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/shreyExp/DreamHacker/network/contributors)
+[![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/shreyExp/DreamHacker/stargazers)
+[![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/shreyExp/DreamHacker/issues)
+[![License](https://img.shields.io/github/license/shreyExp/DreamHacker)](https://github.com/shreyExp/DreamHacker/blob/master/LICENSE)
 
 <br />
 
