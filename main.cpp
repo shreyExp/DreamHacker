@@ -84,32 +84,71 @@ public:
     }
 };
 
+volatile int g_running = 1;
+
+void signalHandler(int signum){
+	g_running = 0;
+	printf("Program Terminated\n");
+}
 
 
 
-int main(int argc, char *argv[]) {
-	SensorTimer pulseMe;
-	SENSORfastcgicallback sensorfastcgicallback;
-    pulseMe.setCallback(&sensorfastcgicallback);
+
+int main(int argc, char *argv[])
+{
+	int mode = 0;
+	if(argc > 1){
+		mode = atoi(argv[1]);
+	}
+	signal(SIGINT, signalHandler);
+	/**
+	 * SensorTimer runs in a thread
+	 * It reads the analog data from pulse sensor and calculates BPM.
+	 * BPM is used for other analysis.
+	 **/
+	SensorTimer pulseMe(mode);
+  SENSORfastcgicallback sensorfastcgicallback;
+  pulseMe.setCallback(&sensorfastcgicallback);
 
     // Setting up the JSONCGI communication
     // The callback which is called when fastCGI needs data
     // gets a pointer to the SENSOR callback class which
     // contains the samples. Remember this is just a simple
     // example to have access to some data.
-    JSONCGIADCCallback fastCGIADCCallback(&sensorfastcgicallback);
+  JSONCGIADCCallback fastCGIADCCallback(&sensorfastcgicallback);
 
 
     // starting the fastCGI handler with the callback and the
     // socket for nginx.
-    JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
+  JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
+	/**
+	 * startms function of Sensor timer is non blocking.
+	 * The control of the main program will just whiz pass it.
+	 **/
 
 	pulseMe.startms(2);
+	/**
+	 * The QApplication will form the windows for the display of raw data read from the sensor.
+	 * This will block the control and the program will keep on runnig stuck here.
+	 **/
    	QApplication a(argc, argv);
    	SenseWindow w;
    	w.showMaximized();
    	a.exec();
-        pulseMe.stop();
+
+	/**
+	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
+	 * the global variable bool runnig
+	 **/
+
+	while(g_running);
+
+
+	/**
+	 * The timer will stop if the control reaches at pulseMe.stop
+	 **/
+
+   pulseMe.stop();
 
 
     return 0;

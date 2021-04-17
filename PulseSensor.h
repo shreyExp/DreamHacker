@@ -22,9 +22,9 @@ class SensorTimer : public CppTimer {
     private:
     	SensorCallback* sensorCallback = nullptr;
 	private:
-		unsigned int eventCounter, thisTime, lastTime, elapsedTime, jitter;
+		unsigned int eventCounter, thisTime, lastTime, elapsedTime;
 		int sampleFlag = 0;
-		int sumJitter, firstTime, secondTime, duration;
+		int firstTime, secondTime, duration;
 		int timeOutStart, dataRequestStart, m;
 		int Signal;
 		unsigned int sampleCounter;
@@ -55,9 +55,9 @@ class SensorTimer : public CppTimer {
 		bool play_audio_locally;
 		pid_t audio_pid;
 		char audio_name[500];
-		bool is_simulation = 1;
+		bool is_simulation = 0;
 	public:
-		SensorTimer();
+		SensorTimer(int);
 		void setCallback(SensorCallback* cb);
 		void timerEvent(); 
 		void initPulseSensorVariables(void);
@@ -72,7 +72,9 @@ class SensorTimer : public CppTimer {
 		bool simulation_started = 0;
 };
 
-SensorTimer::SensorTimer(){
+SensorTimer::SensorTimer(int mode){
+	if(mode > 0)
+		is_simulation = 1;
 	initPulseSensorVariables();
 	initializeVariablesForSleep();
     	FILE *fptr;
@@ -121,6 +123,7 @@ pid_t SensorTimer::play_audio(char* audio_name){
 		execlp("mpg123", "mpg123", "-q", audio_name, 0);
 		is_audio_playing = 1;
 	}
+	is_audio_playing = 1;
 	return audio_pid_local;
 }
 
@@ -128,7 +131,7 @@ void SensorTimer::kill_the_pid(pid_t x){
 	char kil[100] = "kill -9 ";
 	sprintf(kil,"%s%d",kil, x);
 	//system(kil);
-	kill(x, SIGTERM);
+	kill(x,SIGINT);
 }
 
 /**
@@ -215,9 +218,6 @@ void SensorTimer::getPulse(void){
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
         lastTime = thisTime;
-        //jitter = elapsedTime - OPT_U;
-        jitter = elapsedTime - call_time_period;
-        sumJitter += jitter;
         sampleFlag = 1;
 
 
