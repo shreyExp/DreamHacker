@@ -80,7 +80,7 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 * [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
 * Pulse Sensor
 * Wires
-* Resistors
+* Speakers
 * Breadboard
 
 ### Software
