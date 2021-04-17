@@ -1,14 +1,12 @@
 # DreamHacker
 
-# Objectives
-To give audio stimulus to a sleeping person to manipulate his dreams.
+Giving audio stimulus to a sleeping person to manipulate his dreams.
 
-# The Plan
-To take data from pulse sensor and time of the day etc, to predict when the person has slept.
+This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
 Then after a while start the audio stimulus.
 
 
-# Social Media
+## Social Media
 
 [YouTube](https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ)
 
@@ -16,7 +14,7 @@ Then after a while start the audio stimulus.
 
 [Instagram](https://www.instagram.com/proj_dreamhacker/)
 
-# Hardware Needed
+## Hardware Needed
 1. Raspberry pi
 1. Pulse Sensor
 1. Wires, resistors, etc.
@@ -29,16 +27,16 @@ Then after a while start the audio stimulus.
 1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.
 2. Clone the repository somewhere in the Raspberry Pi.
 3. Run the following commands from inside the repository 
-` cmake .` 
- `make`
+ - `cmake .` 
+ - `make`
 4. Put your audio files inside the directory Audio/.
-5. Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`
+5. Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`. Make sure that the file has just one line.
 7. If you want to run a simulation to test out the setup run the main function with 1 as the argument. `./main 1`. If you want to run the full program just run `./main`
 
-# Intended UI
-The UI for DreamHacker will be a Web application. By using the Raspberry Pi as a local server the user will be able to intertace with the application through any wifi enabled device.  
+## User Interface
+The UI for DreamHacker is a Web application on the localserver. The user will be able to monitor his heart beats per minute and set the audio which he wants to play if the audio is set to play on the server. Such audio can be listned to from a raspberry pi. 
 
-# Software Used 
+### Software Used 
 1. PHP
 1. SQL
 1. Javascript
