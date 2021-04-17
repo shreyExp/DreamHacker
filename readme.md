@@ -60,11 +60,10 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 
 <div align="center">
 
-[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)]
-[![Forks](https://img.shields.io/github/forks/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/network/members)
-[![Stars](https://img.shields.io/github/stars/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/stargazers)
-[![Issues](https://img.shields.io/github/issues/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/issues)
-[![License](https://img.shields.io/github/license/krogk/AgroPi.svg?style=for-the-badge)](https://github.com/krogk/AgroPi/blob/main/LICENSE)
+[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/praveen1992/DreamHacker/network/contributors)
+[![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/praveen1992/DreamHacker/stargazers)
+[![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/issues)
+[![License](https://img.shields.io/github/license/praveen1992/DreamHacker)](https://github.com/praveen1992/DreamHacker/blob/main/LICENSE)
 
 <br />
 
