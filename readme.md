@@ -1,9 +1,14 @@
-# DreamHacker
-<p align="center">
-<img height=250 src="Images/LogoDreamHacker.jpeg"  alt="logo">
-</p>
+<h2 align="center">DreamHacker</h2> 
+<div align="center">
+   <a href="https://github.com/praveen1992/DreamHacker/">
+    <img src="Images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
+  </a>
+  <p align="center">
+    Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
+    <br />
+</div>
 
-Giving audio stimulus to a sleeping person to manipulate his dreams.
+
 
 This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
 Then after a while start the audio stimulus.
@@ -16,6 +21,32 @@ Then after a while start the audio stimulus.
 [Facebook](https://www.facebook.com/Dream-Hacker-103619898510175)
 
 [Instagram](https://www.instagram.com/proj_dreamhacker/)
+
+<!-- TOC -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about">About</a>
+      <ul>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
 ## Hardware Needed
 1. Raspberry pi
