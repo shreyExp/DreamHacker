@@ -108,6 +108,7 @@ pid_t SensorTimer::play_audio(char* audio_name){
 		execlp("mpg123", "mpg123", "-q", audio_name, 0);
 		is_audio_playing = 1;
 	}
+	is_audio_playing = 1;
 	return audio_pid_local;
 }
 
