@@ -29,8 +29,8 @@ Then after a while start the audio stimulus.
     <li>
       <a href="#about">About</a>
       <ul>
-        <li><a href="#hardware">Hardware Needed</a></li>
-        <li><a href="#software">Software Required</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#software">Software</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
       </ul>
     </li>
@@ -70,9 +70,47 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 </div>
 
 ### Hardware
-1. Raspberry pi
+1. [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
 1. Pulse Sensor
 1. Wires, resistors, etc.
+
+### Software
+<br />
+[Documentation]
+<br />
+<br />
+
+### Roadmap
+<br />
+<br />
+
+<!-- Getting Started -->
+## Getting Started
+<br />
+<br />
+### Prerequisites
+<br />
+### Installation
+<br />
+### Usage
+</br>
+
+## Contributing
+
+See `CONTRIBUTING` for more information.
+
+<!-- License -->
+## License
+
+Distributed under the GPL-3.0 License. See `LICENSE` for more information.
+
+
+<!-- Contact Info -->
+## Contact
+</br>
+
+
+
 
 ## Hardware Installation
  - Set up the circuit as shown in the diagram.
