@@ -127,7 +127,8 @@ pid_t SensorTimer::play_audio(char* audio_name){
 void SensorTimer::kill_the_pid(pid_t x){
 	char kil[100] = "kill -9 ";
 	sprintf(kil,"%s%d",kil, x);
-	system(kil);
+	//system(kil);
+	kill(x, SIGTERM);
 }
 
 /**
