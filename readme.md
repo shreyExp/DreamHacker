@@ -46,6 +46,7 @@ Then after a while start the audio stimulus.
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#references">References</a></li>
   </ol>
 </details>
 
@@ -145,6 +146,16 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 <!-- Contact Info -->
 
 ## Contact
-</br>
+Team 39 in  Real Time Embedded Programming
+
+👤 **Amber Dehariya (2594660d)**
+
+👤 **Michael Hiluf (2529225h)**
+
+👤 **Praveen (2620969t)**
+
+👤 **Shreyansh Singh (2611417s)**
+
+## References
 
 
