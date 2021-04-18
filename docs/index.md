@@ -1,37 +1,132 @@
-## Welcome to GitHub Pages
+<h2 align="center">DreamHacker</h2> 
+<div align="center">
+   <a href="https://github.com/praveen1992/DreamHacker/">
+    <img src="Images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
+  </a>
+  <p align="center">
+    Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
+    <br />
+</div>
 
-You can use the [editor on GitHub](https://github.com/shreyExp/DreamHacker/edit/praveen/documentation/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
+Then after a while start the audio stimulus.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+## Social Media
 
-# Header 1
-## Header 2
-### Header 3
+[YouTube](https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ)
 
-- Bulleted
-- List
+[Facebook](https://www.facebook.com/Dream-Hacker-103619898510175)
 
-1. Numbered
-2. List
+[Instagram](https://www.instagram.com/proj_dreamhacker/)
 
-**Bold** and _Italic_ and `Code` text
+<!-- TOC -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about">About</a>
+      <ul>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-[Link](url) and ![Image](src)
+<!-- Project descirption -->
+## About
+DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+
+Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
+The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+
+<div align="center">
+
+[![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/shreyExp/DreamHacker/network/contributors)
+[![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/shreyExp/DreamHacker/stargazers)
+[![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/shreyExp/DreamHacker/issues)
+[![License](https://img.shields.io/github/license/shreyExp/DreamHacker)](https://github.com/shreyExp/DreamHacker/blob/master/LICENSE)
+
+<br />
+</div>
+
+If you have
+any questions about DreamHacker or want to share some information with us, please go to one of
+the following places:
+
+* [Wiki](https://github.com/shreyExp/DreamHacker/wiki)
+* [FaceBook](https://www.facebook.com/Dream-Hacker-103619898510175).
+* [Mail](mailto:2620969T@student.gla.ac.uk).
+
+Before you file an issue, make sure you have read the _[known issues](#issues)_.
+
+### Hardware
+
+* [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
+* Pulse Sensor
+* Wires
+* Speakers
+* Breadboard
+
+### Software
+
+[Documentation]
+
+
+### Roadmap
+
+
+<!-- Getting Started -->
+## Getting Started
+
+### Prerequisites
+1. Clone the repository
+
+### Installation
+Hardware
+```
+ - Set up the circuit as shown in the diagram.
+ - Put a speaker with it's audio jack in the audio output of the raspberry pi.
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Software
+```
+1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.
+2. Clone the repository somewhere in the Raspberry Pi.
+3. Run the following commands from inside the repository 
+ - `cmake .` 
+ - `make`
+```
 
-### Jekyll Themes
+### Usage
+- Put your audio files inside the directory Audio/.
+- Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`. Make sure that the file has just one line.
+- If you want to run a simulation to test out the setup run the main function with 1 as the argument. `./main 1`. If you want to run the full program just run `./main`
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shreyExp/DreamHacker/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Contributing
 
-### Support or Contact
+See `CONTRIBUTING` for more information.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<!-- License -->
+## License
+
+Distributed under the GPL-3.0 License. See `LICENSE` for more information.
+
+
+<!-- Contact Info -->
+## Contact
