@@ -2,7 +2,7 @@
 <br />
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
-    <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.jpeg" alt="Logo" width="100%" height="auto">
+    <img src="https://github.com/shreyExp/DreamHacker/blob/master/frontend/pictures/dreamHacker.png" alt="Logo" width="100%" height="auto">
   </a>
    <br />
    <br />
