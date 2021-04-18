@@ -1,7 +1,7 @@
 <h2 align="center">DreamHacker</h2> 
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
-    <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.png" alt="Logo" width="250" height="250">
+    <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
   </a>
   <p align="center">
     Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
