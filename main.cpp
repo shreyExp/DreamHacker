@@ -93,9 +93,12 @@ void signalHandler(int signum){
 
 void usage(void){
 	printf("\nUsage:\n"
+		"-h for help"
 		"-t [int] to put bpm threshold\n"
-		"-g [bool, 0 or 1] ecg plot in qtplot. Default: 1\n"
-		"-l [bool, 0 or 1] 1 to play audio locally. Default: 1\n"
+		"-g [bool] 1 to plot in qtplot. Default: 1\n"
+		"-l [bool] 1 to play audio locally. Default: 1\n"
+		"-n [bool] 1 to set night time to now. Default: 0\n"
+		"-w [int] set waiting time to confirm sleep.\n"
 		"-s [bool, 0 or 1] 1 for simulated bpm. Default: 0\n");
 }
 
@@ -107,6 +110,8 @@ int main(int argc, char *argv[])
 	bool graph = 1;
 	bool simulation = 0;
 	bool local_audio = 1;
+	bool nightTimeNow = 0;
+	int surelySleptTime = 0;
 	char key;
 	char* value;
 	if(argc > 1){
@@ -132,6 +137,14 @@ int main(int argc, char *argv[])
                                         local_audio = atoi(value);
 					i +=1;
                                         break;
+                                case 'n':
+                                        nightTimeNow = atoi(value);
+					i +=1;
+					break;
+                                case 'w':
+                                        surelySleptTime = atoi(value);
+					i +=1;
+					break;
                                 case 'h':
 					i +=1;
 					usage();
@@ -156,6 +169,12 @@ int main(int argc, char *argv[])
 	 * BPM is used for other analysis.
 	 **/
 	SensorTimer pulseMe(threshold, simulation, local_audio);
+	if(nightTimeNow)
+		pulseMe.setNigtTimeToNow();
+	if(surelySleptTime)
+		pulseMe.setSurelySleptTime(surelySleptTime);
+
+
   SENSORfastcgicallback sensorfastcgicallback;
   pulseMe.setCallback(&sensorfastcgicallback);
 
@@ -170,11 +189,12 @@ int main(int argc, char *argv[])
     // starting the fastCGI handler with the callback and the
     // socket for nginx.
   JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
+
+
 	/**
 	 * startms function of Sensor timer is non blocking.
 	 * The control of the main program will just whiz pass it.
 	 **/
-
 	pulseMe.startms(2);
 	/**
 	 * The QApplication will form the windows for the display of raw data read from the sensor.
@@ -199,7 +219,8 @@ int main(int argc, char *argv[])
 	 * The timer will stop if the control reaches at pulseMe.stop
 	 **/
 
-   pulseMe.stop();
+   //pulseMe.stop();
+   pulseMe.stopNew();
 
 
     return 0;

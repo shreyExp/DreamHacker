@@ -55,6 +55,8 @@ class SensorTimer : public CppTimer {
 		pid_t audio_pid;
 		char audio_name[500];
 		bool is_simulation = 0;
+		bool simulation_started = 0;
+		time_t period_of_simulation = 60*1; //1 minute duration
 	public:
 		SensorTimer(int, bool, bool);
 		void setCallback(SensorCallback* cb);
@@ -68,7 +70,11 @@ class SensorTimer : public CppTimer {
 		void kill_the_pid(pid_t x);
 		void beatsPerMinuteSimulation();
 		time_t start_of_simulation;
-		bool simulation_started = 0;
+		void setPeriodOfSimulatedWave(int);
+		// new funcs
+		void setSurelySleptTime(int);
+		void setNigtTimeToNow();
+   		void stopNew();
 };
 
 SensorTimer::SensorTimer(int l_bpmThreshold, bool l_simulation, bool l_local_audio ){
@@ -89,6 +95,21 @@ SensorTimer::SensorTimer(int l_bpmThreshold, bool l_simulation, bool l_local_aud
     	      play_audio_locally = 1;
     	}
 }
+void SensorTimer::setSurelySleptTime(int t){
+	surelySleptTime = t;
+}
+void SensorTimer::setNigtTimeToNow(){
+	nightTime = time(NULL) - 60;
+	wakeTime = nightTime + 60*60*8;
+}
+void SensorTimer::setPeriodOfSimulatedWave(int period){
+	period_of_simulation = period; //1 minute duration
+}
+
+void SensorTimer::stopNew(){
+	stop();
+}
+
 void SensorTimer::audioprocess(){
 	if(sleep == 1 && is_audio_playing == 0 && play_audio_locally){
 		  is_audio_playing = 1;
@@ -167,17 +188,17 @@ void SensorTimer::beatsPerMinuteSimulation(){
 	}
 	int begin_bpm = 80;
 	int end_bpm = 60;
-	time_t durationOfSimulation = 60*1; //5 minute duration
-	float slope = (float)(end_bpm - begin_bpm)/(float)(durationOfSimulation/2);
-	int t = time(NULL) - start_of_simulation;
+	//time_t period_of_simulation = 60*1; //5 minute duration
+	float slope = (float)(end_bpm - begin_bpm)/(float)(period_of_simulation/2);
+	int t = (time(NULL) - start_of_simulation)%period_of_simulation;
 	//Downwards
 	int sim_bpm = begin_bpm;
 	//printf("slope is %f\n",slope);
-	if(t < durationOfSimulation/2)
+	if(t < period_of_simulation/2)
 		sim_bpm = (int)(slope*t) + begin_bpm;
 	//Upwards
-	else if(t >= durationOfSimulation/2 && t <= durationOfSimulation){
-		t = t - (durationOfSimulation/2);
+	else if(t >= period_of_simulation/2 && t <= period_of_simulation){
+		t = t - (period_of_simulation/2);
 		sim_bpm = -1 * (int)(slope*t) + end_bpm;
 	}
 	BPM = sim_bpm;
@@ -320,17 +341,15 @@ void SensorTimer::initializeVariablesForSleep(void){
 /**
 * Function to analyze sleep based on beats
 * per minute.
+* if BPM is below a certain threshold
+* mayBeSleep should be on
+* if mayBeSleep is on for a while
+* then return 1;
 **/
 bool SensorTimer::analyzeBeatsForSleep(int bpm)
 {
     bool sleep_local = 0;
     time_t maybeSleepTime;
-    /*
-  * if BPM is below a certain threshold
-  * mayBeSleep should be on
-  * if mayBeSleep is on for a while
-  * then return 1;
-  */
     time_t now = time(NULL);
     //printf("BPM is %d, now is %d, nightTime is %d wakeTime is %d\n", BPM, now, nightTime, wakeTime);
     if (now > nightTime && now < wakeTime) {
@@ -352,8 +371,6 @@ bool SensorTimer::analyzeBeatsForSleep(int bpm)
     else {
         sleep_local = 0;
     }
-//    if(bpm < 77)
-//	    sleep_local = 1;
     return sleep_local;
 }
 
