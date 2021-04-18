@@ -97,7 +97,7 @@ function updateChart() {
                 </div>
                 <div class = "col-md-4" align=center>
                     <h4>Time In bed</h4>
-                    <p id='bed'>4 hours</p>
+                    <p id='bed'><</p>
                     <hr>
                     <h4>Song Choosen</h4>
                     <p id='song'>Vivaldi</p>
@@ -106,6 +106,7 @@ function updateChart() {
                     <p id='rem'>Yes</p>
                     <hr>
                     <p class='backButton w3-hover-red'> Stop Reading<p>
+                    <p><?php echo $dataPoints ?></p>
                 </div>
             </div>
         </div>
