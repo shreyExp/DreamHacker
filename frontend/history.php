@@ -88,7 +88,8 @@
     </thead>
     <tbody>
     <tr>
-        <td scope="row"> <?= $record['date'] ?></td>
+    <?php $date = substr($record['date'], 0, 10); ?>
+        <td scope="row"> <?= $date ?></td>
         <td> <?= $record['remSleep'] ?></td>
         <td> <?= $record['heartRate'] ?></td>
         <td> <?= $record['hrsSlept'] ?></td>

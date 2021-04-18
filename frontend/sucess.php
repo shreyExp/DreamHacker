@@ -48,26 +48,32 @@
         <h1>Dream Hacker <hr></h1>
         
     </div>
-    <div class="container">
-        <h3>What is Dream Hacker</h3>
-        <p> Here we will explain </p>
-        <hr>
-    </div>
+    
+    <div class='container' align=center>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <?php 
 
-    <div class='container'>
-        <div class='row' align=center>
-            <mainPoint id="action" class="w3-hover-green"> Start</mainPoint>
-            <br><br>
+                if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ): 
+
+                    echo $_SESSION['message'];    
+
+                else:
+
+                    echo 'Error, Please try again';
+
+                endif;
+            ?>
+
+                <div align=center>
+                    <a href='index.php'><h4 class="backButton w3-hover-green">Home<h4></a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class='container'>
-        <ul class='w3-ul w3-hoverable'>
-            <a href='liveReading.php'><li> Live Reading</li></a>
-            <a href='musicChoice.php'><li> Choose Music</li></a>
-            <a href='history.php'><li> View Histroy</li></a>
-        </ul>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

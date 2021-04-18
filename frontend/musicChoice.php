@@ -1,7 +1,33 @@
 <?php
     define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
-    //include ROOTPATH . '/database/db.php';
+    include ROOTPATH . '/database/db.php';
+    require ROOTPATH . '/functions/paginator.php';
     session_start();
+    $conn = mysqli_connect($host, $user, $pass, $db);
+    $query = "SELECT * FROM audio";
+
+    //these variables are passed via URL
+    $limit = ( isset( $_GET['limit'])) ? $_GET['limit'] : 1; // items per page
+    $page = (isset ($_GET['page'])) ? $_GET['page'] : 1; //starting page
+    $links = 10;
+
+    $paginator = new Paginator ( $mysqli, $query); //__constructor is called
+    $results = $paginator->getData( $limit, $page);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+
+{
+    if (isset($_POST['save'])) { //user logging in
+
+
+
+        require 'audioPlayer.php';
+
+        
+
+    }
+}
+
 ?>
 <html lang="en">
 <head>
@@ -30,48 +56,71 @@
 <div class='container'>
         <h1>Dream Hacker <hr></h1>
         
-    </div>
+</div>
+<?php
+    $y=0;
+    if ($y == ($results->data)){
+        echo'
+            <div class="app-container">
+                <div class="row">
+                    <h1>No results found</h1>
+                </div>
+              <hr>
+            </div>';
+    } 
+                else {
+    for ($p = 0; $p < count($results->data); $p++): ?>
+<?php
+    $record = $results->data[$p];
+    if ($results->num_rows = 0) {
+        echo "No recrods Found";
+    }
+?>
+
 <div class="container">
         <div class = "row">
             <div class = "col">
-                <h3>Select Music</Select></h3>
+                <h3>Select Audio</Select></h3>
+                <small class="form-text- text-muted"> Currently selected audio: <?= $record['song'] ?></small>
                 <hr>
             </div>
             <div class = "col-xs-2">
                 <a href='index.php'><h4 class="backButton w3-hover-red">Back<h4></a>
-                <hr>
             </div>
         </div>
 </div>
+<?php endfor; }?>
 <div class="container">
-<form>
-<div class="form-group">
+<form action="audioPlayer.php" method="post">
+  <div class="form-group">
     <div class="row">
       <div class="col-md-6">
       <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Just The Two Of Us" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          Just The Two Of Us <br>
+          <audio controls> <source src="audio/Just The Two Of Us.mp3" type="audio/mp3"></audio>
           </label>
           <br>
           <small id="passwordHelpBlock" class="form-text text-muted"> Descirbe what this song does</small>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Sunny" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          Sunny <br>
+          <audio controls> <source src="audio/Sunny.mp3" type="audio/mp3"></audio>
           </label>
+          <br>
+          <small id="passwordHelpBlock" class="form-text text-muted"> Descirbe what this song does</small>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Sunday Vibes" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          Sunday Vibes <br>
+          <audio controls> <source src="audio/Sunday Vibes.mp3" type="audio/mp3"></audio>
           </label>
         </div>
         <!-- Music Choice -->
@@ -121,8 +170,8 @@
       </div>
       </div>
       <div class="container" align=right>
-        <button type="input" class="btn btn-secondary">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" onclick="document.location='index.php'" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary" name="save">Save</button>
       </div>
   </form>
 </div>
