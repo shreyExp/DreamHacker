@@ -168,7 +168,7 @@ function updateChart() {
               d.setUTCSeconds(utcSeconds);
               var x = d;
               var y = result.beats;
-              var threshHold = result.threshHold
+              var threshHold = result.threshold
               document.getElementById("beats").innerHTML = Math.round(y * 100) / 100;
               if (data.length > maxSamples) {
               data.shift();
