@@ -121,10 +121,11 @@ Hardware
 Software
 ```
 1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.
-2. Clone the repository somewhere in the Raspberry Pi.
-3. Run the following commands from inside the repository 
- - `cmake .` 
- - `make`
+2. Install the audio player mpg123
+3. Clone the repository somewhere in the Raspberry Pi.
+4. Run the following commands from inside the repository 
+ - cmake .
+ - make
 ```
 
 ### Usage
