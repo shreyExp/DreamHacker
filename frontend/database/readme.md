@@ -17,5 +17,5 @@ The four software above need to be installed on the raspbery. Instuctions can be
 
 
 # Installation Instructions
- 1. Once all these have been installed create a databse in mysql called 'dreamHacker'.
+ 1. Once all these have been installed import dreamhacker.sql into mysql.
  1. Then open db.php and add your username and password in the $user and $pass sections.
