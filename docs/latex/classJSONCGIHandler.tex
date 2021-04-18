@@ -1,0 +1,105 @@
+\hypertarget{classJSONCGIHandler}{}\doxysection{JSONCGIHandler Class Reference}
+\label{classJSONCGIHandler}\index{JSONCGIHandler@{JSONCGIHandler}}
+
+
+{\ttfamily \#include $<$json\+\_\+fastcgi\+\_\+web\+\_\+api.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classJSONCGIHandler_1_1GETCallback}{GETCallback}}
+\item 
+class \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator}{JSONGenerator}}
+\item 
+class \mbox{\hyperlink{classJSONCGIHandler_1_1POSTCallback}{POSTCallback}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJSONCGIHandler_a9bf5a96d13949d363225561ba6ac3b56}{JSONCGIHandler}} (\mbox{\hyperlink{classJSONCGIHandler_1_1GETCallback}{GETCallback}} $\ast$arg\+Get\+Callback, \mbox{\hyperlink{classJSONCGIHandler_1_1POSTCallback}{POSTCallback}} $\ast$arg\+Post\+Callback=nullptr, const char socketpath\mbox{[}$\,$\mbox{]}=\char`\"{}/tmp/fastcgisocket\char`\"{})
+\item 
+\mbox{\hyperlink{classJSONCGIHandler_a4817e428a962bdea68123f2d32671f30}{$\sim$\+JSONCGIHandler}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classJSONCGIHandler_a0f208af3dd050ed182967fe9cca42d78}{post\+Decoder}} (std\+::string s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_a42518cd5ad781476d299b50e4c4c0000}\label{classJSONCGIHandler_a42518cd5ad781476d299b50e4c4c0000}} 
+static void {\bfseries exec} (\mbox{\hyperlink{classJSONCGIHandler}{JSONCGIHandler}} $\ast$fast\+CGIHandler)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_a69dba19ef64e913fc7e969854be997c9}\label{classJSONCGIHandler_a69dba19ef64e913fc7e969854be997c9}} 
+FCGX\+\_\+\+Request {\bfseries request}
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_a6f696ff6856f32b3ba75a130fcbb8987}\label{classJSONCGIHandler_a6f696ff6856f32b3ba75a130fcbb8987}} 
+int {\bfseries sock\+\_\+fd} = 0
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_aefa19cd01b387693ef99c5aa0c5fc093}\label{classJSONCGIHandler_aefa19cd01b387693ef99c5aa0c5fc093}} 
+int {\bfseries running} = 1
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_aca513f708ae4dc76ba70196ff25da695}\label{classJSONCGIHandler_aca513f708ae4dc76ba70196ff25da695}} 
+std\+::thread $\ast$ {\bfseries main\+Thread} = nullptr
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_a7c8b4a44e15ac57fe93b382e86899fa7}\label{classJSONCGIHandler_a7c8b4a44e15ac57fe93b382e86899fa7}} 
+\mbox{\hyperlink{classJSONCGIHandler_1_1GETCallback}{GETCallback}} $\ast$ {\bfseries get\+Callback} = nullptr
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_a09ee0f555db808d07c9ee9a575780553}\label{classJSONCGIHandler_a09ee0f555db808d07c9ee9a575780553}} 
+\mbox{\hyperlink{classJSONCGIHandler_1_1POSTCallback}{POSTCallback}} $\ast$ {\bfseries post\+Callback} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ wrapper around fast\+CGI which sends and receives JSON in a j\+Query friendly format.
+
+Copyright (C) 2021 Bernd Porr \href{mailto:mail@berndporr.me.uk}{\texttt{ mail@berndporr.\+me.\+uk}} Apache License 2.\+0 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJSONCGIHandler_a9bf5a96d13949d363225561ba6ac3b56}\label{classJSONCGIHandler_a9bf5a96d13949d363225561ba6ac3b56}} 
+\index{JSONCGIHandler@{JSONCGIHandler}!JSONCGIHandler@{JSONCGIHandler}}
+\index{JSONCGIHandler@{JSONCGIHandler}!JSONCGIHandler@{JSONCGIHandler}}
+\doxysubsubsection{\texorpdfstring{JSONCGIHandler()}{JSONCGIHandler()}}
+{\footnotesize\ttfamily JSONCGIHandler\+::\+JSONCGIHandler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJSONCGIHandler_1_1GETCallback}{GETCallback}} $\ast$}]{arg\+Get\+Callback,  }\item[{\mbox{\hyperlink{classJSONCGIHandler_1_1POSTCallback}{POSTCallback}} $\ast$}]{arg\+Post\+Callback = {\ttfamily nullptr},  }\item[{const char}]{socketpath\mbox{[}$\,$\mbox{]} = {\ttfamily \char`\"{}/tmp/fastcgisocket\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor which opens the connection and starts the main thread. Provide an instance of the callback handler which returns the payload data. arg\+Post\+Callback is the callback which returns received json packets as a map. The optional socketpath variable can be set to another path for the socket which talks to the webserver. 
+\begin{DoxyParams}{Parameters}
+{\em arg\+Get\+Callback} & Callback handler for sending JSON \\
+\hline
+{\em arg\+Post\+Callback} & Callback handler for receiving JSON \\
+\hline
+{\em socketpath} & Path of the socket which communicates to the webserver \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_a4817e428a962bdea68123f2d32671f30}\label{classJSONCGIHandler_a4817e428a962bdea68123f2d32671f30}} 
+\index{JSONCGIHandler@{JSONCGIHandler}!````~JSONCGIHandler@{$\sim$JSONCGIHandler}}
+\index{````~JSONCGIHandler@{$\sim$JSONCGIHandler}!JSONCGIHandler@{JSONCGIHandler}}
+\doxysubsubsection{\texorpdfstring{$\sim$JSONCGIHandler()}{~JSONCGIHandler()}}
+{\footnotesize\ttfamily JSONCGIHandler\+::$\sim$\+JSONCGIHandler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor which shuts down the connection to the webserver and it also terminates the thread which is waiting for requests. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJSONCGIHandler_a0f208af3dd050ed182967fe9cca42d78}\label{classJSONCGIHandler_a0f208af3dd050ed182967fe9cca42d78}} 
+\index{JSONCGIHandler@{JSONCGIHandler}!postDecoder@{postDecoder}}
+\index{postDecoder@{postDecoder}!JSONCGIHandler@{JSONCGIHandler}}
+\doxysubsubsection{\texorpdfstring{postDecoder()}{postDecoder()}}
+{\footnotesize\ttfamily static std\+::map$<$std\+::string,std\+::string$>$ JSONCGIHandler\+::post\+Decoder (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Parses a POST string and returns a std\+::map with key/value pairs. It also converts back any xx style encoding back to chars using libcurl. Note this is a simple parser and it won\textquotesingle{}t deal with nested JSON structures. 
+\begin{DoxyParams}{Parameters}
+{\em s} & The POST string to be decoded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::map which conains the key/value pairs. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+json\+\_\+fastcgi\+\_\+web\+\_\+api.\+h\end{DoxyCompactItemize}

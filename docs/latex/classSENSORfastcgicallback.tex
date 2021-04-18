@@ -1,0 +1,46 @@
+\hypertarget{classSENSORfastcgicallback}{}\doxysection{SENSORfastcgicallback Class Reference}
+\label{classSENSORfastcgicallback}\index{SENSORfastcgicallback@{SENSORfastcgicallback}}
+Inheritance diagram for SENSORfastcgicallback\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSENSORfastcgicallback}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSENSORfastcgicallback_a476a062cbf6a85f508f8ee64c3421f77}{has\+Sample}} (int beats, bool may\+Be\+Sleep)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSENSORfastcgicallback_a6b4105c78aed0f6d71feccb84dc1ffd6}\label{classSENSORfastcgicallback_a6b4105c78aed0f6d71feccb84dc1ffd6}} 
+int {\bfseries beats\+Per\+Minute}
+\item 
+\mbox{\Hypertarget{classSENSORfastcgicallback_aa667ff1226feb85d2684cc355ca6e644}\label{classSENSORfastcgicallback_aa667ff1226feb85d2684cc355ca6e644}} 
+bool {\bfseries sleep}
+\item 
+\mbox{\Hypertarget{classSENSORfastcgicallback_aaa260a6ca2f81d83f769b4c3ca6acc73}\label{classSENSORfastcgicallback_aaa260a6ca2f81d83f769b4c3ca6acc73}} 
+long {\bfseries t}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler which receives the data here just saves the most recent sample with timestamp. Obviously, in a real application the data would be stored in a database and/or triggers events and other things! 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSENSORfastcgicallback_a476a062cbf6a85f508f8ee64c3421f77}\label{classSENSORfastcgicallback_a476a062cbf6a85f508f8ee64c3421f77}} 
+\index{SENSORfastcgicallback@{SENSORfastcgicallback}!hasSample@{hasSample}}
+\index{hasSample@{hasSample}!SENSORfastcgicallback@{SENSORfastcgicallback}}
+\doxysubsubsection{\texorpdfstring{hasSample()}{hasSample()}}
+{\footnotesize\ttfamily virtual void SENSORfastcgicallback\+::has\+Sample (\begin{DoxyParamCaption}\item[{int}]{beats,  }\item[{bool}]{may\+Be\+Sleep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Callback with the fresh ADC data. That\textquotesingle{}s where all the internal processing of the data is happening. 
+
+Implements \mbox{\hyperlink{classSensorCallback_ac8bc6b4797f2e2b1d9612e1e1f834fbd}{Sensor\+Callback}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main.\+cpp\end{DoxyCompactItemize}

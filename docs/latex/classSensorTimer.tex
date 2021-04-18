@@ -1,0 +1,212 @@
+\hypertarget{classSensorTimer}{}\doxysection{Sensor\+Timer Class Reference}
+\label{classSensorTimer}\index{SensorTimer@{SensorTimer}}
+Inheritance diagram for Sensor\+Timer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSensorTimer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a4d85e8f5fada1ac4147a6d5142df4e33}\label{classSensorTimer_a4d85e8f5fada1ac4147a6d5142df4e33}} 
+{\bfseries Sensor\+Timer} (int)
+\item 
+void \mbox{\hyperlink{classSensorTimer_a2b87e348b476be96d88ee70be98bef11}{set\+Callback}} (\mbox{\hyperlink{classSensorCallback}{Sensor\+Callback}} $\ast$cb)
+\item 
+void \mbox{\hyperlink{classSensorTimer_a6d15ff3f37f39e6baa43cf22a48263f2}{timer\+Event}} ()
+\item 
+\mbox{\Hypertarget{classSensorTimer_a86849a9ab4dc5443cc93f96f00c29f6c}\label{classSensorTimer_a86849a9ab4dc5443cc93f96f00c29f6c}} 
+void {\bfseries init\+Pulse\+Sensor\+Variables} (void)
+\item 
+\mbox{\Hypertarget{classSensorTimer_a54d4119db865d1fd2bbff0fc8da67482}\label{classSensorTimer_a54d4119db865d1fd2bbff0fc8da67482}} 
+void {\bfseries get\+Pulse} (void)
+\item 
+bool \mbox{\hyperlink{classSensorTimer_a36233c0d18fe087bbfcf3a37bdf6dcec}{analyze\+Beats\+For\+Sleep}} (int bpm)
+\item 
+\mbox{\Hypertarget{classSensorTimer_a042706c0c1ec146beb95e8f3947211fd}\label{classSensorTimer_a042706c0c1ec146beb95e8f3947211fd}} 
+void {\bfseries initialize\+Variables\+For\+Sleep} (void)
+\item 
+\mbox{\Hypertarget{classSensorTimer_adb180c4dab8ccaa5eae6870aa851f76a}\label{classSensorTimer_adb180c4dab8ccaa5eae6870aa851f76a}} 
+void {\bfseries audioprocess} ()
+\item 
+\mbox{\Hypertarget{classSensorTimer_a03ec27b4291d6a2bdd84822415efe680}\label{classSensorTimer_a03ec27b4291d6a2bdd84822415efe680}} 
+pid\+\_\+t {\bfseries play\+\_\+audio} (char $\ast$audio\+\_\+name)
+\item 
+\mbox{\Hypertarget{classSensorTimer_a26f5ab50413256c6b9523b8cbe5f6a84}\label{classSensorTimer_a26f5ab50413256c6b9523b8cbe5f6a84}} 
+void {\bfseries kill\+\_\+the\+\_\+pid} (pid\+\_\+t x)
+\item 
+\mbox{\Hypertarget{classSensorTimer_ae70a0da132083a8135a17903baa68059}\label{classSensorTimer_ae70a0da132083a8135a17903baa68059}} 
+void {\bfseries beats\+Per\+Minute\+Simulation} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a5b5f30f0afd6eb4a9df8f7b6b6869a6a}\label{classSensorTimer_a5b5f30f0afd6eb4a9df8f7b6b6869a6a}} 
+time\+\_\+t {\bfseries start\+\_\+of\+\_\+simulation}
+\item 
+\mbox{\Hypertarget{classSensorTimer_af524226ec78b66a274851119f7b00a2f}\label{classSensorTimer_af524226ec78b66a274851119f7b00a2f}} 
+bool {\bfseries simulation\+\_\+started} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ad58597d91c359dc772a970ee46ef2b8c}\label{classSensorTimer_ad58597d91c359dc772a970ee46ef2b8c}} 
+\mbox{\hyperlink{classSensorCallback}{Sensor\+Callback}} $\ast$ {\bfseries sensor\+Callback} = nullptr
+\item 
+\mbox{\Hypertarget{classSensorTimer_ab410d5296b53f11c14037a0639d905ae}\label{classSensorTimer_ab410d5296b53f11c14037a0639d905ae}} 
+unsigned int {\bfseries event\+Counter}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ab8ae36c7b7cb90c0b0d119e890489338}\label{classSensorTimer_ab8ae36c7b7cb90c0b0d119e890489338}} 
+unsigned int {\bfseries this\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a03ed20714879814e22e5641940e1c764}\label{classSensorTimer_a03ed20714879814e22e5641940e1c764}} 
+unsigned int {\bfseries last\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a23904c4f9bc7b0ef8f39e9158da989a3}\label{classSensorTimer_a23904c4f9bc7b0ef8f39e9158da989a3}} 
+unsigned int {\bfseries elapsed\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a8e3297d7ed2cf0ad302627fea9ae7335}\label{classSensorTimer_a8e3297d7ed2cf0ad302627fea9ae7335}} 
+int {\bfseries sample\+Flag} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_a29b97782575a74a0d4bf7af50bad66cc}\label{classSensorTimer_a29b97782575a74a0d4bf7af50bad66cc}} 
+int {\bfseries first\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ac2de8ccb0d70b801574f962baae0a5cb}\label{classSensorTimer_ac2de8ccb0d70b801574f962baae0a5cb}} 
+int {\bfseries second\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a1353e51d3e3db2f14a18afb14419c905}\label{classSensorTimer_a1353e51d3e3db2f14a18afb14419c905}} 
+int {\bfseries duration}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a884380525acb68dcbe88e55a48a37496}\label{classSensorTimer_a884380525acb68dcbe88e55a48a37496}} 
+int {\bfseries time\+Out\+Start}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a5e04d19d42170c73243dbcbbdedfdbc5}\label{classSensorTimer_a5e04d19d42170c73243dbcbbdedfdbc5}} 
+int {\bfseries data\+Request\+Start}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ac2688bda3961332bcb0a80a63be6c0f5}\label{classSensorTimer_ac2688bda3961332bcb0a80a63be6c0f5}} 
+int {\bfseries m}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a73b3600a3b439a889ec2aefb6e9d406e}\label{classSensorTimer_a73b3600a3b439a889ec2aefb6e9d406e}} 
+int {\bfseries Signal}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a7ba22ffafc2b42ae3cdff31d47525fcb}\label{classSensorTimer_a7ba22ffafc2b42ae3cdff31d47525fcb}} 
+unsigned int {\bfseries sample\+Counter}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a6e26abccf69140ef3749f95dccbb60aa}\label{classSensorTimer_a6e26abccf69140ef3749f95dccbb60aa}} 
+int {\bfseries thresh\+Setting}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a4eeaf71d9a5f96e322b35081cf33f6e9}\label{classSensorTimer_a4eeaf71d9a5f96e322b35081cf33f6e9}} 
+int {\bfseries last\+Beat\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a888dc3b1bf9bfb452c679bccb018a387}\label{classSensorTimer_a888dc3b1bf9bfb452c679bccb018a387}} 
+int {\bfseries thresh} = 550
+\item 
+\mbox{\Hypertarget{classSensorTimer_a9bf478f0366940dab46992b626eb6614}\label{classSensorTimer_a9bf478f0366940dab46992b626eb6614}} 
+int {\bfseries P} = 512
+\item 
+\mbox{\Hypertarget{classSensorTimer_ad78b1837ae8402db8111c1125d62c39a}\label{classSensorTimer_ad78b1837ae8402db8111c1125d62c39a}} 
+int {\bfseries T} = 512
+\item 
+\mbox{\Hypertarget{classSensorTimer_a285de7aa2794270cbcf59144afd4746a}\label{classSensorTimer_a285de7aa2794270cbcf59144afd4746a}} 
+int {\bfseries first\+Beat} = 1
+\item 
+\mbox{\Hypertarget{classSensorTimer_a93f19ee800ea1f8b53d2bd9ca40374ab}\label{classSensorTimer_a93f19ee800ea1f8b53d2bd9ca40374ab}} 
+int {\bfseries second\+Beat} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_a820b614d51dc988ae64219c133406f47}\label{classSensorTimer_a820b614d51dc988ae64219c133406f47}} 
+int {\bfseries QS} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_ab74c86309da203b069a991f8ca09ae0a}\label{classSensorTimer_ab74c86309da203b069a991f8ca09ae0a}} 
+int {\bfseries rate} \mbox{[}10\mbox{]}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a54c96b55f91d091b3f11d9f4f5aaa34a}\label{classSensorTimer_a54c96b55f91d091b3f11d9f4f5aaa34a}} 
+int {\bfseries BPM} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_abc1f4e1db59f4aa0dae5793c90740a84}\label{classSensorTimer_abc1f4e1db59f4aa0dae5793c90740a84}} 
+int {\bfseries IBI} = 600
+\item 
+\mbox{\Hypertarget{classSensorTimer_aaa0853dc77e341fcaf2f19bf968b4b4c}\label{classSensorTimer_aaa0853dc77e341fcaf2f19bf968b4b4c}} 
+int {\bfseries Pulse} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_a69302d73a34d1ac10dbbd4d17e46493c}\label{classSensorTimer_a69302d73a34d1ac10dbbd4d17e46493c}} 
+int {\bfseries amp} = 100
+\item 
+\mbox{\Hypertarget{classSensorTimer_a0ee1760c265760a66758a9845f179f53}\label{classSensorTimer_a0ee1760c265760a66758a9845f179f53}} 
+int {\bfseries call\+\_\+time\+\_\+period} = 2000
+\item 
+time\+\_\+t \mbox{\hyperlink{classSensorTimer_a4d29fdf6804a4777668d957a8333f9c6}{night\+Time}}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a9edffcd5c781e8942f8570f2bfe8232d}\label{classSensorTimer_a9edffcd5c781e8942f8570f2bfe8232d}} 
+time\+\_\+t {\bfseries wake\+Time}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a4db914e2d73ffb3202aeb4fb3ffb3073}\label{classSensorTimer_a4db914e2d73ffb3202aeb4fb3ffb3073}} 
+int {\bfseries bpm\+Threshold} = 77
+\item 
+\mbox{\Hypertarget{classSensorTimer_a6aaa261915f03ad857544fd629607ea6}\label{classSensorTimer_a6aaa261915f03ad857544fd629607ea6}} 
+bool {\bfseries maybe\+Sleep} = 0
+\item 
+\mbox{\Hypertarget{classSensorTimer_a84505975df90206876681d89975faa52}\label{classSensorTimer_a84505975df90206876681d89975faa52}} 
+time\+\_\+t {\bfseries surely\+Slept\+Time} = 2
+\item 
+\mbox{\Hypertarget{classSensorTimer_a1bf0ef8c1667be0f111419322d196077}\label{classSensorTimer_a1bf0ef8c1667be0f111419322d196077}} 
+bool {\bfseries sleep}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ad2a424f227d18421cf94c86d7eb031be}\label{classSensorTimer_ad2a424f227d18421cf94c86d7eb031be}} 
+time\+\_\+t {\bfseries start\+Of\+Prospective\+Sleep}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ab9ea2c04c2ed4e36f2983ad441fa06d7}\label{classSensorTimer_ab9ea2c04c2ed4e36f2983ad441fa06d7}} 
+bool {\bfseries is\+\_\+audio\+\_\+playing}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ab8ae50b1ee64129594c15f056856c35f}\label{classSensorTimer_ab8ae50b1ee64129594c15f056856c35f}} 
+bool {\bfseries play\+\_\+audio\+\_\+locally}
+\item 
+\mbox{\Hypertarget{classSensorTimer_aaeec2579eba748d10fa8532311b20e99}\label{classSensorTimer_aaeec2579eba748d10fa8532311b20e99}} 
+pid\+\_\+t {\bfseries audio\+\_\+pid}
+\item 
+\mbox{\Hypertarget{classSensorTimer_a753287351e0381ca5d0d85df3078f762}\label{classSensorTimer_a753287351e0381ca5d0d85df3078f762}} 
+char {\bfseries audio\+\_\+name} \mbox{[}500\mbox{]}
+\item 
+\mbox{\Hypertarget{classSensorTimer_ace1263828012e5e2c0011ca5ee2d4ad8}\label{classSensorTimer_ace1263828012e5e2c0011ca5ee2d4ad8}} 
+bool {\bfseries is\+\_\+simulation} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSensorTimer_a36233c0d18fe087bbfcf3a37bdf6dcec}\label{classSensorTimer_a36233c0d18fe087bbfcf3a37bdf6dcec}} 
+\index{SensorTimer@{SensorTimer}!analyzeBeatsForSleep@{analyzeBeatsForSleep}}
+\index{analyzeBeatsForSleep@{analyzeBeatsForSleep}!SensorTimer@{SensorTimer}}
+\doxysubsubsection{\texorpdfstring{analyzeBeatsForSleep()}{analyzeBeatsForSleep()}}
+{\footnotesize\ttfamily bool Sensor\+Timer\+::analyze\+Beats\+For\+Sleep (\begin{DoxyParamCaption}\item[{int}]{bpm }\end{DoxyParamCaption})}
+
+Function to analyze sleep based on beats per minute. \mbox{\Hypertarget{classSensorTimer_a2b87e348b476be96d88ee70be98bef11}\label{classSensorTimer_a2b87e348b476be96d88ee70be98bef11}} 
+\index{SensorTimer@{SensorTimer}!setCallback@{setCallback}}
+\index{setCallback@{setCallback}!SensorTimer@{SensorTimer}}
+\doxysubsubsection{\texorpdfstring{setCallback()}{setCallback()}}
+{\footnotesize\ttfamily void Sensor\+Timer\+::set\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSensorCallback}{Sensor\+Callback}} $\ast$}]{cb }\end{DoxyParamCaption})}
+
+Sets the callback which is called whenever there is a sample \mbox{\Hypertarget{classSensorTimer_a6d15ff3f37f39e6baa43cf22a48263f2}\label{classSensorTimer_a6d15ff3f37f39e6baa43cf22a48263f2}} 
+\index{SensorTimer@{SensorTimer}!timerEvent@{timerEvent}}
+\index{timerEvent@{timerEvent}!SensorTimer@{SensorTimer}}
+\doxysubsubsection{\texorpdfstring{timerEvent()}{timerEvent()}}
+{\footnotesize\ttfamily void Sensor\+Timer\+::timer\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Abstract function which needs to be implemented by the children. This is called every time the timer fires. 
+
+Implements \mbox{\hyperlink{classCppTimer_ac2665403595b6aee5f581d0ebfeb886c}{Cpp\+Timer}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSensorTimer_a4d29fdf6804a4777668d957a8333f9c6}\label{classSensorTimer_a4d29fdf6804a4777668d957a8333f9c6}} 
+\index{SensorTimer@{SensorTimer}!nightTime@{nightTime}}
+\index{nightTime@{nightTime}!SensorTimer@{SensorTimer}}
+\doxysubsubsection{\texorpdfstring{nightTime}{nightTime}}
+{\footnotesize\ttfamily time\+\_\+t Sensor\+Timer\+::night\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+Variables to analyze sleep in sleep detection 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pulse\+Sensor.\+h\end{DoxyCompactItemize}
