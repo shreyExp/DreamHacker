@@ -97,27 +97,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="col-md-6">
       <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Just The Two Of Us" checked>
-          <label class="form-check-label" for="exampleRadios2">
+          <input class="form-check-input" type="radio" name="song"  value="Just The Two Of Us" checked>
+          <label class="form-check-label">
           Just The Two Of Us <br>
           <audio controls> <source src="audio/Just The Two Of Us.mp3" type="audio/mp3"></audio>
           </label>
-          <br>
-          <small id="passwordHelpBlock" class="form-text text-muted"> Descirbe what this song does</small>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Sunny" checked>
+          <input class="form-check-input" type="radio" name="song" value="Sunny" checked>
           <label class="form-check-label" for="exampleRadios2">
           Sunny <br>
           <audio controls> <source src="audio/Sunny.mp3" type="audio/mp3"></audio>
           </label>
-          <br>
-          <small id="passwordHelpBlock" class="form-text text-muted"> Descirbe what this song does</small>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Sunday Vibes" checked>
+          <input class="form-check-input" type="radio" name="song" value="Sunday Vibes" checked>
           <label class="form-check-label" for="exampleRadios2">
           Sunday Vibes <br>
           <audio controls> <source src="audio/Sunday Vibes.mp3" type="audio/mp3"></audio>
@@ -125,10 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="song" value="Sleep Music" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          Sleep Music <br>
+          <audio controls> <source src="audio/Sleep Music.mp3" type="audio/mp3"></audio>
           </label>
         </div>
         <!-- Music Choice -->
@@ -136,34 +132,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="col-md-6">
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="song" value="Viento Estelar" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          Viento Estelar <br>
+          <audio controls> <source src="audio/Viento Estelar.mp3" type="audio/mp3"></audio>
           </label>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="song" value="In My Time" checked>
           <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          In My Time <br>
+          <audio controls> <source src="audio/In My Time.mp3" type="audio/mp3"></audio>
           </label>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          <input class="form-check-input" type="radio" name="song" value="Fracture" checked>
+          <label class="form-check-label">
+          Fracture <br>
+          <audio controls> <source src="audio/Fracture.mp3" type="audio/mp3"></audio>
           </label>
         </div>
         <!-- Music Choice -->
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios2">
-          Music Name <br>
-          <audio controls> <source src="audio/Just_The_Two_Of_Us.mp3" type="audio/mp3"></audio>
+          <input class="form-check-input" type="radio" name="song" value="Sunset at the Veranda" checked>
+          <label class="form-check-label">
+          Sunset at the Veranda <br>
+          <audio controls> <source src="audio/Sunset at the Veranda.mp3" type="audio/mp3"></audio>
           </label>
         </div>
       </div>
