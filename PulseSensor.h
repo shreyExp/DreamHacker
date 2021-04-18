@@ -14,7 +14,7 @@ public:
 	/**
 	 * Called after a sample has arrived.
 	 **/
-	virtual void hasSample(int beats, bool mayBeSleep) = 0;
+	virtual void hasSample(int beats, bool mayBeSleep, int bpmThreshold) = 0;
 };
 
 
@@ -176,7 +176,7 @@ void SensorTimer::timerEvent() {
 			"Sleep is: %d, Audio_On: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing);
 	fflush(stdout);
   if (nullptr != sensorCallback) {
-      sensorCallback->hasSample(BPM, sleep);
+      sensorCallback->hasSample(BPM, sleep, bpmThreshold);
   }
 	fflush(stdout);
 }

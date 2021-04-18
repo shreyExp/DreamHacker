@@ -28,6 +28,7 @@ class SENSORfastcgicallback : public SensorCallback {
 public:
   int beatsPerMinute;
   bool sleep;
+  int threshold
   long t;
 
   /**
@@ -35,9 +36,10 @@ public:
    * That's where all the internal processing
    * of the data is happening.
    **/
-  virtual void hasSample(int beats, bool mayBeSleep) {
+  virtual void hasSample(int beats, bool mayBeSleep, int bpmThreshold) {
     sleep = mayBeSleep;
     beatsPerMinute = beats;
+    threshold = bpmThreshold
     t = time(NULL);
   }
 
@@ -80,6 +82,7 @@ public:
         jsonGenerator.add("epoch", (long)time(NULL));
         jsonGenerator.add("beats", sensorfastcgi->beatsPerMinute);
         jsonGenerator.add("sleep", sensorfastcgi->sleep);
+        jsonGenerator.add("bpmThreshold", sensorfastcgi->threshold);
         return jsonGenerator.getJSON();
     }
 };
