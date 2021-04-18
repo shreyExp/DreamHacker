@@ -105,6 +105,22 @@ function updateChart() {
              </div>
         </div>
     </div>
+    <?php
+    $y=0;
+    if ($y == ($results->data)){
+        echo'
+            <div class="app-container">
+                <div class="row">
+                    <h1>No results found</h1>
+                </div>
+              <hr>
+            </div>';
+    } 
+                else {
+    for ($p = 0; $p < count($results->data); $p++): ?>
+<?php
+    $record = $results->data[$p];
+?>
     <div class="container">
         <div class = "row">
            <h3><span id="beats">00</span> beats per minute</h3>
@@ -124,6 +140,9 @@ function updateChart() {
             </div>
         </div>
     </div>
+    <?php endfor; }?>
+    <br />
+    <br />
 
     <script type="text/javascript">
       // max samples for dygraph
