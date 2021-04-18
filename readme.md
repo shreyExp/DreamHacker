@@ -1,12 +1,16 @@
-<h2 align="center">DreamHacker</h2> 
+<h1 align="center">Dream Hacker</h1> 
+<br />
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
     <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.jpeg" alt="Logo" width="100%" height="auto">
   </a>
-  <p align="center">
-    Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
+   <br />
+   <br />
+  <p align="left">
+    Dream Hacker is program designed to help you sleep better. Based on numerous research on music and the effects it has on sleep our projects monitors our users heart rate and plays music. Once Dream Hacker detects the user is has entered REM sleep, when people are most susceptible to external stimuli, it will play calming music.
     <br />
 </div>
+
 
 
 
