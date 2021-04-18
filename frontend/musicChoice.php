@@ -1,5 +1,5 @@
 <?php
-    define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
+    define("ROOTPATH", '/var/www/html/DreamHack/frontend');
     include ROOTPATH . '/database/db.php';
     require ROOTPATH . '/functions/paginator.php';
     session_start();

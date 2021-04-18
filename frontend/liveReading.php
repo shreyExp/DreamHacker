@@ -1,19 +1,19 @@
 <?php
-    define("ROOTPATH", '/var/www/html/dreamHacker/frontend');
+    define("ROOTPATH", '/var/www/html/DreamHack/frontend');
     include ROOTPATH . '/database/db.php';
     require ROOTPATH . '/functions/paginator.php';
     session_start();
 
-    //$conn = mysqli_connect($host, $user, $pass, $db);
-    //$query = "SELECT * FROM audio";
+    $conn = mysqli_connect($host, $user, $pass, $db);
+    $query = "SELECT * FROM audio";
 
     //these variables are passed via URL
     $limit = ( isset( $_GET['limit'])) ? $_GET['limit'] : 1; // items per page
     $page = (isset ($_GET['page'])) ? $_GET['page'] : 1; //starting page
     $links = 10;
 
-    //$paginator = new Paginator ( $mysqli, $query); //__constructor is called
-    //$results = $paginator->getData( $limit, $page);
+    $paginator = new Paginator ( $mysqli, $query); //__constructor is called
+    $results = $paginator->getData( $limit, $page);
 
 
     $dataPoints = array();
@@ -151,12 +151,12 @@ function updateChart() {
       var serverPath = "/sensor/:80";
       
       // callback when the Web page has been loaded
-      $(document).ready(function() {
+      jQuery(document).ready(function() {
           var data = [];
           var g = new Dygraph(document.getElementById("div_g"), data,
                   {
                       drawPoints: true,
-                      labels: ['Time', 'BPM'],
+                      labels: ['Time', 'BPM', 'Threshhold'],
                   });
           
           window.intervalId = setInterval(function() {

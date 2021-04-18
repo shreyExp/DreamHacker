@@ -1,5 +1,5 @@
 <?php
-    define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
+   define("ROOTPATH", '/var/www/html/DreamHack/frontend');
     //include ROOTPATH . '/database/db.php';
     session_start();
 ?>
