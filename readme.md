@@ -1,7 +1,7 @@
 <h2 align="center">DreamHacker</h2> 
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
-    <img src="Images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
+    <img src="images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
   </a>
   <p align="center">
     Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
@@ -61,7 +61,7 @@ The information will include bpm (beats per minute), ecg graph which will be rec
 
 [![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)](https://github.com/shreyExp/DreamHacker/network/contributors)
 [![Stars](https://img.shields.io/badge/Stars-2-green)](https://github.com/shreyExp/DreamHacker/stargazers)
-[![Issues](https://img.shields.io/github/issues-raw/praveen1992/DreamHacker)](https://github.com/shreyExp/DreamHacker/issues)
+[![Issues](https://img.shields.io/github/issues-raw/shreyExp/DreamHacker)](https://github.com/shreyExp/DreamHacker/issues)
 [![License](https://img.shields.io/github/license/shreyExp/DreamHacker)](https://github.com/shreyExp/DreamHacker/blob/master/LICENSE)
 
 <br />
