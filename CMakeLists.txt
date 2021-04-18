@@ -31,6 +31,6 @@ add_executable(main
 )
 
 target_link_libraries(main
-  Qt5::Widgets Qt5::PrintSupport Threads::Threads cpptimer ${QCustomPlot_LIBRARIES} ${wiringPi_LIB  fcgi rt ${CMAKE_THREAD_LIBS_INIT} curl}
+  Qt5::Widgets Qt5::PrintSupport Threads::Threads cpptimer ${QCustomPlot_LIBRARIES} ${wiringPi_LIB}  fcgi rt ${CMAKE_THREAD_LIBS_INIT} curl
   )
 
