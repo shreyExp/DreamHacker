@@ -50,6 +50,7 @@ class SensorTimer : public CppTimer {
 		time_t surelySleptTime = 2;
 		bool sleep;
 		time_t startOfProspectiveSleep; 
+		int countdown = 0;
 		bool is_audio_playing = 0; 
 		bool play_audio_locally = 1;
 		pid_t audio_pid;
@@ -172,8 +173,9 @@ void SensorTimer::timerEvent() {
 		beatsPerMinuteSimulation();
 	sleep = analyzeBeatsForSleep(BPM);
 	audioprocess();
+	//Main print message
 	printf("BPM Threshold is: %d, BPM is: %d, Maybe he is asleep: %d, "
-			"Sleep is: %d, Audio_On: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing);
+			"Sleep is: %d, Audio_On: %d, Countdown: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing, countdown);
 	fflush(stdout);
   if (nullptr != sensorCallback) {
       sensorCallback->hasSample(BPM, sleep);
@@ -236,6 +238,9 @@ void SensorTimer::initPulseSensorVariables(void){
     call_time_period = 2000; //in microseconds 2 milli s
 }
 
+/**
+ * <a href="https://github.com/WorldFamousElectronics/Raspberry_Pi">This function is taken from the hardware vendor's github repo.</a>
+ **/
 void SensorTimer::getPulse(void){
 
         thisTime = micros();
@@ -360,6 +365,7 @@ bool SensorTimer::analyzeBeatsForSleep(int bpm)
         }
         if (bpm < bpmThreshold && maybeSleep == 1) {
             maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+	    countdown = surelySleptTime - maybeSleepTime;
             if (maybeSleepTime > surelySleptTime) {
                 sleep_local = 1;
             }
