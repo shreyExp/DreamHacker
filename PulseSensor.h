@@ -104,7 +104,7 @@ void SensorTimer::setNigtTimeToNow(){
 	wakeTime = nightTime + 60*60*8;
 }
 void SensorTimer::setPeriodOfSimulatedWave(int period){
-	period_of_simulation = period; //1 minute duration
+	period_of_simulation = period;
 }
 
 void SensorTimer::stopNew(){
@@ -204,17 +204,15 @@ void SensorTimer::beatsPerMinuteSimulation(){
 		sim_bpm = -1 * (int)(slope*t) + end_bpm;
 	}
 	BPM = sim_bpm;
-
-	
-
-
 }
 
+/**
+ * <a href="https://github.com/WorldFamousElectronics/Raspberry_Pi">This function is taken from the hardware vendor's github repo.</a>
+ **/
 void SensorTimer::initPulseSensorVariables(void){
 	
     wiringPiSetup(); //use the wiringPi pin numbers
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
 
     for (int i = 0; i < 10; ++i) {
@@ -253,7 +251,6 @@ void SensorTimer::getPulse(void){
 	  sampleCounter += 2;         // keep track of the time in mS with this variable
 	  int N = sampleCounter - lastBeatTime;      // monitor the time since the last beat to avoid noise
 	
-	// FADE LED HERE, IF WE COULD FADE...
 	
 	  //  find the peak and trough of the pulse wave
 	  if (Signal < thresh && N > (IBI / 5) * 3) { // avoid dichrotic noise by waiting 3/5 of last IBI
