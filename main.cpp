@@ -88,7 +88,7 @@ volatile int g_running = 1;
 
 void signalHandler(int signum){
 	g_running = 0;
-	printf("Program Terminated\n");
+	printf("\n\n\nProgram Terminated\n\n\n");
 }
 
 
