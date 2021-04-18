@@ -1,19 +1,19 @@
 <?php
-    define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
+    define("ROOTPATH", '/var/www/html/dreamHacker/frontend');
     include ROOTPATH . '/database/db.php';
     require ROOTPATH . '/functions/paginator.php';
     session_start();
 
-    $conn = mysqli_connect($host, $user, $pass, $db);
-    $query = "SELECT * FROM audio";
+    //$conn = mysqli_connect($host, $user, $pass, $db);
+    //$query = "SELECT * FROM audio";
 
     //these variables are passed via URL
     $limit = ( isset( $_GET['limit'])) ? $_GET['limit'] : 1; // items per page
     $page = (isset ($_GET['page'])) ? $_GET['page'] : 1; //starting page
     $links = 10;
 
-    $paginator = new Paginator ( $mysqli, $query); //__constructor is called
-    $results = $paginator->getData( $limit, $page);
+    //$paginator = new Paginator ( $mysqli, $query); //__constructor is called
+    //$results = $paginator->getData( $limit, $page);
 
 
     $dataPoints = array();
@@ -43,7 +43,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">       
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
 
 <script>
 window.onload = function() {
@@ -134,6 +137,48 @@ function updateChart() {
     </div>
     <?php endfor; }?>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <h3><span id="beats">00</span> degree celsius</h3>
+
+    <div id="div_g" style="width:600px; height:300px;"></div>
+
+    <script type="text/javascript">
+      // max samples for dygraph
+      var maxSamples = 60;
+
+      // relative path to the sensor data for get/post:
+      var serverPath = "/sensor/:80";
+      
+      // callback when the Web page has been loaded
+      $(document).ready(function() {
+          var data = [];
+          var g = new Dygraph(document.getElementById("div_g"), data,
+                  {
+                      drawPoints: true,
+                      labels: ['Time', 'BPM'],
+                  });
+          
+          window.intervalId = setInterval(function() {
+          // callback for interval timer for every second
+          $.getJSON(serverPath,function(result){
+              // callback after the php script has been called
+              var utcSeconds = result.epoch;
+              var d = new Date(0);
+              d.setUTCSeconds(utcSeconds);
+              var x = d;
+              var y = result.beats;
+              var threshHold = result.threshHold
+              document.getElementById("beats").innerHTML = Math.round(y * 100) / 100;
+              if (data.length > maxSamples) {
+              data.shift();
+              }
+              data.push([x, y, threshHold]);
+              g.updateOptions( { 'file': data } );
+          });
+          }, 1000);
+      });
+    </script>
 </body>
 
 </html>
