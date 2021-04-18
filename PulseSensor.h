@@ -55,8 +55,10 @@ class SensorTimer : public CppTimer {
 		pid_t audio_pid;
 		char audio_name[500];
 		bool is_simulation = 0;
+		bool simulation_started = 0;
+		time_t period_of_simulation = 60*1; //1 minute duration
 	public:
-		SensorTimer(int);
+		SensorTimer(int, bool, bool);
 		void setCallback(SensorCallback* cb);
 		void timerEvent(); 
 		void initPulseSensorVariables(void);
@@ -68,12 +70,19 @@ class SensorTimer : public CppTimer {
 		void kill_the_pid(pid_t x);
 		void beatsPerMinuteSimulation();
 		time_t start_of_simulation;
-		bool simulation_started = 0;
+		void setPeriodOfSimulatedWave(int);
+		// new funcs
+		void setSurelySleptTime(int);
+		void setNigtTimeToNow();
+   		void stopNew();
 };
 
-SensorTimer::SensorTimer(int mode){
-	if(mode > 0)
-		is_simulation = 1;
+SensorTimer::SensorTimer(int l_bpmThreshold, bool l_simulation, bool l_local_audio ){
+
+	is_simulation = l_simulation;
+	bpmThreshold = l_bpmThreshold;
+	play_audio_locally = l_local_audio;
+
 	initPulseSensorVariables();
 	initializeVariablesForSleep();
     	FILE *fptr;
@@ -86,9 +95,25 @@ SensorTimer::SensorTimer(int mode){
     	      play_audio_locally = 1;
     	}
 }
+void SensorTimer::setSurelySleptTime(int t){
+	surelySleptTime = t;
+}
+void SensorTimer::setNigtTimeToNow(){
+	nightTime = time(NULL) - 60;
+	wakeTime = nightTime + 60*60*8;
+}
+void SensorTimer::setPeriodOfSimulatedWave(int period){
+	period_of_simulation = period; //1 minute duration
+}
+
+void SensorTimer::stopNew(){
+	stop();
+}
+
 void SensorTimer::audioprocess(){
 	if(sleep == 1 && is_audio_playing == 0 && play_audio_locally){
-		  printf("Sleep is positive. Playing Audio.\n");
+		  is_audio_playing = 1;
+		  printf("\n\n\nSleep is positive. Playing Audio.\n\n\n");
 	          audio_pid = play_audio(audio_name);
 	          /*
 	           * If child process then the audio is already ended, pid must kill itself safely
@@ -100,7 +125,7 @@ void SensorTimer::audioprocess(){
 	      	 * If parent process then continue and put the is_audio_playing flag to be true
 	      	 */
 	          	is_audio_playing = 1;
-			printf("Audio pid is %d\n", audio_pid);
+			printf("\n\n\nAudio pid is %d\n\n\n", audio_pid);
 	          }
 	}
 	else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally){
@@ -108,7 +133,7 @@ void SensorTimer::audioprocess(){
 	           * When the person wakes up again kill the pid which runs the audio
 	           */
 	          if(audio_pid > 0){
-			printf("Kill Reached Here\n");
+			printf("\n\n\n Killing the Audio as maybe the person has woken up\n\n\n");
 	          	kill_the_pid(audio_pid);
 	          	is_audio_playing = 0;
 	          }
@@ -119,7 +144,6 @@ pid_t SensorTimer::play_audio(char* audio_name){
 	if(0 == (audio_pid_local = fork())){
 		//child process
 		//printf("reached here\n");
-		printf("Reached Here pid is %d\n", audio_pid_local);
 		execlp("mpg123", "mpg123", "-q", audio_name, 0);
 		is_audio_playing = 1;
 	}
@@ -128,7 +152,7 @@ pid_t SensorTimer::play_audio(char* audio_name){
 }
 
 void SensorTimer::kill_the_pid(pid_t x){
-	char kil[100] = "kill -9 ";
+	//char kil[100] = "kill -9 ";
 	//sprintf(kil,"%s%d",kil, x);
 	//system(kil);
 	kill(x,SIGINT);
@@ -147,11 +171,10 @@ void SensorTimer::timerEvent() {
 	if(is_simulation)
 		beatsPerMinuteSimulation();
 	sleep = analyzeBeatsForSleep(BPM);
-	if(sleep)
-		printf("sleep is %d\n", sleep);
 	audioprocess();
-	//printf("BPM is: %d\n", BPM);
-	//printf("Sleep is: %d\n", sleep);
+	printf("BPM Threshold is: %d, BPM is: %d, Maybe he is asleep: %d, "
+			"Sleep is: %d, Audio_On: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing);
+	fflush(stdout);
   if (nullptr != sensorCallback) {
       sensorCallback->hasSample(BPM, sleep);
   }
@@ -165,17 +188,17 @@ void SensorTimer::beatsPerMinuteSimulation(){
 	}
 	int begin_bpm = 80;
 	int end_bpm = 60;
-	time_t durationOfSimulation = 60*1; //5 minute duration
-	float slope = (float)(end_bpm - begin_bpm)/(float)(durationOfSimulation/2);
-	int t = time(NULL) - start_of_simulation;
+	//time_t period_of_simulation = 60*1; //5 minute duration
+	float slope = (float)(end_bpm - begin_bpm)/(float)(period_of_simulation/2);
+	int t = (time(NULL) - start_of_simulation)%period_of_simulation;
 	//Downwards
 	int sim_bpm = begin_bpm;
 	//printf("slope is %f\n",slope);
-	if(t < durationOfSimulation/2)
+	if(t < period_of_simulation/2)
 		sim_bpm = (int)(slope*t) + begin_bpm;
 	//Upwards
-	else if(t >= durationOfSimulation/2 && t <= durationOfSimulation){
-		t = t - (durationOfSimulation/2);
+	else if(t >= period_of_simulation/2 && t <= period_of_simulation){
+		t = t - (period_of_simulation/2);
 		sim_bpm = -1 * (int)(slope*t) + end_bpm;
 	}
 	BPM = sim_bpm;
@@ -318,22 +341,20 @@ void SensorTimer::initializeVariablesForSleep(void){
 /**
 * Function to analyze sleep based on beats
 * per minute.
+* if BPM is below a certain threshold
+* mayBeSleep should be on
+* if mayBeSleep is on for a while
+* then return 1;
 **/
 bool SensorTimer::analyzeBeatsForSleep(int bpm)
 {
     bool sleep_local = 0;
     time_t maybeSleepTime;
-    /*
-  * if BPM is below a certain threshold
-  * mayBeSleep should be on
-  * if mayBeSleep is on for a while
-  * then return 1;
-  */
     time_t now = time(NULL);
     //printf("BPM is %d, now is %d, nightTime is %d wakeTime is %d\n", BPM, now, nightTime, wakeTime);
     if (now > nightTime && now < wakeTime) {
         if (bpm < bpmThreshold && maybeSleep == 0) {
-	    printf("maybesleep Happened\n");
+	    printf("\n\n\nmaybesleep Positive\n\n\n");
             startOfProspectiveSleep = time(NULL);
             maybeSleep = 1;
         }
@@ -350,8 +371,6 @@ bool SensorTimer::analyzeBeatsForSleep(int bpm)
     else {
         sleep_local = 0;
     }
-//    if(bpm < 77)
-//	    sleep_local = 1;
     return sleep_local;
 }
 
