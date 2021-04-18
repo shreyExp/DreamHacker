@@ -95,7 +95,7 @@ function updateChart() {
 </head>
 <body>
     <div class="container">
-        <div class = "row">`
+        <div class = "row">
             <div class = "col-md-11">
                 <h3>Live Reading</h3>
                 <hr>
@@ -139,9 +139,39 @@ function updateChart() {
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
-    <h3><span id="beats">00</span> degree celsius</h3>
+    <br />
+    <br />
 
-    <div id="div_g" style="width:600px; height:300px;"></div>
+
+    <div class="container">
+        <div class = "row">
+            <div class = "col-md-11">
+                <h3>Live Reading</h3>
+                <hr>
+            </div>
+            <div class = "col-md-1">
+            <a href='index.php'><p class="backButton w3-hover-red">Back<p></a>
+             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="conatiner">
+            <div class = "row">
+                <div class = "col-md-8 vl">
+                    <div id="div_g" style="height: 370px; width: 100%;"></div>
+                </div>
+                <div class = "col-md-4" align=center>
+                    <h4><strong>Song Choosen</strong></h4>
+                    <p id='song'><?= $record['song'] ?></p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3><span id="beats">00</span> beats per minute</h3>
+
+    <div id="div_g" style="height: 370px; width: 100%;"></div>
 
     <script type="text/javascript">
       // max samples for dygraph
@@ -157,6 +187,15 @@ function updateChart() {
                   {
                       drawPoints: true,
                       labels: ['Time', 'BPM', 'Threshhold'],
+                      legend: 'always',
+                      title: 'Live Beats per minute monitor',
+                      ylabel: 'Beats (BPM)',
+                      xlabel: 'Time (Seconds)',
+                      labelsDivStyles: {
+                        'text-align': 'right',
+                        'background': 'none'
+                      },
+                      strokeWidth: 2
                   });
           
           window.intervalId = setInterval(function() {
@@ -179,6 +218,10 @@ function updateChart() {
           }, 1000);
       });
     </script>
+    <br />
+    <br />
+    <br />
+    <br />
 </body>
 
 </html>
