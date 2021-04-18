@@ -91,14 +91,63 @@ void signalHandler(int signum){
 	printf("\n\n\nProgram Terminated\n\n\n");
 }
 
-
+void usage(void){
+	printf("\nUsage:\n"
+		"-t [int] to put bpm threshold\n"
+		"-g [bool, 0 or 1] ecg plot in qtplot. Default: 1\n"
+		"-l [bool, 0 or 1] 1 to play audio locally. Default: 1\n"
+		"-s [bool, 0 or 1] 1 for simulated bpm. Default: 0\n");
+}
 
 
 int main(int argc, char *argv[])
 {
 	int mode = 0;
+	int threshold = 77;
+	bool graph = 1;
+	bool simulation = 0;
+	bool local_audio = 1;
+	char key;
+	char* value;
 	if(argc > 1){
-		mode = atoi(argv[1]);
+		//mode = atoi(argv[1]);
+		for(int i = 1; i < argc; i++){
+			if(argv[i][0] == '-'){
+				key = argv[i][1];
+				value = argv[i + 1];
+				switch(key){
+                                case 't':
+                                        threshold = atoi(value);
+					i +=1;
+                                        break;
+                                case 'g':
+                                        graph = atoi(value);
+					i +=1;
+                                        break;
+                                case 's':
+                                        simulation = atoi(value);
+					i +=1;
+                                        break;
+                                case 'l':
+                                        local_audio = atoi(value);
+					i +=1;
+                                        break;
+                                case 'h':
+					i +=1;
+					usage();
+					exit(0);
+                                        break;
+                                default:
+					printf("Wrong Parameters passed\n\n");
+					usage();
+					exit(0);
+                        	}
+
+			}else{
+				usage();
+				exit(0);
+			}
+		}
 	}
 	signal(SIGINT, signalHandler);
 	/**
@@ -106,7 +155,7 @@ int main(int argc, char *argv[])
 	 * It reads the analog data from pulse sensor and calculates BPM.
 	 * BPM is used for other analysis.
 	 **/
-	SensorTimer pulseMe(mode);
+	SensorTimer pulseMe(threshold, simulation, local_audio);
   SENSORfastcgicallback sensorfastcgicallback;
   pulseMe.setCallback(&sensorfastcgicallback);
 
@@ -133,8 +182,10 @@ int main(int argc, char *argv[])
 	 **/
    	QApplication a(argc, argv);
    	SenseWindow w;
-   	w.showMaximized();
-   	a.exec();
+	if(graph){
+   		w.showMaximized();
+   		a.exec();
+	}
 
 	/**
 	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on

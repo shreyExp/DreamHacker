@@ -56,7 +56,7 @@ class SensorTimer : public CppTimer {
 		char audio_name[500];
 		bool is_simulation = 0;
 	public:
-		SensorTimer(int);
+		SensorTimer(int, bool, bool);
 		void setCallback(SensorCallback* cb);
 		void timerEvent(); 
 		void initPulseSensorVariables(void);
@@ -71,9 +71,12 @@ class SensorTimer : public CppTimer {
 		bool simulation_started = 0;
 };
 
-SensorTimer::SensorTimer(int mode){
-	if(mode > 0)
-		is_simulation = 1;
+SensorTimer::SensorTimer(int l_bpmThreshold, bool l_simulation, bool l_local_audio ){
+
+	is_simulation = l_simulation;
+	bpmThreshold = l_bpmThreshold;
+	play_audio_locally = l_local_audio;
+
 	initPulseSensorVariables();
 	initializeVariablesForSleep();
     	FILE *fptr;
