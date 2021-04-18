@@ -1,0 +1,139 @@
+\doxysubsection*{Dream\+Hacker}
+
+ \href{https://github.com/praveen1992/DreamHacker/}{\texttt{  }} 
+
+ Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. ~\newline
+ 
+
+This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept. Then after a while start the audio stimulus.
+
+\doxysubsection*{Social Media}
+
+\href{https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ}{\texttt{ You\+Tube}}
+
+\href{https://www.facebook.com/Dream-Hacker-103619898510175}{\texttt{ Facebook}}
+
+\href{https://www.instagram.com/proj_dreamhacker/}{\texttt{ Instagram}}
+
+$<$details open=\char`\"{}open\char`\"{}$>$ \doxysubsection*{Contents}
+
+
+\begin{DoxyEnumerate}
+\item \href{\#about}{\texttt{ About}} 
+\begin{DoxyItemize}
+\item \href{\#hardware}{\texttt{ Hardware}} 
+\item \href{\#software}{\texttt{ Software}} 
+\item \href{\#roadmap}{\texttt{ Roadmap}} 
+\end{DoxyItemize}
+\item \href{\#getting-started}{\texttt{ Getting Started}} 
+\begin{DoxyItemize}
+\item \href{\#prerequisites}{\texttt{ Prerequisites}} 
+\item \href{\#installation}{\texttt{ Installation}} 
+\item \href{\#usage}{\texttt{ Usage}} 
+\end{DoxyItemize}
+\item \href{\#contributing}{\texttt{ Contributing}} 
+\item \href{\#license}{\texttt{ License}} 
+\item \href{\#contact}{\texttt{ Contact}} 
+\end{DoxyEnumerate}$<$/details$>$
+
+\doxysubsection*{About}
+
+Dream\+Hacker is a flexible tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+
+Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+
+
+
+\href{https://github.com/shreyExp/DreamHacker/network/contributors}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/stargazers}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/issues}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/blob/master/LICENSE}{\texttt{ }}
+
+~\newline
+ 
+
+If you have any questions about Dream\+Hacker or want to share some information with us, please go to one of the following places\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/shreyExp/DreamHacker/wiki}{\texttt{ Wiki}}
+\item \href{https://www.facebook.com/Dream-Hacker-103619898510175}{\texttt{ Face\+Book}}.
+\item \href{mailto:2620969T@student.gla.ac.uk}{\texttt{ Mail}}.
+\end{DoxyItemize}
+
+Before you file an issue, make sure you have read the {\itshape \href{\#issues}{\texttt{ known issues}}}.
+
+\doxysubsubsection*{Hardware}
+
+
+\begin{DoxyItemize}
+\item \href{https://www.raspberrypi.org/products/raspberry-pi-4-model-b/}{\texttt{ Raspberry pi}}
+\item Pulse Sensor
+\item Wires
+\item Speakers
+\item Breadboard
+\end{DoxyItemize}
+
+\doxysubsubsection*{Software}
+
+\mbox{[}Documentation\mbox{]}
+
+\doxysubsubsection*{Roadmap}
+
+\mbox{[}-\/\mbox{]} Next Software Release (v2.\+0) -\/ ML of sleep detection using Python and ML algo
+\begin{DoxyItemize}
+\item \mbox{[}-\/\mbox{]} User input integrated
+\item \mbox{[}-\/\mbox{]} User sleep timings integrated
+\item \mbox{[}-\/\mbox{]} Social Media Presence improvement
+\item \mbox{[}-\/\mbox{]} Pulse sensor improvements
+\item \mbox{[}-\/\mbox{]} Web-\/\+Server Improvments
+\item \mbox{[}-\/\mbox{]} Gather Training Dataset
+\item \mbox{[}-\/\mbox{]} Train sleep detection
+\item \mbox{[}-\/\mbox{]} Test on real samples
+\end{DoxyItemize}
+
+\doxysubsection*{Getting Started}
+
+\doxysubsubsection*{Prerequisites}
+
+
+\begin{DoxyEnumerate}
+\item Clone the repository
+\end{DoxyEnumerate}
+
+\doxysubsubsection*{Installation}
+
+Hardware 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/ Set up the circuit as shown in the diagram.}
+\DoxyCodeLine{-\/ Put a speaker with it's audio jack in the audio output of the raspberry pi.}
+
+\end{DoxyCode}
+
+
+Software 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.}
+\DoxyCodeLine{2. Clone the repository somewhere in the Raspberry Pi.}
+\DoxyCodeLine{3. Run the following commands from inside the repository }
+\DoxyCodeLine{ -\/ `cmake .` }
+\DoxyCodeLine{ -\/ `make`}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection*{Usage}
+
+
+\begin{DoxyItemize}
+\item Put your audio files inside the directory Audio/.
+\item Edit the audio.\+txt file with the name of the audio you want to play when the sleep starts. For example if you want to play {\ttfamily my\+\_\+file.\+mp3} present in the Audio/ directory then write {\ttfamily Audio/my\+\_\+file.\+mp3}. Make sure that the file has just one line.
+\item If you want to run a simulation to test out the setup run the main function with 1 as the argument. {\ttfamily ./main 1}. If you want to run the full program just run {\ttfamily ./main}
+\end{DoxyItemize}
+
+\doxysubsection*{Contributing}
+
+See {\ttfamily CONTRIBUTING} for more information.
+
+\doxysubsection*{License}
+
+Distributed under the GPL-\/3.\+0 License. See {\ttfamily LICENSE} for more information.
+
+\doxysubsection*{Contact}

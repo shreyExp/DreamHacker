@@ -1,0 +1,38 @@
+\hypertarget{classSensorCallback}{}\doxysection{Sensor\+Callback Class Reference}
+\label{classSensorCallback}\index{SensorCallback@{SensorCallback}}
+
+
+{\ttfamily \#include $<$Pulse\+Sensor.\+h$>$}
+
+Inheritance diagram for Sensor\+Callback\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSensorCallback}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSensorCallback_ac8bc6b4797f2e2b1d9612e1e1f834fbd}{has\+Sample}} (int beats, bool may\+Be\+Sleep)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Callback for new samples which needs to be implemented by the main program. The function has\+Sample needs to be overloaded in the main program. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSensorCallback_ac8bc6b4797f2e2b1d9612e1e1f834fbd}\label{classSensorCallback_ac8bc6b4797f2e2b1d9612e1e1f834fbd}} 
+\index{SensorCallback@{SensorCallback}!hasSample@{hasSample}}
+\index{hasSample@{hasSample}!SensorCallback@{SensorCallback}}
+\doxysubsubsection{\texorpdfstring{hasSample()}{hasSample()}}
+{\footnotesize\ttfamily virtual void Sensor\+Callback\+::has\+Sample (\begin{DoxyParamCaption}\item[{int}]{beats,  }\item[{bool}]{may\+Be\+Sleep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Called after a sample has arrived. 
+
+Implemented in \mbox{\hyperlink{classSENSORfastcgicallback_a476a062cbf6a85f508f8ee64c3421f77}{SENSORfastcgicallback}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pulse\+Sensor.\+h\end{DoxyCompactItemize}

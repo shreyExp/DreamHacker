@@ -1,0 +1,115 @@
+\hypertarget{classJSONCGIHandler_1_1JSONGenerator}{}\doxysection{JSONCGIHandler\+::JSONGenerator Class Reference}
+\label{classJSONCGIHandler_1_1JSONGenerator}\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+
+
+{\ttfamily \#include $<$json\+\_\+fastcgi\+\_\+web\+\_\+api.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_a191efd00967cbace0d9ddfedea39cd9b}{add}} (std\+::string key, std\+::string value)
+\item 
+void \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_aa25099deb2442335298ab1c021f36910}{add}} (std\+::string key, double value)
+\item 
+void \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_a2192849b22341653a138bb63da6c6c9a}{add}} (std\+::string key, float value)
+\item 
+void \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_afc3e9374b0e49ca1f701bd22bbd4cd92}{add}} (std\+::string key, long value)
+\item 
+void \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_a87fe5c75b46f9822255535a61f15ad4b}{add}} (std\+::string key, int value)
+\item 
+std\+::string \mbox{\hyperlink{classJSONCGIHandler_1_1JSONGenerator_afec28cd80e562955e2cd8cdb92d86205}{get\+JSON}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_a5a9fd42e7b9030c6a0a4bee923a2e416}\label{classJSONCGIHandler_1_1JSONGenerator_a5a9fd42e7b9030c6a0a4bee923a2e416}} 
+std\+::string {\bfseries json} = \char`\"{}\{\char`\"{}
+\item 
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_a9d14c80af92fa9f3a3406d826acd2cc0}\label{classJSONCGIHandler_1_1JSONGenerator_a9d14c80af92fa9f3a3406d826acd2cc0}} 
+int {\bfseries first\+Entry} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple helper function to create a key/value json pairs for the callback function. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_aa25099deb2442335298ab1c021f36910}\label{classJSONCGIHandler_1_1JSONGenerator_aa25099deb2442335298ab1c021f36910}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!add@{add}}
+\index{add@{add}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily void JSONCGIHandler\+::\+JSONGenerator\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a JSON entry\+: double 
+\begin{DoxyParams}{Parameters}
+{\em key} & The JSON key \\
+\hline
+{\em value} & The JSON value as a double \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_a2192849b22341653a138bb63da6c6c9a}\label{classJSONCGIHandler_1_1JSONGenerator_a2192849b22341653a138bb63da6c6c9a}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!add@{add}}
+\index{add@{add}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily void JSONCGIHandler\+::\+JSONGenerator\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a JSON entry\+: float 
+\begin{DoxyParams}{Parameters}
+{\em key} & The JSON key \\
+\hline
+{\em value} & The JSON value as a float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_a87fe5c75b46f9822255535a61f15ad4b}\label{classJSONCGIHandler_1_1JSONGenerator_a87fe5c75b46f9822255535a61f15ad4b}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!add@{add}}
+\index{add@{add}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily void JSONCGIHandler\+::\+JSONGenerator\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a JSON entry\+: int 
+\begin{DoxyParams}{Parameters}
+{\em key} & The JSON key \\
+\hline
+{\em value} & The JSON value as an int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_afc3e9374b0e49ca1f701bd22bbd4cd92}\label{classJSONCGIHandler_1_1JSONGenerator_afc3e9374b0e49ca1f701bd22bbd4cd92}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!add@{add}}
+\index{add@{add}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily void JSONCGIHandler\+::\+JSONGenerator\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{long}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a JSON entry\+: long int 
+\begin{DoxyParams}{Parameters}
+{\em key} & The JSON key \\
+\hline
+{\em value} & The JSON value as a long int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_a191efd00967cbace0d9ddfedea39cd9b}\label{classJSONCGIHandler_1_1JSONGenerator_a191efd00967cbace0d9ddfedea39cd9b}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!add@{add}}
+\index{add@{add}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily void JSONCGIHandler\+::\+JSONGenerator\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a JSON entry\+: string 
+\begin{DoxyParams}{Parameters}
+{\em key} & The JSON key \\
+\hline
+{\em value} & The JSON value as a string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJSONCGIHandler_1_1JSONGenerator_afec28cd80e562955e2cd8cdb92d86205}\label{classJSONCGIHandler_1_1JSONGenerator_afec28cd80e562955e2cd8cdb92d86205}} 
+\index{JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}!getJSON@{getJSON}}
+\index{getJSON@{getJSON}!JSONCGIHandler::JSONGenerator@{JSONCGIHandler::JSONGenerator}}
+\doxysubsubsection{\texorpdfstring{getJSON()}{getJSON()}}
+{\footnotesize\ttfamily std\+::string JSONCGIHandler\+::\+JSONGenerator\+::get\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the json string \begin{DoxyReturn}{Returns}
+The JSON data ready to be sent 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+json\+\_\+fastcgi\+\_\+web\+\_\+api.\+h\end{DoxyCompactItemize}

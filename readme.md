@@ -23,6 +23,7 @@ Then after a while start the audio stimulus.
 [Instagram](https://www.instagram.com/proj_dreamhacker/)
 
 <!-- TOC -->
+
 <details open="open">
   <summary><h2 style="display: inline-block">Contents</h2></summary>
   <ol>
@@ -49,6 +50,7 @@ Then after a while start the audio stimulus.
 </details>
 
 <!-- Project descirption -->
+
 ## About
 DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
 
@@ -89,9 +91,20 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 
 
 ### Roadmap
+[-] Next Software Release (v2.0) - ML of sleep detection using Python and
+ML algo
+* [-] User input integrated
+* [-] User sleep timings integrated
+* [-] Social Media Presence improvement
+* [-] Pulse sensor improvements
+* [-] Web-Server Improvments
+* [-] Gather Training Dataset
+* [-] Train sleep detection
+* [-] Test on real samples
 
 
 <!-- Getting Started -->
+
 ## Getting Started
 
 ### Prerequisites
@@ -123,23 +136,15 @@ Software
 See `CONTRIBUTING` for more information.
 
 <!-- License -->
+
 ## License
 
 Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 
 
 <!-- Contact Info -->
+
 ## Contact
 </br>
-
-
-## User Interface
-The UI for DreamHacker is a Web application on the localserver. The user will be able to monitor his heart beats per minute and set the audio which he wants to play if the audio is set to play on the server. Such audio can be listned to from a raspberry pi. 
-
-### Software Used 
-1. PHP
-1. SQL
-1. Javascript
-1. JQuerry
 
 
