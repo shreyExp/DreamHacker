@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dreamhacker`
+-- Database: `dreamHacker`
 --
-CREATE DATABASE IF NOT EXISTS `dreamhacker` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
-USE `dreamhacker`;
+CREATE DATABASE IF NOT EXISTS `dreamHacker` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
+USE `dreamHacker`;
 
 -- --------------------------------------------------------
 --
