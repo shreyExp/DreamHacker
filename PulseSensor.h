@@ -19,9 +19,8 @@ public:
 
 
 class SensorTimer : public CppTimer {
-    private:
-    	SensorCallback* sensorCallback = nullptr;
 	private:
+    		SensorCallback* sensorCallback = nullptr;
 		unsigned int eventCounter, thisTime, lastTime, elapsedTime;
 		int sampleFlag = 0;
 		int firstTime, secondTime, duration;
@@ -51,8 +50,8 @@ class SensorTimer : public CppTimer {
 		time_t surelySleptTime = 2;
 		bool sleep;
 		time_t startOfProspectiveSleep; 
-		bool is_audio_playing; 
-		bool play_audio_locally;
+		bool is_audio_playing = 0; 
+		bool play_audio_locally = 1;
 		pid_t audio_pid;
 		char audio_name[500];
 		bool is_simulation = 0;
@@ -89,6 +88,7 @@ SensorTimer::SensorTimer(int mode){
 }
 void SensorTimer::audioprocess(){
 	if(sleep == 1 && is_audio_playing == 0 && play_audio_locally){
+		  printf("Sleep is positive. Playing Audio.\n");
 	          audio_pid = play_audio(audio_name);
 	          /*
 	           * If child process then the audio is already ended, pid must kill itself safely
@@ -129,7 +129,7 @@ pid_t SensorTimer::play_audio(char* audio_name){
 
 void SensorTimer::kill_the_pid(pid_t x){
 	char kil[100] = "kill -9 ";
-	sprintf(kil,"%s%d",kil, x);
+	//sprintf(kil,"%s%d",kil, x);
 	//system(kil);
 	kill(x,SIGINT);
 }
@@ -138,7 +138,7 @@ void SensorTimer::kill_the_pid(pid_t x){
  * Sets the callback which is called whenever there is a sample
  **/
 void SensorTimer::setCallback(SensorCallback* cb) {
-	printf("pointer: %p\n", cb);
+	//printf("pointer: %p\n", cb);
 	sensorCallback = cb;
 }
 
@@ -147,10 +147,11 @@ void SensorTimer::timerEvent() {
 	if(is_simulation)
 		beatsPerMinuteSimulation();
 	sleep = analyzeBeatsForSleep(BPM);
-	printf("Value is: %d\n", BPM);
+	if(sleep)
+		printf("sleep is %d\n", sleep);
 	audioprocess();
-	printf("BPM is: %d\n", BPM);
-	printf("Sleep is: %d\n", sleep);
+	//printf("BPM is: %d\n", BPM);
+	//printf("Sleep is: %d\n", sleep);
   if (nullptr != sensorCallback) {
       sensorCallback->hasSample(BPM, sleep);
   }
