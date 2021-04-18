@@ -1,7 +1,20 @@
 <?php
     define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
-    //include ROOTPATH . '/database/db.php';
+    include ROOTPATH . '/database/db.php';
+    require ROOTPATH . '/functions/paginator.php';
     session_start();
+
+    $conn = mysqli_connect($host, $user, $pass, $db);
+    $query = "SELECT * FROM audio";
+
+    //these variables are passed via URL
+    $limit = ( isset( $_GET['limit'])) ? $_GET['limit'] : 1; // items per page
+    $page = (isset ($_GET['page'])) ? $_GET['page'] : 1; //starting page
+    $links = 10;
+
+    $paginator = new Paginator ( $mysqli, $query); //__constructor is called
+    $results = $paginator->getData( $limit, $page);
+
 
     $dataPoints = array();
     $y = 5;
@@ -89,6 +102,22 @@ function updateChart() {
              </div>
         </div>
     </div>
+    <?php
+    $y=0;
+    if ($y == ($results->data)){
+        echo'
+            <div class="app-container">
+                <div class="row">
+                    <h1>No results found</h1>
+                </div>
+              <hr>
+            </div>';
+    } 
+                else {
+    for ($p = 0; $p < count($results->data); $p++): ?>
+<?php
+    $record = $results->data[$p];
+?>
     <div class="container">
         <div class="conatiner">
             <div class = "row">
@@ -96,21 +125,14 @@ function updateChart() {
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                 </div>
                 <div class = "col-md-4" align=center>
-                    <h4>Time In bed</h4>
-                    <p id='bed'><</p>
+                    <h4><strong>Song Choosen</strong></h4>
+                    <p id='song'><?= $record['song'] ?></p>
                     <hr>
-                    <h4>Song Choosen</h4>
-                    <p id='song'>Vivaldi</p>
-                    <hr>
-                    <h4>Rem Sleep Detected</h4>
-                    <p id='rem'>Yes</p>
-                    <hr>
-                    <p class='backButton w3-hover-red'> Stop Reading<p>
-                    <p><?php echo $dataPoints ?></p>
                 </div>
             </div>
         </div>
     </div>
+    <?php endfor; }?>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 

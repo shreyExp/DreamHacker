@@ -15,7 +15,7 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$song = mysqli_real_escape_string($link, $_REQUEST['exampleRadios']);
+$song = mysqli_real_escape_string($link, $_REQUEST['song']);
 //$location = mysqli_real_escape_string($link, $_REQUEST['exampleRadios']);
 $location = 'audio/' . $song .'.mp3';
 

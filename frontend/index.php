@@ -2,23 +2,6 @@
     define("ROOTPATH", 'C:/Apache24/htdocs/dreamHacker');
     //include ROOTPATH . '/database/db.php';
     session_start();
-
-    $info = $_SESSION['started'];
-
-    if ( ($_SESSION['started'] != 1) ) {
-
-        $_SESSION['activate'] = ' <mainPoint id="action" class="w3-hover-green"> Start</mainPoint>'; 
-        $_SESSION['liveReading'] = '<a href="liveReading.php"><li> Live Reading</li></a>';
-   
-   }
-   
-   else if( $_SESSION['started'] = 1 ){ 
-   
-    $_SESSION['activate'] = ' <mainPoint id="action" class="w3-hover-red"> Stop</mainPoint>'; 
-    //$_SESSION['liveReading'] = '<a href="liveReading.php"><li> Live Reading</li></a>';
-      
-   
-   }
 ?>
 
 <html lang="en">  
@@ -44,10 +27,10 @@
 <style>
     li {
     display: inline;
-    margin: 2%;
-    padding: 2%;
+    margin: 1%;
+    padding: 1%;
     font-size: 36px;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px grey solid;
     
   }
@@ -66,26 +49,18 @@
         <hr>
     </div>
 
-    <div class='row' align=center>
-    <div class='container'>
-           <?php echo $_SESSION['activate'] ?>
-            <br><br>
-        </div>
-    </div>
-
-    
+    <div class='centered'>
     <ul class='w3-ul w3-hoverable'>
-        <div class='container'>
-            <?php echo $_SESSION['liveReading'] ?>
-            <a href='musicChoice.php'><li> Choose Music</li></a>
-            <a href='history.php'><li> View Histroy</li></a>
-        </div>
+            <a href="liveReading.php"><li> Live Reading</li></a>
+            <a href='musicChoice.php'><li> Choose Audio</li></a>
+            <a href='history.php'><li> Histroy</li></a>
     </ul>
+    </div>
 <footer>
     <div class="container">
     	<hr>
         <h3>What is Dream Hacker</h3>
-        <p> Here we will explain </p>
+        <p> Dream Hacker is program designed to help you sleep better. Based on numerous research on music and the effects it has on sleep our projects monitors our users heart rate and plays music. Once Dream Hacker detects the user is has entered REM sleep, when people are most susceptible to external stimuli, it will play calming music.</p>
         <hr>
     </div>
 </footer>
