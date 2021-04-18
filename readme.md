@@ -1,12 +1,16 @@
-<h2 align="center">DreamHacker</h2> 
+<h1 align="center">Dream Hacker</h1> 
+<br />
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
-    <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
+    <img src="https://github.com/shreyExp/DreamHacker/blob/master/frontend/pictures/dreamHacker.png" alt="Logo" width="100%" height="auto">
   </a>
-  <p align="center">
-    Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
+   <br />
+   <br />
+  <p align="left">
+    Dream Hacker is program designed to help you sleep better. Based on numerous research on music and the effects it has on sleep, our projects monitors our users heart rate and plays music. Once Dream Hacker detects the user has entered REM sleep ie. when people are most susceptible to external stimuli, it will play the selected calming music.
     <br />
 </div>
+
 
 
 
@@ -121,10 +125,11 @@ Hardware
 Software
 ```
 1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.
-2. Clone the repository somewhere in the Raspberry Pi.
-3. Run the following commands from inside the repository 
- - `cmake .` 
- - `make`
+2. Install the audio player mpg123
+3. Clone the repository somewhere in the Raspberry Pi.
+4. Run the following commands from inside the repository 
+ - cmake .
+ - make
 ```
 
 ### Usage

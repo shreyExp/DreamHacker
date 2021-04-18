@@ -28,6 +28,7 @@ class SENSORfastcgicallback : public SensorCallback {
 public:
   int beatsPerMinute;
   bool sleep;
+  int threshold
   long t;
 
   /**
@@ -35,9 +36,10 @@ public:
    * That's where all the internal processing
    * of the data is happening.
    **/
-  virtual void hasSample(int beats, bool mayBeSleep) {
+  virtual void hasSample(int beats, bool mayBeSleep, int bpmThreshold) {
     sleep = mayBeSleep;
     beatsPerMinute = beats;
+    threshold = bpmThreshold
     t = time(NULL);
   }
 
@@ -80,6 +82,7 @@ public:
         jsonGenerator.add("epoch", (long)time(NULL));
         jsonGenerator.add("beats", sensorfastcgi->beatsPerMinute);
         jsonGenerator.add("sleep", sensorfastcgi->sleep);
+        jsonGenerator.add("bpmThreshold", sensorfastcgi->threshold);
         return jsonGenerator.getJSON();
     }
 };
@@ -88,17 +91,79 @@ volatile int g_running = 1;
 
 void signalHandler(int signum){
 	g_running = 0;
-	printf("Program Terminated\n");
+	printf("\n\n\nProgram Terminated\n\n\n");
 }
 
-
+void usage(void){
+	printf("\nUsage:\n"
+		"-h for help"
+		"-t [int] to put bpm threshold\n"
+		"-g [bool] 1 to plot in qtplot. Default: 1\n"
+		"-l [bool] 1 to play audio locally. Default: 1\n"
+		"-n [bool] 1 to set night time to now. Default: 0\n"
+		"-w [int] set waiting time to confirm sleep.\n"
+		"-s [bool, 0 or 1] 1 for simulated bpm. Default: 0\n");
+}
 
 
 int main(int argc, char *argv[])
 {
 	int mode = 0;
+	int threshold = 77;
+	bool graph = 1;
+	bool simulation = 0;
+	bool local_audio = 1;
+	bool nightTimeNow = 0;
+	int surelySleptTime = 0;
+	char key;
+	char* value;
 	if(argc > 1){
-		mode = atoi(argv[1]);
+		//mode = atoi(argv[1]);
+		for(int i = 1; i < argc; i++){
+			if(argv[i][0] == '-'){
+				key = argv[i][1];
+				value = argv[i + 1];
+				switch(key){
+                                case 't':
+                                        threshold = atoi(value);
+					i +=1;
+                                        break;
+                                case 'g':
+                                        graph = atoi(value);
+					i +=1;
+                                        break;
+                                case 's':
+                                        simulation = atoi(value);
+					i +=1;
+                                        break;
+                                case 'l':
+                                        local_audio = atoi(value);
+					i +=1;
+                                        break;
+                                case 'n':
+                                        nightTimeNow = atoi(value);
+					i +=1;
+					break;
+                                case 'w':
+                                        surelySleptTime = atoi(value);
+					i +=1;
+					break;
+                                case 'h':
+					i +=1;
+					usage();
+					exit(0);
+                                        break;
+                                default:
+					printf("Wrong Parameters passed\n\n");
+					usage();
+					exit(0);
+                        	}
+
+			}else{
+				usage();
+				exit(0);
+			}
+		}
 	}
 	signal(SIGINT, signalHandler);
 	/**
@@ -106,7 +171,13 @@ int main(int argc, char *argv[])
 	 * It reads the analog data from pulse sensor and calculates BPM.
 	 * BPM is used for other analysis.
 	 **/
-	SensorTimer pulseMe(mode);
+	SensorTimer pulseMe(threshold, simulation, local_audio);
+	if(nightTimeNow)
+		pulseMe.setNigtTimeToNow();
+	if(surelySleptTime)
+		pulseMe.setSurelySleptTime(surelySleptTime);
+
+
   SENSORfastcgicallback sensorfastcgicallback;
   pulseMe.setCallback(&sensorfastcgicallback);
 
@@ -121,11 +192,12 @@ int main(int argc, char *argv[])
     // starting the fastCGI handler with the callback and the
     // socket for nginx.
   JSONCGIHandler* fastCGIHandler = new JSONCGIHandler(&fastCGIADCCallback, NULL, "/tmp/sensorsocket");
+
+
 	/**
 	 * startms function of Sensor timer is non blocking.
 	 * The control of the main program will just whiz pass it.
 	 **/
-
 	pulseMe.startms(2);
 	/**
 	 * The QApplication will form the windows for the display of raw data read from the sensor.
@@ -133,8 +205,10 @@ int main(int argc, char *argv[])
 	 **/
    	QApplication a(argc, argv);
    	SenseWindow w;
-   	w.showMaximized();
-   	a.exec();
+	if(graph){
+   		w.showMaximized();
+   		a.exec();
+	}
 
 	/**
 	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
@@ -148,7 +222,8 @@ int main(int argc, char *argv[])
 	 * The timer will stop if the control reaches at pulseMe.stop
 	 **/
 
-   pulseMe.stop();
+   //pulseMe.stop();
+   pulseMe.stopNew();
 
 
     return 0;
