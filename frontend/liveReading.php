@@ -105,62 +105,18 @@ function updateChart() {
              </div>
         </div>
     </div>
-    <?php
-    $y=0;
-    if ($y == ($results->data)){
-        echo'
-            <div class="app-container">
-                <div class="row">
-                    <h1>No results found</h1>
-                </div>
-              <hr>
-            </div>';
-    } 
-                else {
-    for ($p = 0; $p < count($results->data); $p++): ?>
-<?php
-    $record = $results->data[$p];
-?>
-    <div class="container">
-        <div class="conatiner">
-            <div class = "row">
-                <div class = "col-md-8 vl">
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                </div>
-                <div class = "col-md-4" align=center>
-                    <h4><strong>Song Choosen</strong></h4>
-                    <p id='song'><?= $record['song'] ?></p>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php endfor; }?>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-
-    <br />
-    <br />
-
-
     <div class="container">
         <div class = "row">
-            <div class = "col-md-11">
-                <h3>Live Reading</h3>
-                <hr>
-            </div>
-            <div class = "col-md-1">
-            <a href='index.php'><p class="backButton w3-hover-red">Back<p></a>
-             </div>
-        </div>
-    </div>
+           <h3><span id="beats">00</span> beats per minute</h3>
+       </div>
+   </div>
     <div class="container">
         <div class="conatiner">
             <div class = "row">
-                <div class = "col-md-8 vl">
+                <div class = "col-md-10 vl">
                     <div id="div_g" style="height: 370px; width: 100%;"></div>
                 </div>
-                <div class = "col-md-4" align=center>
+                <div class = "col-md-2" align=center>
                     <h4><strong>Song Choosen</strong></h4>
                     <p id='song'><?= $record['song'] ?></p>
                     <hr>
@@ -168,10 +124,6 @@ function updateChart() {
             </div>
         </div>
     </div>
-
-    <h3><span id="beats">00</span> beats per minute</h3>
-
-    <div id="div_g" style="height: 370px; width: 100%;"></div>
 
     <script type="text/javascript">
       // max samples for dygraph
