@@ -31,7 +31,7 @@ HTML_INDEX_NUM_ENTRIES = 100
 OPTIMIZE_OUTPUT_FOR_C = YES
 
 # Styling
-INPUT                  = README.md ./Include/ main.cpp
+INPUT                  = README.md STRUCTURE.md ./include/ ./src/ ./main/ ./drmhk_autogen/
 USE_MDFILE_AS_MAINPAGE = README.md
 
 SOURCE_BROWSER = YES

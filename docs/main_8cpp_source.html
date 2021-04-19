@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DreamHacker: main.cpp Source File</title>
+<title>DreamHacker: main/main.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -98,11 +98,11 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;wiringPi.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;mcp3004.h&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mainwindow_8h.html">Include/mainwindow.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cpp_timer_8h.html">Include/CppTimer.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../include/mainwindow.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../include/CppTimer.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pulse_sensor_8h.html">Include/PulseSensor.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="json__fastcgi__web__api_8h.html">Include/json_fastcgi_web_api.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../include/PulseSensor.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../include/json_fastcgi_web_api.h&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
@@ -244,12 +244,12 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="class_j_s_o_n_c_g_i_handler.html">JSONCGIHandler</a>* fastCGIHandler = <span class="keyword">new</span> <a class="code" href="class_j_s_o_n_c_g_i_handler.html">JSONCGIHandler</a>(&amp;fastCGIADCCallback, NULL, <span class="stringliteral">&quot;/tmp/sensorsocket&quot;</span>);</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    pulseMe.<a class="code" href="class_cpp_timer.html#a1fec3e463138ab01f640aec9aafc14d0">startms</a>(2);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">//QApplication a(argc, argv);</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">//SenseWindow w;</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="comment">//if(graph){</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">//  w.showMaximized();</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">//  a.exec();</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">//}</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    QApplication a(argc, argv);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="class_sense_window.html">SenseWindow</a> w;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">if</span>(graph){</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        w.showMaximized();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        a.exec();</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="main_8cpp.html#a037aed45f792fc3e78387006be43a53e">g_running</a>);</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
@@ -263,8 +263,6 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}<span class="comment">//int main(int argc, char *argv[])</span></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="ttc" id="a_cpp_timer_8h_html"><div class="ttname"><a href="_cpp_timer_8h.html">CppTimer.h</a></div></div>
-<div class="ttc" id="a_pulse_sensor_8h_html"><div class="ttname"><a href="_pulse_sensor_8h.html">PulseSensor.h</a></div></div>
 <div class="ttc" id="aclass_cpp_timer_html_a1fec3e463138ab01f640aec9aafc14d0"><div class="ttname"><a href="class_cpp_timer.html#a1fec3e463138ab01f640aec9aafc14d0">CppTimer::startms</a></div><div class="ttdeci">virtual void startms(long millisecs, cppTimerType_t type=PERIODIC)</div><div class="ttdef"><b>Definition:</b> <a href="_cpp_timer_8cpp_source.html#l00055">CppTimer.cpp:55</a></div></div>
 <div class="ttc" id="aclass_j_s_o_n_c_g_i_a_d_c_callback_html"><div class="ttname"><a href="class_j_s_o_n_c_g_i_a_d_c_callback.html">JSONCGIADCCallback</a></div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00065">main.cpp:65</a></div></div>
 <div class="ttc" id="aclass_j_s_o_n_c_g_i_a_d_c_callback_html_a105866e87ab653c7cddfedba74149d42"><div class="ttname"><a href="class_j_s_o_n_c_g_i_a_d_c_callback.html#a105866e87ab653c7cddfedba74149d42">JSONCGIADCCallback::sensorfastcgi</a></div><div class="ttdeci">SENSORfastcgicallback * sensorfastcgi</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00071">main.cpp:71</a></div></div>
@@ -281,25 +279,24 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclass_s_e_n_s_o_rfastcgicallback_html_aa667ff1226feb85d2684cc355ca6e644"><div class="ttname"><a href="class_s_e_n_s_o_rfastcgicallback.html#aa667ff1226feb85d2684cc355ca6e644">SENSORfastcgicallback::sleep</a></div><div class="ttdeci">bool sleep</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00033">main.cpp:33</a></div></div>
 <div class="ttc" id="aclass_s_e_n_s_o_rfastcgicallback_html_aaa260a6ca2f81d83f769b4c3ca6acc73"><div class="ttname"><a href="class_s_e_n_s_o_rfastcgicallback.html#aaa260a6ca2f81d83f769b4c3ca6acc73">SENSORfastcgicallback::t</a></div><div class="ttdeci">long t</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00035">main.cpp:35</a></div></div>
 <div class="ttc" id="aclass_s_e_n_s_o_rfastcgicallback_html_ad48620809e828f35a6e6c0e7065f13aa"><div class="ttname"><a href="class_s_e_n_s_o_rfastcgicallback.html#ad48620809e828f35a6e6c0e7065f13aa">SENSORfastcgicallback::threshold</a></div><div class="ttdeci">int threshold</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00034">main.cpp:34</a></div></div>
+<div class="ttc" id="aclass_sense_window_html"><div class="ttname"><a href="class_sense_window.html">SenseWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00531">PulseSensor.h:531</a></div></div>
 <div class="ttc" id="aclass_sensor_callback_html"><div class="ttname"><a href="class_sensor_callback.html">SensorCallback</a></div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00018">PulseSensor.h:18</a></div></div>
 <div class="ttc" id="aclass_sensor_timer_html"><div class="ttname"><a href="class_sensor_timer.html">SensorTimer</a></div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00031">PulseSensor.h:31</a></div></div>
 <div class="ttc" id="aclass_sensor_timer_html_a2b87e348b476be96d88ee70be98bef11"><div class="ttname"><a href="class_sensor_timer.html#a2b87e348b476be96d88ee70be98bef11">SensorTimer::setCallback</a></div><div class="ttdeci">void setCallback(SensorCallback *cb)</div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00314">PulseSensor.h:314</a></div></div>
 <div class="ttc" id="aclass_sensor_timer_html_a571f7dcc621738e57607586cea71d302"><div class="ttname"><a href="class_sensor_timer.html#a571f7dcc621738e57607586cea71d302">SensorTimer::setNigtTimeToNow</a></div><div class="ttdeci">void setNigtTimeToNow()</div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00247">PulseSensor.h:247</a></div></div>
 <div class="ttc" id="aclass_sensor_timer_html_ab27fde0c17025181e3008d3246077bbc"><div class="ttname"><a href="class_sensor_timer.html#ab27fde0c17025181e3008d3246077bbc">SensorTimer::stopNew</a></div><div class="ttdeci">void stopNew()</div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00255">PulseSensor.h:255</a></div></div>
 <div class="ttc" id="aclass_sensor_timer_html_ad8d148ba672bccb72ca45fea9b98fb38"><div class="ttname"><a href="class_sensor_timer.html#ad8d148ba672bccb72ca45fea9b98fb38">SensorTimer::setSurelySleptTime</a></div><div class="ttdeci">void setSurelySleptTime(int)</div><div class="ttdef"><b>Definition:</b> <a href="_pulse_sensor_8h_source.html#l00244">PulseSensor.h:244</a></div></div>
-<div class="ttc" id="ajson__fastcgi__web__api_8h_html"><div class="ttname"><a href="json__fastcgi__web__api_8h.html">json_fastcgi_web_api.h</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a037aed45f792fc3e78387006be43a53e"><div class="ttname"><a href="main_8cpp.html#a037aed45f792fc3e78387006be43a53e">g_running</a></div><div class="ttdeci">volatile int g_running</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00098">main.cpp:98</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00117">main.cpp:117</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a8ee3282bc313e547dbbb8d4f4010db61"><div class="ttname"><a href="main_8cpp.html#a8ee3282bc313e547dbbb8d4f4010db61">signalHandler</a></div><div class="ttdeci">void signalHandler(int signum)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00100">main.cpp:100</a></div></div>
 <div class="ttc" id="amain_8cpp_html_ae8605e2b78cd4a81b6c6b5c30cb7366a"><div class="ttname"><a href="main_8cpp.html#ae8605e2b78cd4a81b6c6b5c30cb7366a">usage</a></div><div class="ttdeci">void usage(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00105">main.cpp:105</a></div></div>
-<div class="ttc" id="amainwindow_8h_html"><div class="ttname"><a href="mainwindow_8h.html">mainwindow.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
-    <li class="footer">Generated on Mon Apr 19 2021 16:12:51 for DreamHacker by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Generated on Mon Apr 19 2021 22:02:35 for DreamHacker by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['oneshot_83',['ONESHOT',['../_cpp_timer_8h.html#a110d07ab6a96d7815149d3d95435790aa2724fa87f252403cd2c93f7437f34fd5',1,'CppTimer.h']]]
+  ['nighttime_552',['nightTime',['../class_sensor_timer.html#a4d29fdf6804a4777668d957a8333f9c6',1,'SensorTimer']]],
+  ['nrealtimepoints_553',['nRealtimePoints',['../class_main_window.html#ac3b757adfb6eff08e50a5017d12a48df',1,'MainWindow']]]
 ];
