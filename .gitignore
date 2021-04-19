@@ -6,7 +6,6 @@ CTestTestfile.cmake
 main_autogen/
 pul
 screenshot.png
-main
 libcpptimer.a
 Makefile
 drmhk
