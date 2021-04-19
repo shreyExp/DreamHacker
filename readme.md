@@ -27,9 +27,7 @@ Then after a while start the audio stimulus.
 [Instagram](https://www.instagram.com/proj_dreamhacker/)
 
 <!-- TOC -->
-
-<details open="open">
-  <summary><h2 style="display: inline-block">Contents</h2></summary>
+## Contents
   <ol>
     <li>
       <a href="#about">About</a>
@@ -52,7 +50,7 @@ Then after a while start the audio stimulus.
     <li><a href="#contact">Contact</a></li>
     <li><a href="#references">References</a></li>
   </ol>
-</details>
+
 
 <!-- Project descirption -->
 
