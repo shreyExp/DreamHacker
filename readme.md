@@ -160,5 +160,10 @@ Team 39 in  Real Time Embedded Programming
 👤 **Shreyansh Singh (2611417s)**
 
 ## References
+[Pulse Sensor](https://github.com/WorldFamousElectronics/Raspberry_Pi/blob/master/PulseSensor_C_Pi/PulseSensor_C_Pi.md)
+
+[CppTimer](https://github.com/berndporr/cppTimer)
+
+[Qt Plot](https://github.com/berndporr/qcustomplotdemo)
 
 
