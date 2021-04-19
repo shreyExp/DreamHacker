@@ -58,7 +58,7 @@ Then after a while start the audio stimulus.
     Dream Hacker is program designed to help you have better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
 
 Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
-The information will include bpm (beats per minute), the threshold and when the user has slept.
+The information will include bpm (beats per minute) , the threshold and when the user has slept.
 
 <div align="center">
 
