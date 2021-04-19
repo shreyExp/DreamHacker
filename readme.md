@@ -57,10 +57,10 @@ Then after a while start the audio stimulus.
 <!-- Project descirption -->
 
 ## About
-DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using audio stimulus.
 
 Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
-The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+The information will include bpm (beats per minute), the threshold and when the user has slept.
 
 <div align="center">
 
