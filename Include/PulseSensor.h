@@ -177,39 +177,42 @@ class SensorTimer : public CppTimer {
 		void audioprocess();
 		
 		/**
-		 * 
+		 * This function is used inside the audioprocess 
+		 * It takes in the audio name as argument and forks the program to run the audio
+		 * returns pid of the process which runs audio to the parent process
 		 **/
 		pid_t play_audio(char* audio_name);
 		
 		/**
-		 *
+		 * Kills the pid of given to it as parameter
 		 **/
 		void kill_the_pid(pid_t x);
 		
 		/**
-		 *
+		 * Simulates bpm values as a triangular wave.
 		 **/
 		void beatsPerMinuteSimulation();
 		time_t start_of_simulation;
 		
 		/**
-		 *
+		 * sets the time period of the triangular wave of bpm simulation
 		 **/
 		void setPeriodOfSimulatedWave(int);
 		// new funcs
 		
 		/**
-		 *
+		 * sets the surelySleptTime variable
 		 **/
 		void setSurelySleptTime(int);
 		
 		/**
-		 *
+		 * sets the night time to the current time. Useful in testing.
 		 **/
 		void setNigtTimeToNow();
 		
 		/**
-		 *
+		 * This function is a wrapper around stop() function of the stop() function of the CppTimer
+		 * This function also kills any audio pid if it is present.
 		 **/
    		void stopNew();
 };
