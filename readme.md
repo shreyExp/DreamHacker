@@ -110,9 +110,6 @@ ML algo
 
 ## Getting Started
 
-### Prerequisites
-1. Clone the repository
-
 ### Installation
 Hardware
 ```
@@ -139,7 +136,7 @@ Software
 
 ## Contributing
 
-See `CONTRIBUTING` for more information.
+See [CONTRIBUTING](https://github.com/shreyExp/DreamHacker/wiki/Contribution) for more information.
 
 <!-- License -->
 
