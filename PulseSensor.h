@@ -129,15 +129,17 @@ void SensorTimer::audioprocess(){
 			printf("\n\n\nAudio pid is %d\n\n\n", audio_pid);
 	          }
 	}
-	else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally){
+	else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally && audio_pid > 0){
 	          /*
 	           * When the person wakes up again kill the pid which runs the audio
 	           */
-	          if(audio_pid > 0){
 			printf("\n\n\n Killing the Audio as maybe the person has woken up\n\n\n");
 	          	kill_the_pid(audio_pid);
 	          	is_audio_playing = 0;
-	          }
+	          
+	}else if(is_audio_playing == 1 && sleep == 1 && audio_pid > 0 && kill(audio_pid, 0) < 0){
+		//the audio has ended.
+		is_audio_playing == 0;
 	}
 }
 pid_t SensorTimer::play_audio(char* audio_name){

@@ -93,25 +93,25 @@ void signalHandler(int signum){
 
 void usage(void){
 	printf("\nUsage:\n"
-		"-h for help"
-		"-t [int] to put bpm threshold\n"
-		"-g [bool] 1 to plot in qtplot. Default: 1\n"
-		"-l [bool] 1 to play audio locally. Default: 1\n"
-		"-n [bool] 1 to set night time to now. Default: 0\n"
-		"-w [int] set waiting time to confirm sleep.\n"
-		"-s [bool, 0 or 1] 1 for simulated bpm. Default: 0\n");
+                 "./main [-h] for usage\n"
+                 "./main [-t <int>] to put bpm threshold\n"
+                 "./main [-g <bool>] 1 to plot in qtplot. Default: 1\n"
+                 "./main [-l <bool>] 1 to play audio locally. Default: 1\n"
+                 "./main [-n <bool>] 1 to set night time to now. Default: 0\n"
+                 "./main [-w <int> ]set waiting time to confirm sleep.\n"
+                 "./main [-s <bool>] 1 for simulated bpm. Default: 0\n");
 }
 
 
 int main(int argc, char *argv[])
 {
-	int mode = 0;
 	int threshold = 77;
 	bool graph = 1;
 	bool simulation = 0;
 	bool local_audio = 1;
 	bool nightTimeNow = 0;
 	int surelySleptTime = 0;
+	bool surelySleptTimeFlag = 0;
 	char key;
 	char* value;
 	if(argc > 1){
@@ -143,6 +143,7 @@ int main(int argc, char *argv[])
 					break;
                                 case 'w':
                                         surelySleptTime = atoi(value);
+					surelySleptTimeFlag = 0;
 					i +=1;
 					break;
                                 case 'h':
@@ -164,13 +165,14 @@ int main(int argc, char *argv[])
 	}
 	signal(SIGINT, signalHandler);
 	/**
-	 * SensorTimer runs in a thread
+	 * Pulse me runs in a c++ timer
 	 * It reads the analog data from pulse sensor and calculates BPM.
 	 * BPM is used for other analysis.
 	 **/
 	SensorTimer pulseMe(threshold, simulation, local_audio);
 	if(nightTimeNow)
 		pulseMe.setNigtTimeToNow();
+	//waiting time just after the bpm drops to threshold
 	if(surelySleptTime)
 		pulseMe.setSurelySleptTime(surelySleptTime);
 
@@ -200,12 +202,12 @@ int main(int argc, char *argv[])
 	 * The QApplication will form the windows for the display of raw data read from the sensor.
 	 * This will block the control and the program will keep on runnig stuck here.
 	 **/
-   	QApplication a(argc, argv);
-   	SenseWindow w;
-	if(graph){
-   		w.showMaximized();
-   		a.exec();
-	}
+   	//QApplication a(argc, argv);
+   	//SenseWindow w;
+	//if(graph){
+   	//	w.showMaximized();
+   	//	a.exec();
+	//}
 
 	/**
 	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
