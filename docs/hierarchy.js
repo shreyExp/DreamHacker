@@ -15,6 +15,7 @@ var hierarchy =
         [ "SenseWindow", "class_sense_window.html", null ]
       ] ]
     ] ],
+    [ "qt_meta_stringdata_MainWindow_t", "structqt__meta__stringdata___main_window__t.html", null ],
     [ "CppTimerCallback::Runnable", "class_cpp_timer_callback_1_1_runnable.html", null ],
     [ "SensorCallback", "class_sensor_callback.html", [
       [ "SENSORfastcgicallback", "class_s_e_n_s_o_rfastcgicallback.html", null ]

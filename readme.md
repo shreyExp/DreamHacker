@@ -10,12 +10,26 @@
     Dream Hacker is program designed to help you have better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
     <br />
 </div>
-
-
-
-
-This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
-Then after a while start the audio stimulus.
+ 
+  <p align="center">
+    This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
+    Then after a while start the audio stimulus.
+    <br />
+    <a href="http://docs.dreamhacker.co.uk/"><strong>Checkout docs »</strong></a>
+    <br />
+    <a href="https://github.com/shreyExp/DreamHacker/wiki"><strong>Read the wiki »</strong></a>
+    <br />
+    <br />
+    <a href="https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ"><img height=30 src="images/youtube.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img height=30 src="images/facebook.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/proj_dreamhacker/"><img height=40 src="images/instagram.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.dreamhacker.co.uk"><img height=30 src="images/facebook.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/proj_dreamhacker/"><img height=30 src="images/LogoDreamHacker.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <br />
+    <br />
+    <a href="https://github.com/shreyExp/DreamHacker/discussions">Discuss with us</a>
+    ·
+  </p>
+</div>
+<div align="center">
 
 
 ## Social Media

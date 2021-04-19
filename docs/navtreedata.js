@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "DreamHacker", "index.html", [
-    [ "Data Structures", "annotated.html", [
+    [ "Structure", "md__s_t_r_u_c_t_u_r_e.html", [
       [ "Social Media", "index.html#autotoc_md0", null ],
       [ "Contents", "index.html#autotoc_md1", null ],
       [ "About", "index.html#autotoc_md2", [
@@ -34,14 +34,24 @@ var NAVTREE =
         [ "Roadmap", "index.html#autotoc_md5", null ]
       ] ],
       [ "Getting Started", "index.html#autotoc_md6", [
-        [ "Prerequisites", "index.html#autotoc_md7", null ],
-        [ "Installation", "index.html#autotoc_md8", null ],
-        [ "Usage", "index.html#autotoc_md9", null ]
+        [ "Installation", "index.html#autotoc_md7", null ],
+        [ "Usage", "index.html#autotoc_md8", null ]
       ] ],
-      [ "Contributing", "index.html#autotoc_md10", null ],
-      [ "License", "index.html#autotoc_md11", null ],
-      [ "Contact", "index.html#autotoc_md12", null ],
-      [ "References", "index.html#autotoc_md13", null ],
+      [ "Contributing", "index.html#autotoc_md9", null ],
+      [ "License", "index.html#autotoc_md10", null ],
+      [ "Contact", "index.html#autotoc_md11", null ],
+      [ "References", "index.html#autotoc_md12", null ],
+      [ "Overview", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md14", null ],
+      [ "In-detail", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md15", [
+        [ "<tt>./drmhk_autogen</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md16", null ],
+        [ "<tt>./frontend</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md17", null ],
+        [ "<tt>./include</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md18", null ],
+        [ "<tt>./main</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md19", null ],
+        [ "<tt>./src</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md20", null ],
+        [ "<tt>./test</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md21", null ]
+      ] ]
+    ] ],
+    [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
@@ -54,12 +64,12 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -67,7 +77,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_cpp_timer_8cpp.html"
+"_cpp_timer_8cpp.html",
+"moc__predefs_8h.html#a01c49eec2e7d5b02de85da36904eac4e",
+"moc__predefs_8h.html#a868c5b1405b26bc9592fa9f3248e99aa"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

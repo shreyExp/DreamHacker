@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7ecpptimer_153',['~CppTimer',['../class_cpp_timer.html#a91779a93fce7383a8d832ed481399342',1,'CppTimer']]],
-  ['_7ejsoncgihandler_154',['~JSONCGIHandler',['../class_j_s_o_n_c_g_i_handler.html#a4817e428a962bdea68123f2d32671f30',1,'JSONCGIHandler']]]
+  ['waketime_635',['wakeTime',['../class_sensor_timer.html#a9edffcd5c781e8942f8570f2bfe8232d',1,'SensorTimer']]]
 ];

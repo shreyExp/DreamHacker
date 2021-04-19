@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spi_5fchan_315',['SPI_CHAN',['../_pulse_sensor_8h.html#ae915de38397fbdc90276fa44e148c686',1,'PulseSensor.h']]]
+  ['base_1269',['BASE',['../_pulse_sensor_8h.html#a79bcfb6bde984f42d1124b068a509af7',1,'PulseSensor.h']]]
 ];
