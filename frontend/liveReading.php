@@ -184,7 +184,7 @@ function updateChart() {
               if (data.length > maxSamples) {
               data.shift();
               }
-              data.push([x, y, threshHold]);
+              data.push([x, y, threshHold, sleep]);
               g.updateOptions( { 'file': data } );
           });
           }, 1000);
