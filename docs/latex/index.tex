@@ -1,0 +1,122 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \doxysection*{Dream Hacker}
+
+~\newline
+  \href{https://github.com/praveen1992/DreamHacker/}{\texttt{  }} ~\newline
+ ~\newline
+ 
+
+ Dream Hacker is program designed to help you sleep better. Based on numerous research on music and the effects it has on sleep, our projects monitors our users heart rate and plays music. Once Dream Hacker detects the user has entered REM sleep ie. when people are most susceptible to external stimuli, it will play the selected calming music. ~\newline
+ 
+
+This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept. Then after a while start the audio stimulus.\hypertarget{index_autotoc_md0}{}\doxysubsection{Social Media}\label{index_autotoc_md0}
+\href{https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ}{\texttt{ You\+Tube}}
+
+\href{https://www.facebook.com/Dream-Hacker-103619898510175}{\texttt{ Facebook}}
+
+\href{https://www.instagram.com/proj_dreamhacker/}{\texttt{ Instagram}}
+
+$<$details open=\char`\"{}open\char`\"{}$>$ \doxysubsection*{Contents}
+
+
+\begin{DoxyEnumerate}
+\item \href{\#about}{\texttt{ About}} 
+\begin{DoxyItemize}
+\item \href{\#hardware}{\texttt{ Hardware}} 
+\item \href{\#software}{\texttt{ Software}} 
+\item \href{\#roadmap}{\texttt{ Roadmap}} 
+\end{DoxyItemize}
+\item \href{\#getting-started}{\texttt{ Getting Started}} 
+\begin{DoxyItemize}
+\item \href{\#prerequisites}{\texttt{ Prerequisites}} 
+\item \href{\#installation}{\texttt{ Installation}} 
+\item \href{\#usage}{\texttt{ Usage}} 
+\end{DoxyItemize}
+\item \href{\#contributing}{\texttt{ Contributing}} 
+\item \href{\#license}{\texttt{ License}} 
+\item \href{\#contact}{\texttt{ Contact}} 
+\item \href{\#references}{\texttt{ References}} 
+\end{DoxyEnumerate}$<$/details$>$\hypertarget{index_autotoc_md1}{}\doxysubsection{About}\label{index_autotoc_md1}
+Dream\+Hacker is a flexible tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+
+Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+
+
+
+\href{https://github.com/shreyExp/DreamHacker/network/contributors}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/stargazers}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/issues}{\texttt{ }} \href{https://github.com/shreyExp/DreamHacker/blob/master/LICENSE}{\texttt{ }}
+
+~\newline
+ 
+
+If you have any questions about Dream\+Hacker or want to share some information with us, please go to one of the following places\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/shreyExp/DreamHacker/wiki}{\texttt{ Wiki}}
+\item \href{https://www.facebook.com/Dream-Hacker-103619898510175}{\texttt{ Face\+Book}}.
+\item \href{mailto:2620969T@student.gla.ac.uk}{\texttt{ Mail}}.
+\end{DoxyItemize}
+
+Before you file an issue, make sure you have read the {\itshape \href{\#issues}{\texttt{ known issues}}}.\hypertarget{index_autotoc_md2}{}\doxysubsubsection{Hardware}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://www.raspberrypi.org/products/raspberry-pi-4-model-b/}{\texttt{ Raspberry pi}}
+\item Pulse Sensor
+\item Wires
+\item Speakers
+\item Breadboard
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Software}\label{index_autotoc_md3}
+\href{https://shreyexp.github.io/DreamHacker/}{\texttt{ See Documentation}}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{Roadmap}\label{index_autotoc_md4}
+\mbox{[}-\/\mbox{]} Next Software Release (v2.\+0) -\/ ML of sleep detection using Python and ML algo
+\begin{DoxyItemize}
+\item \mbox{[}-\/\mbox{]} User input integrated
+\item \mbox{[}-\/\mbox{]} User sleep timings integrated
+\item \mbox{[}-\/\mbox{]} Social Media Presence improvement
+\item \mbox{[}-\/\mbox{]} Pulse sensor improvements
+\item \mbox{[}-\/\mbox{]} Web-\/\+Server Improvments
+\item \mbox{[}-\/\mbox{]} Gather Training Dataset
+\item \mbox{[}-\/\mbox{]} Train sleep detection
+\item \mbox{[}-\/\mbox{]} Test on real samples
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{Getting Started}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Prerequisites}\label{index_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Clone the repository
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysubsubsection{Installation}\label{index_autotoc_md7}
+Hardware 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/ Set up the circuit as shown in the diagram.}
+\DoxyCodeLine{-\/ Put a speaker with it's audio jack in the audio output of the raspberry pi.}
+
+\end{DoxyCode}
+
+
+Software 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1. Use SSH, VNC or a monitor and a keyboard to login to raspberry pi.}
+\DoxyCodeLine{2. Install the audio player mpg123}
+\DoxyCodeLine{3. Clone the repository somewhere in the Raspberry Pi.}
+\DoxyCodeLine{4. Run the following commands from inside the repository }
+\DoxyCodeLine{ -\/ cmake .}
+\DoxyCodeLine{ -\/ make}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysubsubsection{Usage}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Put your audio files inside the directory Audio/.
+\item Edit the audio.\+txt file with the name of the audio you want to play when the sleep starts. For example if you want to play {\ttfamily my\+\_\+file.\+mp3} present in the Audio/ directory then write {\ttfamily Audio/my\+\_\+file.\+mp3}. Make sure that the file has just one line.
+\item If you want to run a simulation to test out the setup run the main function with 1 as the argument. {\ttfamily ./main 1}. If you want to run the full program just run {\ttfamily ./main}
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsection{Contributing}\label{index_autotoc_md9}
+See {\ttfamily CONTRIBUTING} for more information.\hypertarget{index_autotoc_md10}{}\doxysubsection{License}\label{index_autotoc_md10}
+Distributed under the GPL-\/3.\+0 License. See {\ttfamily LICENSE} for more information.\hypertarget{index_autotoc_md11}{}\doxysubsection{Contact}\label{index_autotoc_md11}
+Team 39 in Real Time Embedded Programming
+
+👤 {\bfseries{Amber Dehariya (2594660d)}}
+
+👤 {\bfseries{Michael Hiluf (2529225h)}}
+
+👤 {\bfseries{Praveen (2620969t)}}
+
+👤 {\bfseries{Shreyansh Singh (2611417s)}}\hypertarget{index_autotoc_md12}{}\doxysubsection{References}\label{index_autotoc_md12}
