@@ -115,7 +115,7 @@ ML algo
 ### Installation
 Hardware
 ```
- - Set up the circuit as shown in the diagram.
+ - Set up the circuit as shown in the [diagram](https://github.com/shreyExp/DreamHacker/wiki/RaspberryPi-Hardware-Setup).
  - Put a speaker with it's audio jack in the audio output of the raspberry pi.
  - For more information: [Hardware Wiki](https://github.com/shreyExp/DreamHacker/wiki/RaspberryPi-Hardware-Setup_
 ```
