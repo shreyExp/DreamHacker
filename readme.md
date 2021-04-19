@@ -7,7 +7,7 @@
    <br />
    <br />
   <p align="left">
-    Dream Hacker is program designed to help you sleep better. Based on numerous research on music and the effects it has on sleep, our projects monitors our users heart rate and plays music. Once Dream Hacker detects the user has entered REM sleep ie. when people are most susceptible to external stimuli, it will play the selected calming music.
+    Dream Hacker is program designed to help you better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
     <br />
 </div>
 
