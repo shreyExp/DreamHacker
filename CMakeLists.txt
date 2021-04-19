@@ -6,7 +6,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
 endif()
 add_compile_options(-Wall -Wconversion -Wextra -pedantic)
-add_library(cpptimer STATIC CppTimer.cpp)
+add_library(cpptimer STATIC Include/CppTimer.cpp)
 TARGET_LINK_LIBRARIES(cpptimer rt fcgi ${CMAKE_THREAD_LIBS_INIT} curl)
 set_target_properties(cpptimer PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
 
@@ -25,8 +25,8 @@ find_package(Threads REQUIRED)
 find_package( CURL )
 
 add_executable(main
-  CppTimer.cpp
-  mainwindow.cpp
+  Include/CppTimer.cpp
+  Include/mainwindow.cpp
   main.cpp
 )
 

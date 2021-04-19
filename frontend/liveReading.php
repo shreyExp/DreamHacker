@@ -157,7 +157,7 @@ function updateChart() {
           var g = new Dygraph(document.getElementById("div_g"), data,
                   {
                       drawPoints: true,
-                      labels: ['Time', 'BPM', 'Threshhold'],
+                      labels: ['Time', 'BPM', 'Threshhold', 'Sleep'],
                       legend: 'always',
                       title: 'Live Beats per minute monitor',
                       ylabel: 'Beats (BPM)',
@@ -178,12 +178,13 @@ function updateChart() {
               d.setUTCSeconds(utcSeconds);
               var x = d;
               var y = result.beats;
-              var threshHold = result.threshold
+              var threshHold = result.bpmThreshold
+	      var sleep = (result.sleep * 10) + 70;
               document.getElementById("beats").innerHTML = Math.round(y * 100) / 100;
               if (data.length > maxSamples) {
               data.shift();
               }
-              data.push([x, y, threshHold]);
+              data.push([x, y, threshHold, sleep]);
               g.updateOptions( { 'file': data } );
           });
           }, 1000);
