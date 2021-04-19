@@ -24,12 +24,42 @@
 */
 var NAVTREE =
 [
-  [ "DreamHacker", "index.html", ]
+  [ "DreamHacker", "index.html", [
+    [ "DreamHacker", "md_frontend_database_readme.html", [
+      [ "Database Documentation", "md_frontend_database_readme.html#autotoc_md1", null ],
+      [ "Software Used", "md_frontend_database_readme.html#autotoc_md2", null ],
+      [ "Installation Instructions", "md_frontend_database_readme.html#autotoc_md3", null ],
+      [ "Installation Instructions", "md_frontend_database_readme.html#autotoc_md4", null ]
+    ] ],
+    [ "readme", "md_readme.html", null ],
+    [ "Data Structures", "annotated.html", [
+      [ "Data Structures", "annotated.html", "annotated_dup" ],
+      [ "Data Structure Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "Globals", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"_cpp_timer_8cpp.html",
+"main_8cpp.html#ae8605e2b78cd4a81b6c6b5c30cb7366a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
+  ['_24_5fconn_0',['$_conn',['../class_paginator.html#a5efb4760dfc061e44d0d57ee6ca8e163',1,'Paginator']]],
+  ['_24_5flimit_1',['$_limit',['../class_paginator.html#a8dc2ee1f710da8e6faf8d01e8017dc2f',1,'Paginator']]],
+  ['_24_5fpage_2',['$_page',['../class_paginator.html#a79a14a114225ae92a3b9b129f1245b2b',1,'Paginator']]],
+  ['_24_5fquery_3',['$_query',['../class_paginator.html#aac0dd909d79d9921f29cff66d8a46e20',1,'Paginator']]],
+  ['_24_5frow_5fstart_4',['$_row_start',['../class_paginator.html#a4e99886b4570b6e20156576096d46971',1,'Paginator']]],
+  ['_24_5ftotal_5',['$_total',['../class_paginator.html#ab4410aa5db561e06ce87d075ab7c012a',1,'Paginator']]],
+  ['_24conn_6',['$conn',['../history_8php.html#aa8a5a87b9c1a6a0819b88447cbe41877',1,'$conn():&#160;history.php'],['../live_reading_8php.html#aa8a5a87b9c1a6a0819b88447cbe41877',1,'$conn():&#160;liveReading.php'],['../music_choice_8php.html#aa8a5a87b9c1a6a0819b88447cbe41877',1,'$conn():&#160;musicChoice.php']]],
+  ['_24datapoints_7',['$dataPoints',['../live_reading_8php.html#a7beb283438ac6a24061a8119a5225884',1,'liveReading.php']]],
+  ['_24date_8',['$date',['../history_8php.html#ae8f514224ba7269a9a81db21d008164a',1,'history.php']]],
+  ['_24db_9',['$db',['../audio_player_8php.html#a1fa3127fc82f96b1436d871ef02be319',1,'$db():&#160;audioPlayer.php'],['../db_8php.html#a1fa3127fc82f96b1436d871ef02be319',1,'$db():&#160;db.php']]],
+  ['_24host_10',['$host',['../audio_player_8php.html#a711797613cb863ca0756df789c396bf2',1,'$host():&#160;audioPlayer.php'],['../db_8php.html#a711797613cb863ca0756df789c396bf2',1,'$host():&#160;db.php']]],
+  ['_24limit_11',['$limit',['../history_8php.html#ae05862a0294251c88629b141b5ce329a',1,'$limit():&#160;history.php'],['../live_reading_8php.html#ae05862a0294251c88629b141b5ce329a',1,'$limit():&#160;liveReading.php'],['../music_choice_8php.html#ae05862a0294251c88629b141b5ce329a',1,'$limit():&#160;musicChoice.php']]],
+  ['_24link_12',['$link',['../audio_player_8php.html#a5d346e31b75d916e3bac9cb193bfc97f',1,'audioPlayer.php']]],
+  ['_24links_13',['$links',['../history_8php.html#a4ca8be3ff3cf95aa3af546449c1f1bec',1,'$links():&#160;history.php'],['../live_reading_8php.html#a4ca8be3ff3cf95aa3af546449c1f1bec',1,'$links():&#160;liveReading.php'],['../music_choice_8php.html#a4ca8be3ff3cf95aa3af546449c1f1bec',1,'$links():&#160;musicChoice.php']]],
+  ['_24location_14',['$location',['../audio_player_8php.html#ac319193077976bb217112e5a7b7b8022',1,'audioPlayer.php']]],
+  ['_24mysqli_15',['$mysqli',['../db_8php.html#a580989e8e3521433691a0351287f6315',1,'db.php']]],
+  ['_24page_16',['$page',['../history_8php.html#a0a44e6760141442bb439b1ab1395d8ff',1,'$page():&#160;history.php'],['../live_reading_8php.html#a0a44e6760141442bb439b1ab1395d8ff',1,'$page():&#160;liveReading.php'],['../music_choice_8php.html#a0a44e6760141442bb439b1ab1395d8ff',1,'$page():&#160;musicChoice.php']]],
+  ['_24paginator_17',['$paginator',['../history_8php.html#a813d989b6fadde4afb97125cb6dd0640',1,'$paginator():&#160;history.php'],['../live_reading_8php.html#a813d989b6fadde4afb97125cb6dd0640',1,'$paginator():&#160;liveReading.php'],['../music_choice_8php.html#a813d989b6fadde4afb97125cb6dd0640',1,'$paginator():&#160;musicChoice.php']]],
+  ['_24pass_18',['$pass',['../audio_player_8php.html#a12ec2780b52bd1c54d38c2f981c0349f',1,'$pass():&#160;audioPlayer.php'],['../db_8php.html#a12ec2780b52bd1c54d38c2f981c0349f',1,'$pass():&#160;db.php']]],
+  ['_24query_19',['$query',['../history_8php.html#af59a5f7cd609e592c41dc3643efd3c98',1,'$query():&#160;history.php'],['../live_reading_8php.html#af59a5f7cd609e592c41dc3643efd3c98',1,'$query():&#160;liveReading.php'],['../music_choice_8php.html#af59a5f7cd609e592c41dc3643efd3c98',1,'$query():&#160;musicChoice.php']]],
+  ['_24record_20',['$record',['../history_8php.html#a8ab417cde844ca40620b01a7fe3ebeee',1,'$record():&#160;history.php'],['../live_reading_8php.html#a8ab417cde844ca40620b01a7fe3ebeee',1,'$record():&#160;liveReading.php'],['../music_choice_8php.html#a8ab417cde844ca40620b01a7fe3ebeee',1,'$record():&#160;musicChoice.php']]],
+  ['_24results_21',['$results',['../history_8php.html#a233d12bd8b6d3453e9a7a3f0b8c31db2',1,'$results():&#160;history.php'],['../live_reading_8php.html#a233d12bd8b6d3453e9a7a3f0b8c31db2',1,'$results():&#160;liveReading.php'],['../music_choice_8php.html#a233d12bd8b6d3453e9a7a3f0b8c31db2',1,'$results():&#160;musicChoice.php']]],
+  ['_24song_22',['$song',['../audio_player_8php.html#a050c21df86bb1352bffdf60a5c3edf7b',1,'audioPlayer.php']]],
+  ['_24sql_23',['$sql',['../audio_player_8php.html#a047170d6020a882807665812a27e2525',1,'audioPlayer.php']]],
+  ['_24user_24',['$user',['../audio_player_8php.html#a598ca4e71b15a1313ec95f0df1027ca5',1,'$user():&#160;audioPlayer.php'],['../db_8php.html#a598ca4e71b15a1313ec95f0df1027ca5',1,'$user():&#160;db.php']]],
+  ['_24y_25',['$y',['../history_8php.html#a77b973d137fb33212e018b042df6e3e7',1,'$y():&#160;history.php'],['../live_reading_8php.html#a77b973d137fb33212e018b042df6e3e7',1,'$y():&#160;liveReading.php'],['../music_choice_8php.html#a78756eeaca7c48ac511302a0b4665409',1,'$y():&#160;musicChoice.php']]]
 ];
