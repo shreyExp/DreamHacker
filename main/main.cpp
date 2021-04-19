@@ -152,7 +152,9 @@ int main(int argc, char *argv[])
 	 * Usually it must be half an our but it can be manipulated for testing purpose like this: ./main -w 60
 	 * It this example the program would wait for 30 seconds to go from maybesleep state to sleep state.
 	 **/
-	int surelySleptTime = 0;
+	int surelySleptTime = 2;
+
+	bool flagSurelySleptTime = 0;
 
 	/**
 	 * This variable is used to get the parameters from the terminal
@@ -192,6 +194,7 @@ int main(int argc, char *argv[])
 					break;
                                 case 'w':
                                         surelySleptTime = atoi(value);
+					flagSurelySleptTime = 1;
 					i +=1;
 					break;
                                 case 'h':
@@ -221,7 +224,7 @@ int main(int argc, char *argv[])
 	if(nightTimeNow)
 		pulseMe.setNigtTimeToNow();
 	//waiting time just after the bpm drops to threshold
-	if(surelySleptTime)
+	if(flagSurelySleptTime)
 		pulseMe.setSurelySleptTime(surelySleptTime);
 
 
