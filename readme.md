@@ -87,6 +87,7 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 * Wires
 * Speakers
 * Breadboard
+* LED
 
 ### Software
 
