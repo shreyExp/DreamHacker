@@ -92,7 +92,7 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 
 ### Software
 
-[See Documentation](https://shreyexp.github.io/DreamHacker/)
+[See Documentation](https://docs.dreamhacker.co.uk/)
 
 
 ### Roadmap
