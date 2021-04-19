@@ -28,7 +28,7 @@ class SENSORfastcgicallback : public SensorCallback {
 public:
   int beatsPerMinute;
   bool sleep;
-  int threshold
+  int threshold;
   long t;
 
   /**
@@ -39,7 +39,7 @@ public:
   virtual void hasSample(int beats, bool mayBeSleep, int bpmThreshold) {
     sleep = mayBeSleep;
     beatsPerMinute = beats;
-    threshold = bpmThreshold
+    threshold = bpmThreshold;
     t = time(NULL);
   }
 
