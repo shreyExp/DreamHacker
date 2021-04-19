@@ -11,11 +11,11 @@
 #include <wiringPi.h>
 #include <mcp3004.h>
 #include <QApplication>
-#include "mainwindow.h"
-#include "CppTimer.h"
+#include "Include/mainwindow.h"
+#include "Include/CppTimer.h"
 #include <thread>
-#include "PulseSensor.h"
-#include "json_fastcgi_web_api.h"
+#include "Include/PulseSensor.h"
+#include "Include/json_fastcgi_web_api.h"
 
 
 /**

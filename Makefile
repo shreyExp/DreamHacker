@@ -149,35 +149,62 @@ main_autogen/fast:
 	$(MAKE) -f CMakeFiles/main_autogen.dir/build.make CMakeFiles/main_autogen.dir/build
 .PHONY : main_autogen/fast
 
-CppTimer.o: CppTimer.cpp.o
+Include/CppTimer.o: Include/CppTimer.cpp.o
 
-.PHONY : CppTimer.o
+.PHONY : Include/CppTimer.o
 
 # target to build an object file
-CppTimer.cpp.o:
-	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/CppTimer.cpp.o
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CppTimer.cpp.o
-.PHONY : CppTimer.cpp.o
+Include/CppTimer.cpp.o:
+	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/Include/CppTimer.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/CppTimer.cpp.o
+.PHONY : Include/CppTimer.cpp.o
 
-CppTimer.i: CppTimer.cpp.i
+Include/CppTimer.i: Include/CppTimer.cpp.i
 
-.PHONY : CppTimer.i
+.PHONY : Include/CppTimer.i
 
 # target to preprocess a source file
-CppTimer.cpp.i:
-	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/CppTimer.cpp.i
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CppTimer.cpp.i
-.PHONY : CppTimer.cpp.i
+Include/CppTimer.cpp.i:
+	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/Include/CppTimer.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/CppTimer.cpp.i
+.PHONY : Include/CppTimer.cpp.i
 
-CppTimer.s: CppTimer.cpp.s
+Include/CppTimer.s: Include/CppTimer.cpp.s
 
-.PHONY : CppTimer.s
+.PHONY : Include/CppTimer.s
 
 # target to generate assembly for a file
-CppTimer.cpp.s:
-	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/CppTimer.cpp.s
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CppTimer.cpp.s
-.PHONY : CppTimer.cpp.s
+Include/CppTimer.cpp.s:
+	$(MAKE) -f CMakeFiles/cpptimer.dir/build.make CMakeFiles/cpptimer.dir/Include/CppTimer.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/CppTimer.cpp.s
+.PHONY : Include/CppTimer.cpp.s
+
+Include/mainwindow.o: Include/mainwindow.cpp.o
+
+.PHONY : Include/mainwindow.o
+
+# target to build an object file
+Include/mainwindow.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/mainwindow.cpp.o
+.PHONY : Include/mainwindow.cpp.o
+
+Include/mainwindow.i: Include/mainwindow.cpp.i
+
+.PHONY : Include/mainwindow.i
+
+# target to preprocess a source file
+Include/mainwindow.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/mainwindow.cpp.i
+.PHONY : Include/mainwindow.cpp.i
+
+Include/mainwindow.s: Include/mainwindow.cpp.s
+
+.PHONY : Include/mainwindow.s
+
+# target to generate assembly for a file
+Include/mainwindow.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Include/mainwindow.cpp.s
+.PHONY : Include/mainwindow.cpp.s
 
 main.o: main.cpp.o
 
@@ -233,33 +260,6 @@ main_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main_autogen/mocs_compilation.cpp.s
 .PHONY : main_autogen/mocs_compilation.cpp.s
 
-mainwindow.o: mainwindow.cpp.o
-
-.PHONY : mainwindow.o
-
-# target to build an object file
-mainwindow.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mainwindow.cpp.o
-.PHONY : mainwindow.cpp.o
-
-mainwindow.i: mainwindow.cpp.i
-
-.PHONY : mainwindow.i
-
-# target to preprocess a source file
-mainwindow.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mainwindow.cpp.i
-.PHONY : mainwindow.cpp.i
-
-mainwindow.s: mainwindow.cpp.s
-
-.PHONY : mainwindow.s
-
-# target to generate assembly for a file
-mainwindow.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mainwindow.cpp.s
-.PHONY : mainwindow.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -271,18 +271,18 @@ help:
 	@echo "... cpptimer"
 	@echo "... main"
 	@echo "... main_autogen"
-	@echo "... CppTimer.o"
-	@echo "... CppTimer.i"
-	@echo "... CppTimer.s"
+	@echo "... Include/CppTimer.o"
+	@echo "... Include/CppTimer.i"
+	@echo "... Include/CppTimer.s"
+	@echo "... Include/mainwindow.o"
+	@echo "... Include/mainwindow.i"
+	@echo "... Include/mainwindow.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... main_autogen/mocs_compilation.o"
 	@echo "... main_autogen/mocs_compilation.i"
 	@echo "... main_autogen/mocs_compilation.s"
-	@echo "... mainwindow.o"
-	@echo "... mainwindow.i"
-	@echo "... mainwindow.s"
 .PHONY : help
 
 
