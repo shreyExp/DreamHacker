@@ -1,5 +1,5 @@
 PROJECT_NAME = "DreamHacker"
-OUTPUT_DIRECTORY = docs
+OUTPUT_DIRECTORY = ./docs/
 BUILTIN_STL_SUPPORT = YES
 EXTRACT_ALL = YES
 INPUT = 
@@ -19,7 +19,7 @@ EXTRACT_PRIVATE = YES
 
 GENERATE_LATEX = NO
 GENERATE_HTML = YES
-HTML_OUTPUT = html
+HTML_OUTPUT = ./
 
 # Optimize for C/C++
 OPTIMIZE_OUTPUT_FOR_C = YES
@@ -27,11 +27,3 @@ OPTIMIZE_OUTPUT_FOR_C = YES
 # Styling
 INPUT                  += README.md
 USE_MDFILE_AS_MAINPAGE = README.md
-
-SOURCE_BROWSER         = YES 
-
-# Setting the INLINE_SOURCES tag to YES will include the body of functions,
-# classes and enums directly into the documentation.
-# The default value is: NO.
-
-INLINE_SOURCES         = YES
