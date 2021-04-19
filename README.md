@@ -164,4 +164,7 @@ Team 39 in  Real Time Embedded Programming
 
 ## References
 * [jQuery <--> C++ fastcgi web API, Bernd Porr](https://github.com/berndporr/json_fastcgi_web_api)
+* [Pulse Sensor](https://github.com/WorldFamousElectronics/Raspberry_Pi/blob/master/PulseSensor_C_Pi/PulseSensor_C_Pi.md)
+* [CppTimer](https://github.com/berndporr/cppTimer)
+* [Qt Plot](https://github.com/berndporr/qcustomplotdemo)
 
