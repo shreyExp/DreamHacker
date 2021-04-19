@@ -144,8 +144,8 @@ See `CONTRIBUTING` for more information.
 Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 
 ## Refereces
-[Pulse Sensor] (https://pulsesensor.com/)
-[Pulse Sensor Repo] (https://github.com/WorldFamousElectronics/Raspberry_Pi/blob/master/PulseSensor_C_Pi/PulseSensor_C_Pi.md)
+[Pulse Sensor](https://pulsesensor.com/)
+[Pulse Sensor Repo](https://github.com/WorldFamousElectronics/Raspberry_Pi/blob/master/PulseSensor_C_Pi/PulseSensor_C_Pi.md)
 <!-- Contact Info -->
 
 ## Contact
