@@ -26,6 +26,8 @@ Then after a while start the audio stimulus.
 
 [Instagram](https://www.instagram.com/proj_dreamhacker/)
 
+[Website](https://www.dreamhacker.co.uk)
+
 <!-- TOC -->
 ## Contents
   <ol>
@@ -40,7 +42,6 @@ Then after a while start the audio stimulus.
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#usage">Usage</a></li>
       </ul>
@@ -84,6 +85,7 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 
 * [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
 * [Pulse Sensor](https://pulsesensor.com/)
+* ADC MCP3008
 * Wires
 * Speakers
 * Breadboard
@@ -110,14 +112,12 @@ ML algo
 
 ## Getting Started
 
-### Prerequisites
-1. Clone the repository
-
 ### Installation
 Hardware
 ```
  - Set up the circuit as shown in the diagram.
  - Put a speaker with it's audio jack in the audio output of the raspberry pi.
+ - For more information: [Hardware Wiki](https://github.com/shreyExp/DreamHacker/wiki/RaspberryPi-Hardware-Setup_
 ```
 
 Software
@@ -131,15 +131,15 @@ Software
 ```
 
 ### Usage
-- Put your audio files inside the directory Audio/.
-- Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`. Make sure that the file has just one line.
-- Run ./main -h to explore what are the parameters which can be feeded as the input to the program.
-- __Example:__ If you want to run the program as a simulation  and set the beats per minute threshold to 70 then run `./main -s 1 -t 70`.
-- To run in default mode run `./main`
+- Put your audio files inside the directory audio/.
+- Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the audio/ directory then write `audio/my_file.mp3`. Make sure that the file has just one line.
+- Run ./drmhk -h to explore what are the parameters which can be feeded as the input to the program.
+- __Example:__ If you want to run the program as a simulation  and set the beats per minute threshold to 70 then run `./drmhk -s 1 -t 70`.
+- To run in default mode run `./drmhk`
 
 ## Contributing
 
-See `CONTRIBUTING` for more information.
+See [CONTRIBUTING](https://github.com/shreyExp/DreamHacker/wiki/Contribution) for more information.
 
 <!-- License -->
 

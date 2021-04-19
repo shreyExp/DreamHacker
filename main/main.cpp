@@ -11,11 +11,11 @@
 #include <wiringPi.h>
 #include <mcp3004.h>
 #include <QApplication>
-#include "Include/mainwindow.h"
-#include "Include/CppTimer.h"
+#include "../include/mainwindow.h"
+#include "../include/CppTimer.h"
 #include <thread>
-#include "Include/PulseSensor.h"
-#include "Include/json_fastcgi_web_api.h"
+#include "../include/PulseSensor.h"
+#include "../include/json_fastcgi_web_api.h"
 
 
 
@@ -247,12 +247,12 @@ int main(int argc, char *argv[])
 	 * The QApplication will form the windows for the display of raw data read from the sensor.
 	 * This will block the control and the program will keep on runnig stuck here.
 	 **/
-   	//QApplication a(argc, argv);
-   	//SenseWindow w;
-	//if(graph){
-   	//	w.showMaximized();
-   	//	a.exec();
-	//}
+   	QApplication a(argc, argv);
+   	SenseWindow w;
+	if(graph){
+   		w.showMaximized();
+   		a.exec();
+	}
 
 	/**
 	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
