@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['elapsedtime_66',['elapsedTime',['../class_sensor_timer.html#a23904c4f9bc7b0ef8f39e9158da989a3',1,'SensorTimer']]],
-  ['else_67',['else',['../audio_player_8php.html#a02899a6defb44e3d04bd9b5f0c821595',1,'else():&#160;audioPlayer.php'],['../sucess_8php.html#a0f59ce747225b7a635b3126f53f36e09',1,'else():&#160;sucess.php']]],
-  ['endfor_68',['endfor',['../history_8php.html#ae8fdc27183f296411bac00ed522ee1ac',1,'endfor():&#160;history.php'],['../live_reading_8php.html#ae8fdc27183f296411bac00ed522ee1ac',1,'endfor():&#160;liveReading.php'],['../music_choice_8php.html#a7abfb3e1301ffd5ac709c2fc9f3ffba1',1,'endfor():&#160;musicChoice.php']]],
-  ['eventcounter_69',['eventCounter',['../class_sensor_timer.html#ab410d5296b53f11c14037a0639d905ae',1,'SensorTimer']]],
-  ['exec_70',['exec',['../class_j_s_o_n_c_g_i_handler.html#a42518cd5ad781476d299b50e4c4c0000',1,'JSONCGIHandler']]]
+  ['g_5frunning_41',['g_running',['../main_8cpp.html#a037aed45f792fc3e78387006be43a53e',1,'main.cpp']]],
+  ['getcallback_42',['getCallback',['../class_j_s_o_n_c_g_i_handler.html#a7c8b4a44e15ac57fe93b382e86899fa7',1,'JSONCGIHandler']]],
+  ['getcallback_43',['GETCallback',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html',1,'JSONCGIHandler']]],
+  ['getcontenttype_44',['getContentType',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html#a4e1fee495ddeb4e24eaa5b8e767ea838',1,'JSONCGIHandler::GETCallback']]],
+  ['getjson_45',['getJSON',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#afec28cd80e562955e2cd8cdb92d86205',1,'JSONCGIHandler::JSONGenerator']]],
+  ['getjsonstring_46',['getJSONString',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html#a2367bf5a5912e9e5599ee464e0846255',1,'JSONCGIHandler::GETCallback::getJSONString()'],['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a763ae66809e399f49e712a1ad68289bb',1,'JSONCGIADCCallback::getJSONString()']]],
+  ['getpulse_47',['getPulse',['../class_sensor_timer.html#a54d4119db865d1fd2bbff0fc8da67482',1,'SensorTimer']]],
+  ['graphclicked_48',['graphClicked',['../class_main_window.html#a8051aaa7fb3d933b24edfc2b3313fb9d',1,'MainWindow']]]
 ];

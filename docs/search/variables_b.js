@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['m_358',['m',['../class_sensor_timer.html#ac2688bda3961332bcb0a80a63be6c0f5',1,'SensorTimer']]],
-  ['mainthread_359',['mainThread',['../class_j_s_o_n_c_g_i_handler.html#aca513f708ae4dc76ba70196ff25da695',1,'JSONCGIHandler']]],
-  ['maybesleep_360',['maybeSleep',['../class_sensor_timer.html#a6aaa261915f03ad857544fd629607ea6',1,'SensorTimer']]],
-  ['menubar_361',['menuBar',['../class_main_window.html#a285395aec8fd01bec6bedcad73b86a55',1,'MainWindow']]]
+  ['nighttime_271',['nightTime',['../class_sensor_timer.html#a4d29fdf6804a4777668d957a8333f9c6',1,'SensorTimer']]],
+  ['nrealtimepoints_272',['nRealtimePoints',['../class_main_window.html#ac3b757adfb6eff08e50a5017d12a48df',1,'MainWindow']]]
 ];

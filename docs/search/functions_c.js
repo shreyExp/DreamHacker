@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['play_5faudio_271',['play_audio',['../class_sensor_timer.html#a03ec27b4291d6a2bdd84822415efe680',1,'SensorTimer']]],
-  ['postdecoder_272',['postDecoder',['../class_j_s_o_n_c_g_i_handler.html#a0f208af3dd050ed182967fe9cca42d78',1,'JSONCGIHandler']]],
-  ['poststring_273',['postString',['../class_j_s_o_n_c_g_i_handler_1_1_p_o_s_t_callback.html#a6cddb384a3fd9242b323cea3d82a6bb7',1,'JSONCGIHandler::POSTCallback']]]
+  ['registereventrunnable_212',['registerEventRunnable',['../class_cpp_timer_callback.html#ae6e815f1c3b65ea4f10fe0332e13acb9',1,'CppTimerCallback']]],
+  ['removeallgraphs_213',['removeAllGraphs',['../class_main_window.html#a7af3696afc3e0996f54803bc9e8a88de',1,'MainWindow']]],
+  ['removeselectedgraph_214',['removeSelectedGraph',['../class_main_window.html#addd0ecbc66696a8427539ea464a56c7d',1,'MainWindow']]],
+  ['run_215',['run',['../class_cpp_timer_callback_1_1_runnable.html#af8d11a3b580e76431151e76ac1886e6e',1,'CppTimerCallback::Runnable']]]
 ];

@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['p_125',['P',['../class_sensor_timer.html#a9bf478f0366940dab46992b626eb6614',1,'SensorTimer']]],
-  ['paginator_126',['Paginator',['../class_paginator.html',1,'']]],
-  ['paginator_2ephp_127',['paginator.php',['../paginator_8php.html',1,'']]],
-  ['period_5fof_5fsimulation_128',['period_of_simulation',['../class_sensor_timer.html#a05ab0c30d7e40d9045c21b0b115c392d',1,'SensorTimer']]],
-  ['periodic_129',['PERIODIC',['../_cpp_timer_8h.html#a110d07ab6a96d7815149d3d95435790aae4379d044711537d9ce3b3b58c575c58',1,'CppTimer.h']]],
-  ['play_5faudio_130',['play_audio',['../class_sensor_timer.html#a03ec27b4291d6a2bdd84822415efe680',1,'SensorTimer']]],
-  ['play_5faudio_5flocally_131',['play_audio_locally',['../class_sensor_timer.html#ab8ae50b1ee64129594c15f056856c35f',1,'SensorTimer']]],
-  ['postcallback_132',['POSTCallback',['../class_j_s_o_n_c_g_i_handler_1_1_p_o_s_t_callback.html',1,'JSONCGIHandler']]],
-  ['postcallback_133',['postCallback',['../class_j_s_o_n_c_g_i_handler.html#a09ee0f555db808d07c9ee9a575780553',1,'JSONCGIHandler']]],
-  ['postdecoder_134',['postDecoder',['../class_j_s_o_n_c_g_i_handler.html#a0f208af3dd050ed182967fe9cca42d78',1,'JSONCGIHandler']]],
-  ['poststring_135',['postString',['../class_j_s_o_n_c_g_i_handler_1_1_p_o_s_t_callback.html#a6cddb384a3fd9242b323cea3d82a6bb7',1,'JSONCGIHandler::POSTCallback']]],
-  ['pulse_136',['Pulse',['../class_sensor_timer.html#aaa0853dc77e341fcaf2f19bf968b4b4c',1,'SensorTimer']]],
-  ['pulsesensor_2eh_137',['PulseSensor.h',['../_pulse_sensor_8h.html',1,'']]]
+  ['rate_97',['rate',['../class_sensor_timer.html#ab74c86309da203b069a991f8ca09ae0a',1,'SensorTimer']]],
+  ['readme_2emd_98',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['registereventrunnable_99',['registerEventRunnable',['../class_cpp_timer_callback.html#ae6e815f1c3b65ea4f10fe0332e13acb9',1,'CppTimerCallback']]],
+  ['removeallgraphs_100',['removeAllGraphs',['../class_main_window.html#a7af3696afc3e0996f54803bc9e8a88de',1,'MainWindow']]],
+  ['removeselectedgraph_101',['removeSelectedGraph',['../class_main_window.html#addd0ecbc66696a8427539ea464a56c7d',1,'MainWindow']]],
+  ['request_102',['request',['../class_j_s_o_n_c_g_i_handler.html#a69dba19ef64e913fc7e969854be997c9',1,'JSONCGIHandler']]],
+  ['run_103',['run',['../class_cpp_timer_callback_1_1_runnable.html#af8d11a3b580e76431151e76ac1886e6e',1,'CppTimerCallback::Runnable']]],
+  ['runnable_104',['Runnable',['../class_cpp_timer_callback_1_1_runnable.html',1,'CppTimerCallback']]],
+  ['running_105',['running',['../class_j_s_o_n_c_g_i_handler.html#aefa19cd01b387693ef99c5aa0c5fc093',1,'JSONCGIHandler']]]
 ];

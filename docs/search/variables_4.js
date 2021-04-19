@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['datarequeststart_334',['dataRequestStart',['../class_sensor_timer.html#a5e04d19d42170c73243dbcbbdedfdbc5',1,'SensorTimer']]],
-  ['dt_335',['dt',['../class_main_window.html#a9877316405a63e4d97dcc23973b57883',1,'MainWindow']]],
-  ['duration_336',['duration',['../class_sensor_timer.html#a1353e51d3e3db2f14a18afb14419c905',1,'SensorTimer']]]
+  ['elapsedtime_249',['elapsedTime',['../class_sensor_timer.html#a23904c4f9bc7b0ef8f39e9158da989a3',1,'SensorTimer']]],
+  ['eventcounter_250',['eventCounter',['../class_sensor_timer.html#ab410d5296b53f11c14037a0639d905ae',1,'SensorTimer']]]
 ];

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['json_97',['json',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#a5a9fd42e7b9030c6a0a4bee923a2e416',1,'JSONCGIHandler::JSONGenerator']]],
-  ['json_5ffastcgi_5fweb_5fapi_2eh_98',['json_fastcgi_web_api.h',['../json__fastcgi__web__api_8h.html',1,'']]],
-  ['jsoncgiadccallback_99',['JSONCGIADCCallback',['../class_j_s_o_n_c_g_i_a_d_c_callback.html',1,'JSONCGIADCCallback'],['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a9b02dfb7eadb7e9c8004f90bdc474e29',1,'JSONCGIADCCallback::JSONCGIADCCallback()']]],
-  ['jsoncgihandler_100',['JSONCGIHandler',['../class_j_s_o_n_c_g_i_handler.html',1,'JSONCGIHandler'],['../class_j_s_o_n_c_g_i_handler.html#a9bf5a96d13949d363225561ba6ac3b56',1,'JSONCGIHandler::JSONCGIHandler(GETCallback *argGetCallback, POSTCallback *argPostCallback=nullptr, const char socketpath[]=&quot;/tmp/fastcgisocket&quot;)']]],
-  ['jsongenerator_101',['JSONGenerator',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html',1,'JSONCGIHandler']]]
+  ['label_64',['label',['../class_main_window.html#a89e281849b9cf7d03662402c6bc6012c',1,'MainWindow']]],
+  ['lastbeattime_65',['lastBeatTime',['../class_sensor_timer.html#a4eeaf71d9a5f96e322b35081cf33f6e9',1,'SensorTimer']]],
+  ['lasttime_66',['lastTime',['../class_sensor_timer.html#a03ed20714879814e22e5641940e1c764',1,'SensorTimer']]],
+  ['legenddoubleclick_67',['legendDoubleClick',['../class_main_window.html#afb15e4bd4206b7c4049ebf297f8c02bd',1,'MainWindow']]]
 ];

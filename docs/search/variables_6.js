@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['firstbeat_341',['firstBeat',['../class_sensor_timer.html#a285de7aa2794270cbcf59144afd4746a',1,'SensorTimer']]],
-  ['firstentry_342',['firstEntry',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#a9d14c80af92fa9f3a3406d826acd2cc0',1,'JSONCGIHandler::JSONGenerator']]],
-  ['firsttime_343',['firstTime',['../class_sensor_timer.html#a29b97782575a74a0d4bf7af50bad66cc',1,'SensorTimer']]],
-  ['for_344',['for',['../live_reading_8php.html#ac061a505967fc3e473b3ecb9df9f1b7c',1,'liveReading.php']]],
-  ['frame_345',['frame',['../class_main_window.html#a1c0b4ea19f6a3fa99e1b2b5aaced3316',1,'MainWindow']]],
-  ['frame_5f2_346',['frame_2',['../class_main_window.html#a2922276b16afd8adc961e2feb0295aa7',1,'MainWindow']]]
+  ['g_5frunning_256',['g_running',['../main_8cpp.html#a037aed45f792fc3e78387006be43a53e',1,'main.cpp']]],
+  ['getcallback_257',['getCallback',['../class_j_s_o_n_c_g_i_handler.html#a7c8b4a44e15ac57fe93b382e86899fa7',1,'JSONCGIHandler']]]
 ];

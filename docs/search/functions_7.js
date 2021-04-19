@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['initializevariablesforsleep_260',['initializeVariablesForSleep',['../class_sensor_timer.html#a042706c0c1ec146beb95e8f3947211fd',1,'SensorTimer']]],
-  ['initpulsesensorvariables_261',['initPulseSensorVariables',['../class_sensor_timer.html#a86849a9ab4dc5443cc93f96f00c29f6c',1,'SensorTimer']]]
+  ['jsoncgiadccallback_200',['JSONCGIADCCallback',['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a9b02dfb7eadb7e9c8004f90bdc474e29',1,'JSONCGIADCCallback']]],
+  ['jsoncgihandler_201',['JSONCGIHandler',['../class_j_s_o_n_c_g_i_handler.html#a9bf5a96d13949d363225561ba6ac3b56',1,'JSONCGIHandler']]]
 ];

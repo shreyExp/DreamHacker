@@ -9,7 +9,6 @@ var hierarchy =
     ] ],
     [ "JSONCGIHandler", "class_j_s_o_n_c_g_i_handler.html", null ],
     [ "JSONCGIHandler::JSONGenerator", "class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html", null ],
-    [ "Paginator", "class_paginator.html", null ],
     [ "JSONCGIHandler::POSTCallback", "class_j_s_o_n_c_g_i_handler_1_1_p_o_s_t_callback.html", null ],
     [ "QMainWindow", "class_q_main_window.html", [
       [ "MainWindow", "class_main_window.html", [

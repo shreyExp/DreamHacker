@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['g_5frunning_77',['g_running',['../main_8cpp.html#a037aed45f792fc3e78387006be43a53e',1,'main.cpp']]],
-  ['getcallback_78',['getCallback',['../class_j_s_o_n_c_g_i_handler.html#a7c8b4a44e15ac57fe93b382e86899fa7',1,'JSONCGIHandler']]],
-  ['getcallback_79',['GETCallback',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html',1,'JSONCGIHandler']]],
-  ['getcontenttype_80',['getContentType',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html#a4e1fee495ddeb4e24eaa5b8e767ea838',1,'JSONCGIHandler::GETCallback']]],
-  ['getdata_81',['getData',['../class_paginator.html#a9cdb75eb0cf2ecc49ff7d5ae1c65e77b',1,'Paginator']]],
-  ['getjson_82',['getJSON',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#afec28cd80e562955e2cd8cdb92d86205',1,'JSONCGIHandler::JSONGenerator']]],
-  ['getjsonstring_83',['getJSONString',['../class_j_s_o_n_c_g_i_handler_1_1_g_e_t_callback.html#a2367bf5a5912e9e5599ee464e0846255',1,'JSONCGIHandler::GETCallback::getJSONString()'],['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a763ae66809e399f49e712a1ad68289bb',1,'JSONCGIADCCallback::getJSONString()']]],
-  ['getpulse_84',['getPulse',['../class_sensor_timer.html#a54d4119db865d1fd2bbff0fc8da67482',1,'SensorTimer']]],
-  ['graphclicked_85',['graphClicked',['../class_main_window.html#a8051aaa7fb3d933b24edfc2b3313fb9d',1,'MainWindow']]]
+  ['ibi_51',['IBI',['../class_sensor_timer.html#abc1f4e1db59f4aa0dae5793c90740a84',1,'SensorTimer']]],
+  ['initializevariablesforsleep_52',['initializeVariablesForSleep',['../class_sensor_timer.html#a042706c0c1ec146beb95e8f3947211fd',1,'SensorTimer']]],
+  ['initpulsesensorvariables_53',['initPulseSensorVariables',['../class_sensor_timer.html#a86849a9ab4dc5443cc93f96f00c29f6c',1,'SensorTimer']]],
+  ['instructionstxt_54',['instructionsTxt',['../mainwindow_8cpp.html#ae78f4adc40f6a5315f05fc1ab3e69ecf',1,'mainwindow.cpp']]],
+  ['is_5faudio_5fplaying_55',['is_audio_playing',['../class_sensor_timer.html#ab9ea2c04c2ed4e36f2983ad441fa06d7',1,'SensorTimer']]],
+  ['is_5fsimulation_56',['is_simulation',['../class_sensor_timer.html#ace1263828012e5e2c0011ca5ee2d4ad8',1,'SensorTimer']]],
+  ['its_57',['its',['../class_cpp_timer.html#a8774fb5ba9af8f276874c1234741f106',1,'CppTimer']]]
 ];

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['handler_86',['handler',['../class_cpp_timer.html#a88d7573281ac46871df398f1d85399b0',1,'CppTimer']]],
-  ['hassample_87',['hasSample',['../class_sensor_callback.html#a89069694af2123270caf56839ed22cdd',1,'SensorCallback::hasSample()'],['../class_s_e_n_s_o_rfastcgicallback.html#a554ef360acfa9d3659742697b2946f3a',1,'SENSORfastcgicallback::hasSample()']]],
-  ['history_2ephp_88',['history.php',['../history_8php.html',1,'']]]
+  ['json_58',['json',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#a5a9fd42e7b9030c6a0a4bee923a2e416',1,'JSONCGIHandler::JSONGenerator']]],
+  ['json_5ffastcgi_5fweb_5fapi_2eh_59',['json_fastcgi_web_api.h',['../json__fastcgi__web__api_8h.html',1,'']]],
+  ['jsoncgiadccallback_60',['JSONCGIADCCallback',['../class_j_s_o_n_c_g_i_a_d_c_callback.html',1,'JSONCGIADCCallback'],['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a9b02dfb7eadb7e9c8004f90bdc474e29',1,'JSONCGIADCCallback::JSONCGIADCCallback()']]],
+  ['jsoncgihandler_61',['JSONCGIHandler',['../class_j_s_o_n_c_g_i_handler.html',1,'JSONCGIHandler'],['../class_j_s_o_n_c_g_i_handler.html#a9bf5a96d13949d363225561ba6ac3b56',1,'JSONCGIHandler::JSONCGIHandler(GETCallback *argGetCallback, POSTCallback *argPostCallback=nullptr, const char socketpath[]=&quot;/tmp/fastcgisocket&quot;)']]],
+  ['jsongenerator_62',['JSONGenerator',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html',1,'JSONCGIHandler']]]
 ];

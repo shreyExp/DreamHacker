@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['oneshot_124',['ONESHOT',['../_cpp_timer_8h.html#a110d07ab6a96d7815149d3d95435790aa2724fa87f252403cd2c93f7437f34fd5',1,'CppTimer.h']]]
+  ['qmainwindow_95',['QMainWindow',['../class_q_main_window.html',1,'']]],
+  ['qs_96',['QS',['../class_sensor_timer.html#a820b614d51dc988ae64219c133406f47',1,'SensorTimer']]]
 ];

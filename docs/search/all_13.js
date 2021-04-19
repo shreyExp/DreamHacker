@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['rate_140',['rate',['../class_sensor_timer.html#ab74c86309da203b069a991f8ca09ae0a',1,'SensorTimer']]],
-  ['readme_141',['readme',['../md_readme.html',1,'']]],
-  ['readme_2emd_142',['readme.md',['../frontend_2database_2readme_8md.html',1,'(Global Namespace)'],['../readme_8md.html',1,'(Global Namespace)']]],
-  ['registereventrunnable_143',['registerEventRunnable',['../class_cpp_timer_callback.html#ae6e815f1c3b65ea4f10fe0332e13acb9',1,'CppTimerCallback']]],
-  ['removeallgraphs_144',['removeAllGraphs',['../class_main_window.html#a7af3696afc3e0996f54803bc9e8a88de',1,'MainWindow']]],
-  ['removeselectedgraph_145',['removeSelectedGraph',['../class_main_window.html#addd0ecbc66696a8427539ea464a56c7d',1,'MainWindow']]],
-  ['request_146',['request',['../class_j_s_o_n_c_g_i_handler.html#a69dba19ef64e913fc7e969854be997c9',1,'JSONCGIHandler']]],
-  ['rootpath_147',['ROOTPATH',['../history_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;history.php'],['../index_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;index.php'],['../live_reading_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;liveReading.php'],['../music_choice_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;musicChoice.php'],['../sucess_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;sucess.php']]],
-  ['run_148',['run',['../class_cpp_timer_callback_1_1_runnable.html#af8d11a3b580e76431151e76ac1886e6e',1,'CppTimerCallback::Runnable']]],
-  ['runnable_149',['Runnable',['../class_cpp_timer_callback_1_1_runnable.html',1,'CppTimerCallback']]],
-  ['running_150',['running',['../class_j_s_o_n_c_g_i_handler.html#aefa19cd01b387693ef99c5aa0c5fc093',1,'JSONCGIHandler']]]
+  ['t_136',['T',['../class_sensor_timer.html#ad78b1837ae8402db8111c1125d62c39a',1,'SensorTimer']]],
+  ['t_137',['t',['../class_main_window.html#a4a67c261262269dbbdf62c5acecd0f45',1,'MainWindow::t()'],['../class_s_e_n_s_o_rfastcgicallback.html#aaa260a6ca2f81d83f769b4c3ca6acc73',1,'SENSORfastcgicallback::t()']]],
+  ['thistime_138',['thisTime',['../class_sensor_timer.html#ab8ae36c7b7cb90c0b0d119e890489338',1,'SensorTimer']]],
+  ['thresh_139',['thresh',['../class_sensor_timer.html#a888dc3b1bf9bfb452c679bccb018a387',1,'SensorTimer']]],
+  ['threshold_140',['threshold',['../class_s_e_n_s_o_rfastcgicallback.html#ad48620809e828f35a6e6c0e7065f13aa',1,'SENSORfastcgicallback']]],
+  ['threshsetting_141',['threshSetting',['../class_sensor_timer.html#a6e26abccf69140ef3749f95dccbb60aa',1,'SensorTimer']]],
+  ['timeoutstart_142',['timeOutStart',['../class_sensor_timer.html#a884380525acb68dcbe88e55a48a37496',1,'SensorTimer']]],
+  ['timerevent_143',['timerEvent',['../class_cpp_timer.html#ac2665403595b6aee5f581d0ebfeb886c',1,'CppTimer::timerEvent()'],['../class_cpp_timer_callback.html#af6b39f5eb8e98bfc1b301ac3f25276e9',1,'CppTimerCallback::timerEvent()'],['../class_main_window.html#a1c7877c1ca466bd8034d88762ce2af9f',1,'MainWindow::timerEvent()'],['../class_sensor_timer.html#a6d15ff3f37f39e6baa43cf22a48263f2',1,'SensorTimer::timerEvent()'],['../class_sense_window.html#a43602e0dfc68a2ad1b46562e5af17fd7',1,'SenseWindow::timerEvent()']]],
+  ['timerid_144',['timerid',['../class_cpp_timer.html#a90ff764263fdde5a0f6e53429c8cf734',1,'CppTimer']]],
+  ['titledoubleclick_145',['titleDoubleClick',['../class_main_window.html#a7a08729acae2d66f3a961aedc2843201',1,'MainWindow']]],
+  ['titletxt_146',['titleTxt',['../mainwindow_8cpp.html#a773d83c4ef02c0fe33e23e9133603c75',1,'mainwindow.cpp']]]
 ];

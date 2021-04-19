@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['amp_322',['amp',['../class_sensor_timer.html#a69302d73a34d1ac10dbbd4d17e46493c',1,'SensorTimer']]],
-  ['animdata_323',['animdata',['../class_main_window.html#a8a03063815634f96c67efff679eec7f1',1,'MainWindow']]],
-  ['audio_5fname_324',['audio_name',['../class_sensor_timer.html#a753287351e0381ca5d0d85df3078f762',1,'SensorTimer']]],
-  ['audio_5fpid_325',['audio_pid',['../class_sensor_timer.html#aaeec2579eba748d10fa8532311b20e99',1,'SensorTimer']]]
+  ['beatsperminute_238',['beatsPerMinute',['../class_s_e_n_s_o_rfastcgicallback.html#a6b4105c78aed0f6d71feccb84dc1ffd6',1,'SENSORfastcgicallback']]],
+  ['bpm_239',['BPM',['../class_sensor_timer.html#a54c96b55f91d091b3f11d9f4f5aaa34a',1,'SensorTimer']]],
+  ['bpmthreshold_240',['bpmThreshold',['../class_sensor_timer.html#a4db914e2d73ffb3202aeb4fb3ffb3073',1,'SensorTimer']]]
 ];

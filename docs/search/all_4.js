@@ -1,20 +1,6 @@
 var searchData=
 [
-  ['call_5ftime_5fperiod_44',['call_time_period',['../class_sensor_timer.html#a0ee1760c265760a66758a9845f179f53',1,'SensorTimer']]],
-  ['callplot_45',['callPlot',['../class_main_window.html#a37fafd4b956df2afe979320e886e08b9',1,'MainWindow']]],
-  ['calulcations_2ephp_46',['calulcations.php',['../calulcations_8php.html',1,'']]],
-  ['centralwidget_47',['centralWidget',['../class_main_window.html#ad3bde47a75b6c59146d6aff1752d077f',1,'MainWindow']]],
-  ['clockid_48',['CLOCKID',['../_cpp_timer_8h.html#a2694a39dfd1fa087ca6f9f391c91dae7',1,'CppTimer.h']]],
-  ['contextmenurequest_49',['contextMenuRequest',['../class_main_window.html#a9aa96a47567bb4c129c3c0ec88fff3a8',1,'MainWindow']]],
-  ['countdown_50',['countdown',['../class_sensor_timer.html#a6bb2773d68210a8d70742b118b84139f',1,'SensorTimer']]],
-  ['cpptimer_51',['CppTimer',['../class_cpp_timer.html',1,'CppTimer'],['../class_cpp_timer.html#a300c3075e777cb4abdc09c9704ae6f87',1,'CppTimer::CppTimer()']]],
-  ['cpptimer_2ecpp_52',['CppTimer.cpp',['../_cpp_timer_8cpp.html',1,'']]],
-  ['cpptimer_2eh_53',['CppTimer.h',['../_cpp_timer_8h.html',1,'']]],
-  ['cpptimercallback_54',['CppTimerCallback',['../class_cpp_timer_callback.html',1,'']]],
-  ['cpptimercallback_2eh_55',['CppTimerCallback.h',['../_cpp_timer_callback_8h.html',1,'']]],
-  ['cpptimereventrunnable_56',['cppTimerEventRunnable',['../class_cpp_timer_callback.html#a578cc701cee7be10f3afab2859eac74f',1,'CppTimerCallback']]],
-  ['cpptimertype_5ft_57',['cppTimerType_t',['../_cpp_timer_8h.html#a110d07ab6a96d7815149d3d95435790a',1,'CppTimer.h']]],
-  ['createlinks_58',['createLinks',['../class_paginator.html#a2240cdf57e6a071ef8f7b723f55d7ffe',1,'Paginator']]],
-  ['curpageurl_59',['curPageURL',['../class_paginator.html#a18fbb26a0e3ef34992c538566a8ca936',1,'Paginator']]],
-  ['customplot_60',['customPlot',['../class_main_window.html#adf20eb4e3d56f3697d3668cda8219e56',1,'MainWindow']]]
+  ['elapsedtime_33',['elapsedTime',['../class_sensor_timer.html#a23904c4f9bc7b0ef8f39e9158da989a3',1,'SensorTimer']]],
+  ['eventcounter_34',['eventCounter',['../class_sensor_timer.html#ab410d5296b53f11c14037a0639d905ae',1,'SensorTimer']]],
+  ['exec_35',['exec',['../class_j_s_o_n_c_g_i_handler.html#a42518cd5ad781476d299b50e4c4c0000',1,'JSONCGIHandler']]]
 ];

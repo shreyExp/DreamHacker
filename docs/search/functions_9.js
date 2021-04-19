@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kill_5fthe_5fpid_264',['kill_the_pid',['../class_sensor_timer.html#a26f5ab50413256c6b9523b8cbe5f6a84',1,'SensorTimer']]]
+  ['legenddoubleclick_203',['legendDoubleClick',['../class_main_window.html#afb15e4bd4206b7c4049ebf297f8c02bd',1,'MainWindow']]]
 ];

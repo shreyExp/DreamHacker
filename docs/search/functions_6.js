@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['handler_258',['handler',['../class_cpp_timer.html#a88d7573281ac46871df398f1d85399b0',1,'CppTimer']]],
-  ['hassample_259',['hasSample',['../class_sensor_callback.html#a89069694af2123270caf56839ed22cdd',1,'SensorCallback::hasSample()'],['../class_s_e_n_s_o_rfastcgicallback.html#a554ef360acfa9d3659742697b2946f3a',1,'SENSORfastcgicallback::hasSample()']]]
+  ['initializevariablesforsleep_198',['initializeVariablesForSleep',['../class_sensor_timer.html#a042706c0c1ec146beb95e8f3947211fd',1,'SensorTimer']]],
+  ['initpulsesensorvariables_199',['initPulseSensorVariables',['../class_sensor_timer.html#a86849a9ab4dc5443cc93f96f00c29f6c',1,'SensorTimer']]]
 ];

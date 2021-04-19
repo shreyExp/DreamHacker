@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['datarequeststart_61',['dataRequestStart',['../class_sensor_timer.html#a5e04d19d42170c73243dbcbbdedfdbc5',1,'SensorTimer']]],
-  ['db_2ephp_62',['db.php',['../db_8php.html',1,'']]],
-  ['dreamhacker_63',['DreamHacker',['../md_frontend_database_readme.html',1,'']]],
-  ['dt_64',['dt',['../class_main_window.html#a9877316405a63e4d97dcc23973b57883',1,'MainWindow']]],
-  ['duration_65',['duration',['../class_sensor_timer.html#a1353e51d3e3db2f14a18afb14419c905',1,'SensorTimer']]]
+  ['firstbeat_36',['firstBeat',['../class_sensor_timer.html#a285de7aa2794270cbcf59144afd4746a',1,'SensorTimer']]],
+  ['firstentry_37',['firstEntry',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#a9d14c80af92fa9f3a3406d826acd2cc0',1,'JSONCGIHandler::JSONGenerator']]],
+  ['firsttime_38',['firstTime',['../class_sensor_timer.html#a29b97782575a74a0d4bf7af50bad66cc',1,'SensorTimer']]],
+  ['frame_39',['frame',['../class_main_window.html#a1c0b4ea19f6a3fa99e1b2b5aaced3316',1,'MainWindow']]],
+  ['frame_5f2_40',['frame_2',['../class_main_window.html#a2922276b16afd8adc961e2feb0295aa7',1,'MainWindow']]]
 ];

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['elapsedtime_337',['elapsedTime',['../class_sensor_timer.html#a23904c4f9bc7b0ef8f39e9158da989a3',1,'SensorTimer']]],
-  ['else_338',['else',['../audio_player_8php.html#a02899a6defb44e3d04bd9b5f0c821595',1,'else():&#160;audioPlayer.php'],['../sucess_8php.html#a0f59ce747225b7a635b3126f53f36e09',1,'else():&#160;sucess.php']]],
-  ['endfor_339',['endfor',['../history_8php.html#ae8fdc27183f296411bac00ed522ee1ac',1,'endfor():&#160;history.php'],['../live_reading_8php.html#ae8fdc27183f296411bac00ed522ee1ac',1,'endfor():&#160;liveReading.php'],['../music_choice_8php.html#a7abfb3e1301ffd5ac709c2fc9f3ffba1',1,'endfor():&#160;musicChoice.php']]],
-  ['eventcounter_340',['eventCounter',['../class_sensor_timer.html#ab410d5296b53f11c14037a0639d905ae',1,'SensorTimer']]]
+  ['firstbeat_251',['firstBeat',['../class_sensor_timer.html#a285de7aa2794270cbcf59144afd4746a',1,'SensorTimer']]],
+  ['firstentry_252',['firstEntry',['../class_j_s_o_n_c_g_i_handler_1_1_j_s_o_n_generator.html#a9d14c80af92fa9f3a3406d826acd2cc0',1,'JSONCGIHandler::JSONGenerator']]],
+  ['firsttime_253',['firstTime',['../class_sensor_timer.html#a29b97782575a74a0d4bf7af50bad66cc',1,'SensorTimer']]],
+  ['frame_254',['frame',['../class_main_window.html#a1c0b4ea19f6a3fa99e1b2b5aaced3316',1,'MainWindow']]],
+  ['frame_5f2_255',['frame_2',['../class_main_window.html#a2922276b16afd8adc961e2feb0295aa7',1,'MainWindow']]]
 ];

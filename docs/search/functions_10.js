@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['unregistereventrunnable_292',['unregisterEventRunnable',['../class_cpp_timer_callback.html#a29d8d5a426a3d15bca8a42c2c897f50f',1,'CppTimerCallback']]],
-  ['usage_293',['usage',['../main_8cpp.html#ae8605e2b78cd4a81b6c6b5c30cb7366a',1,'main.cpp']]]
+  ['_7ecpptimer_232',['~CppTimer',['../class_cpp_timer.html#a91779a93fce7383a8d832ed481399342',1,'CppTimer']]],
+  ['_7ejsoncgihandler_233',['~JSONCGIHandler',['../class_j_s_o_n_c_g_i_handler.html#a4817e428a962bdea68123f2d32671f30',1,'JSONCGIHandler']]]
 ];

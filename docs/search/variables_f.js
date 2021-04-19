@@ -1,7 +1,18 @@
 var searchData=
 [
-  ['rate_370',['rate',['../class_sensor_timer.html#ab74c86309da203b069a991f8ca09ae0a',1,'SensorTimer']]],
-  ['request_371',['request',['../class_j_s_o_n_c_g_i_handler.html#a69dba19ef64e913fc7e969854be997c9',1,'JSONCGIHandler']]],
-  ['rootpath_372',['ROOTPATH',['../history_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;history.php'],['../index_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;index.php'],['../live_reading_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;liveReading.php'],['../music_choice_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;musicChoice.php'],['../sucess_8php.html#ad1b122192cc7d3d8dd3d2a7f4f1333a9',1,'ROOTPATH():&#160;sucess.php']]],
-  ['running_373',['running',['../class_j_s_o_n_c_g_i_handler.html#aefa19cd01b387693ef99c5aa0c5fc093',1,'JSONCGIHandler']]]
+  ['sa_282',['sa',['../class_cpp_timer.html#a692a200df6d2c43b72ff1db76458f09f',1,'CppTimer']]],
+  ['samplecounter_283',['sampleCounter',['../class_sensor_timer.html#a7ba22ffafc2b42ae3cdff31d47525fcb',1,'SensorTimer']]],
+  ['secondbeat_284',['secondBeat',['../class_sensor_timer.html#a93f19ee800ea1f8b53d2bd9ca40374ab',1,'SensorTimer']]],
+  ['secondtime_285',['secondTime',['../class_sensor_timer.html#ac2de8ccb0d70b801574f962baae0a5cb',1,'SensorTimer']]],
+  ['sensorcallback_286',['sensorCallback',['../class_sensor_timer.html#ad58597d91c359dc772a970ee46ef2b8c',1,'SensorTimer']]],
+  ['sensorfastcgi_287',['sensorfastcgi',['../class_j_s_o_n_c_g_i_a_d_c_callback.html#a105866e87ab653c7cddfedba74149d42',1,'JSONCGIADCCallback']]],
+  ['sev_288',['sev',['../class_cpp_timer.html#a9860d3d723ad55982db50c9cde8d725a',1,'CppTimer']]],
+  ['signal_289',['Signal',['../class_sensor_timer.html#a73b3600a3b439a889ec2aefb6e9d406e',1,'SensorTimer::Signal()'],['../class_sense_window.html#ad97aff95e489210aaa4dec6fc03dd741',1,'SenseWindow::Signal()']]],
+  ['simulation_5fstarted_290',['simulation_started',['../class_sensor_timer.html#af524226ec78b66a274851119f7b00a2f',1,'SensorTimer']]],
+  ['sleep_291',['sleep',['../class_sensor_timer.html#a1bf0ef8c1667be0f111419322d196077',1,'SensorTimer::sleep()'],['../class_s_e_n_s_o_rfastcgicallback.html#aa667ff1226feb85d2684cc355ca6e644',1,'SENSORfastcgicallback::sleep()']]],
+  ['sock_5ffd_292',['sock_fd',['../class_j_s_o_n_c_g_i_handler.html#a6f696ff6856f32b3ba75a130fcbb8987',1,'JSONCGIHandler']]],
+  ['start_5fof_5fsimulation_293',['start_of_simulation',['../class_sensor_timer.html#a5b5f30f0afd6eb4a9df8f7b6b6869a6a',1,'SensorTimer']]],
+  ['startofprospectivesleep_294',['startOfProspectiveSleep',['../class_sensor_timer.html#ad2a424f227d18421cf94c86d7eb031be',1,'SensorTimer']]],
+  ['statusbar_295',['statusBar',['../class_main_window.html#a4a04910f3193303a44506b44521b61b0',1,'MainWindow']]],
+  ['surelyslepttime_296',['surelySleptTime',['../class_sensor_timer.html#a84505975df90206876681d89975faa52',1,'SensorTimer']]]
 ];

@@ -25,14 +25,23 @@
 var NAVTREE =
 [
   [ "DreamHacker", "index.html", [
-    [ "DreamHacker", "md_frontend_database_readme.html", [
-      [ "Database Documentation", "md_frontend_database_readme.html#autotoc_md1", null ],
-      [ "Software Used", "md_frontend_database_readme.html#autotoc_md2", null ],
-      [ "Installation Instructions", "md_frontend_database_readme.html#autotoc_md3", null ],
-      [ "Installation Instructions", "md_frontend_database_readme.html#autotoc_md4", null ]
-    ] ],
-    [ "readme", "md_readme.html", null ],
     [ "Data Structures", "annotated.html", [
+      [ "Social Media", "index.html#autotoc_md0", null ],
+      [ "Contents", "index.html#autotoc_md1", null ],
+      [ "About", "index.html#autotoc_md2", [
+        [ "Hardware", "index.html#autotoc_md3", null ],
+        [ "Software", "index.html#autotoc_md4", null ],
+        [ "Roadmap", "index.html#autotoc_md5", null ]
+      ] ],
+      [ "Getting Started", "index.html#autotoc_md6", [
+        [ "Prerequisites", "index.html#autotoc_md7", null ],
+        [ "Installation", "index.html#autotoc_md8", null ],
+        [ "Usage", "index.html#autotoc_md9", null ]
+      ] ],
+      [ "Contributing", "index.html#autotoc_md10", null ],
+      [ "License", "index.html#autotoc_md11", null ],
+      [ "Contact", "index.html#autotoc_md12", null ],
+      [ "References", "index.html#autotoc_md13", null ],
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
@@ -58,8 +67,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_cpp_timer_8cpp.html",
-"main_8cpp.html#ae8605e2b78cd4a81b6c6b5c30cb7366a"
+"_cpp_timer_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
