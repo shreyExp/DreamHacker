@@ -21,26 +21,15 @@
     <br />
     <br />
     <a href="https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ"><img height=30 src="images/youtube.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img height=30 src="images/facebook.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/proj_dreamhacker/"><img height=40 src="images/instagram.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://www.dreamhacker.co.uk"><img height=30 src="images/facebook.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/proj_dreamhacker/"><img height=30 src="images/LogoDreamHacker.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.facebook.com/Dream-Hacker-103619898510175"><img height=30 src="images/facebook.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.instagram.com/proj_dreamhacker/"><img height=40 src="images/instagram.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://www.dreamhacker.co.uk"><img height=30 src="images/LogoDreamHacker.svg"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <br />
     <a href="https://github.com/shreyExp/DreamHacker/discussions">Discuss with us</a>
     ·
   </p>
 </div>
-<div align="center">
-
-
-## Social Media
-
-[YouTube](https://www.youtube.com/channel/UCoZ31rXYGIltQAecAKzutBQ)
-
-[Facebook](https://www.facebook.com/Dream-Hacker-103619898510175)
-
-[Instagram](https://www.instagram.com/proj_dreamhacker/)
-
-[Website](https://www.dreamhacker.co.uk)
 
 <!-- TOC -->
 ## Contents
