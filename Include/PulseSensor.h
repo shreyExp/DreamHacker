@@ -23,17 +23,15 @@ public:
 	virtual void hasSample(int beats, bool mayBeSleep, int bpmThreshold) = 0;
 };
 
-
-
 /**
- * This class reads data from a fake sensor in the background
- * and calls a callback function whenever data is available.
+ * SensorTimer is inherited from CppTimer which itself is a wrapper around timer present in time.h
+ * SensorTimer declares variables and functions to take readings from the hardware.
+ * Analyze the beats per minute to determine sleep and plays an audio in such a case.
  **/
 class SensorTimer : public CppTimer {
 	private:
     		SensorCallback* sensorCallback = nullptr;
 		unsigned int eventCounter, thisTime, lastTime, elapsedTime;
-		int sampleFlag = 0;
 		int firstTime, secondTime, duration;
 		int timeOutStart, dataRequestStart, m;
 		int Signal;
@@ -51,40 +49,177 @@ class SensorTimer : public CppTimer {
 		int Pulse = 0;
 		int amp = 100;                  // beat amplitude 1/10 of input range.
 		int call_time_period = 2000; //in microseconds 2 milli s
-		/**
+		/*
 		 * Variables to analyze sleep in sleep detection
+		 */
+
+		/**
+		 * time_t variable stores when the night will start on the current day
 		 **/
 		time_t nightTime;
+
+		/**
+		 * time_t which is set as nightTime plus 8 hours. Not the actual wake up time of the person
+		 * it can be taken as the morning time.
+		 **/
 		time_t wakeTime;
+
+		/**
+		 * int variable which stores the threshold on beats per minute
+		 **/
 		int bpmThreshold = 77;
+
+		/**
+		 * bool variable which if is one the person is in maybesleep state.
+		 * If it remains in this state for a while then the person gets into sleep state in a while
+		 * maybeSleep is a superset of the sleep state. In other words, maybeSleep is a necessary condition
+		 * for sleep.
+		 **/
 		bool maybeSleep = 0;
+
+		/**
+		 * time_t variable which contains the time the program waits for the person to be in maybesleep state before
+		 * he is put into sleep state as well.
+		 **/
 		time_t surelySleptTime = 2;
+
+		/**
+		 * This variable is set to one by [todo] to one if the person is sleep. This is read by various
+		 * other functions to take appropriate actions.
+		 **/
 		bool sleep;
+
+		/**
+		 * time_t variable which stores the unix time of a person getting in the maybeSleep state
+		 **/
 		time_t startOfProspectiveSleep; 
+
+		int countdown = 0;
+
+		/**
+		 * bool which if 1 means the audio is playin and if zero means the audio
+		 * is not playing. This is useful for functions which play audio as they must know
+		 * if audio is playing or not.
+		 **/
 		bool is_audio_playing = 0; 
+
+		/**
+		 * bool which if > 0 means that the audio will be played by the program itself and not 
+		 * a remote server.
+		 **/
 		bool play_audio_locally = 1;
+
+		/**
+		 * pid_t tracks the pid of the process which plays the audio. It needs to be tracked so that it
+		 * can be killed at an appropriate moment. Also, it helps the program to avoid creating multiple pids.
+		 **/
 		pid_t audio_pid;
+
+		/**
+		 * string which stores the name of the audio file which should be played.
+		 **/
 		char audio_name[500];
+
+		/**
+		 * bool which if 1, will lead to production of simulated values of beats per minute (BPM).
+		 **/
 		bool is_simulation = 0;
+
+		/**
+		 * bool which is set to 1 if the simulation has started.
+		 **/
 		bool simulation_started = 0;
+
+		/**
+		 * The simulation produces a triagular wave of bpm. This is the time period of the waveform
+		 **/
 		time_t period_of_simulation = 60*1; //1 minute duration
 	public:
+		/**
+		 * Constructor function takes three arguments:
+		 * bpm threshold: this sets the bpmThreshold variable
+		 * is_simulation: this sets the is_simulation variable
+		 * local_audio: this sets the play_audio_locally variable
+		 * The function also intializes variables necessary for measurement of pulse and
+		 * variables need to analyze bpm for sleep.
+		 **/
 		SensorTimer(int, bool, bool);
 		void setCallback(SensorCallback* cb);
+		/**
+		 * This is a function in the parent class which is overidden here. Everything mentioned in the function
+		 * is fired periodically after a certain interval.
+		 **/
 		void timerEvent(); 
+		
+		/**
+		 * This function intializes variables necessary to read the data, and get the beats per minute.
+		 **/
 		void initPulseSensorVariables(void);
+		
+		/**
+		 * This function gets the Signal from the DAC and calculates bpm and othe parameters from the Signal.
+		 **/
 		void getPulse(void);
+		
+		/**
+		* Function to analyze sleep based on beats
+		* per minute.
+		* if BPM is below a certain threshold
+		* mayBeSleep should be on
+		* if mayBeSleep is on for a while
+		* then return 1;
+		**/
 		bool analyzeBeatsForSleep(int bpm);
+		
+		/**
+		 * This function initializes the variables for sleep detection.
+		 **/
 		void initializeVariablesForSleep(void);
+		
+		/**
+		 * This function monitors the sleep variable and decides if an audio must be played.
+		 * It also keeps track of the pids of the processes created to play the audio.
+		 **/
 		void audioprocess();
+		
+		/**
+		 * This function is used inside the audioprocess 
+		 * It takes in the audio name as argument and forks the program to run the audio
+		 * returns pid of the process which runs audio to the parent process
+		 **/
 		pid_t play_audio(char* audio_name);
+		
+		/**
+		 * Kills the pid of given to it as parameter
+		 **/
 		void kill_the_pid(pid_t x);
+		
+		/**
+		 * Simulates bpm values as a triangular wave.
+		 **/
 		void beatsPerMinuteSimulation();
 		time_t start_of_simulation;
+		
+		/**
+		 * sets the time period of the triangular wave of bpm simulation
+		 **/
 		void setPeriodOfSimulatedWave(int);
 		// new funcs
+		
+		/**
+		 * sets the surelySleptTime variable
+		 **/
 		void setSurelySleptTime(int);
+		
+		/**
+		 * sets the night time to the current time. Useful in testing.
+		 **/
 		void setNigtTimeToNow();
+		
+		/**
+		 * This function is a wrapper around stop() function of the stop() function of the CppTimer
+		 * This function also kills any audio pid if it is present.
+		 **/
    		void stopNew();
 };
 
@@ -114,10 +249,12 @@ void SensorTimer::setNigtTimeToNow(){
 	wakeTime = nightTime + 60*60*8;
 }
 void SensorTimer::setPeriodOfSimulatedWave(int period){
-	period_of_simulation = period; //1 minute duration
+	period_of_simulation = period;
 }
 
 void SensorTimer::stopNew(){
+	if(audio_pid > 0)
+		kill(audio_pid, SIGTERM);
 	stop();
 }
 
@@ -139,15 +276,17 @@ void SensorTimer::audioprocess(){
 			printf("\n\n\nAudio pid is %d\n\n\n", audio_pid);
 	          }
 	}
-	else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally){
+	else if(is_audio_playing == 1 && sleep == 0 && play_audio_locally && audio_pid > 0){
 	          /*
 	           * When the person wakes up again kill the pid which runs the audio
 	           */
-	          if(audio_pid > 0){
 			printf("\n\n\n Killing the Audio as maybe the person has woken up\n\n\n");
 	          	kill_the_pid(audio_pid);
 	          	is_audio_playing = 0;
-	          }
+	          
+	}else if(is_audio_playing == 1 && sleep == 1 && audio_pid > 0 && kill(audio_pid, 0) < 0){
+		//the audio has ended.
+		is_audio_playing == 0;
 	}
 }
 pid_t SensorTimer::play_audio(char* audio_name){
@@ -183,8 +322,9 @@ void SensorTimer::timerEvent() {
 		beatsPerMinuteSimulation();
 	sleep = analyzeBeatsForSleep(BPM);
 	audioprocess();
+	//Main print message
 	printf("BPM Threshold is: %d, BPM is: %d, Maybe he is asleep: %d, "
-			"Sleep is: %d, Audio_On: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing);
+			"Sleep is: %d, Audio_On: %d, Countdown: %d\r", bpmThreshold,  BPM, maybeSleep, sleep, is_audio_playing, countdown);
 	fflush(stdout);
   if (nullptr != sensorCallback) {
       sensorCallback->hasSample(BPM, sleep, bpmThreshold);
@@ -213,17 +353,15 @@ void SensorTimer::beatsPerMinuteSimulation(){
 		sim_bpm = -1 * (int)(slope*t) + end_bpm;
 	}
 	BPM = sim_bpm;
-
-	
-
-
 }
 
+/**
+ * <a href="https://github.com/WorldFamousElectronics/Raspberry_Pi">This function is taken from the hardware vendor's github repo.</a>
+ **/
 void SensorTimer::initPulseSensorVariables(void){
 	
     wiringPiSetup(); //use the wiringPi pin numbers
     mcp3004Setup(BASE,SPI_CHAN);    // setup the mcp3004 library
-    //pinMode(BLINK_LED, OUTPUT); digitalWrite(BLINK_LED,LOW);
 
 
     for (int i = 0; i < 10; ++i) {
@@ -247,19 +385,20 @@ void SensorTimer::initPulseSensorVariables(void){
     call_time_period = 2000; //in microseconds 2 milli s
 }
 
+/**
+ * <a href="https://github.com/WorldFamousElectronics/Raspberry_Pi">This function is taken from the hardware vendor's github repo.</a>
+ **/
 void SensorTimer::getPulse(void){
 
         thisTime = micros();
         Signal = analogRead(BASE);
         elapsedTime = thisTime - lastTime;
         lastTime = thisTime;
-        sampleFlag = 1;
 
 
 	  sampleCounter += 2;         // keep track of the time in mS with this variable
 	  int N = sampleCounter - lastBeatTime;      // monitor the time since the last beat to avoid noise
 	
-	// FADE LED HERE, IF WE COULD FADE...
 	
 	  //  find the peak and trough of the pulse wave
 	  if (Signal < thresh && N > (IBI / 5) * 3) { // avoid dichrotic noise by waiting 3/5 of last IBI
@@ -371,6 +510,7 @@ bool SensorTimer::analyzeBeatsForSleep(int bpm)
         }
         if (bpm < bpmThreshold && maybeSleep == 1) {
             maybeSleepTime = time(NULL) - startOfProspectiveSleep;
+	    countdown = surelySleptTime - maybeSleepTime;
             if (maybeSleepTime > surelySleptTime) {
                 sleep_local = 1;
             }

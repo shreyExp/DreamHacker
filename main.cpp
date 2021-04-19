@@ -11,11 +11,11 @@
 #include <wiringPi.h>
 #include <mcp3004.h>
 #include <QApplication>
-#include "mainwindow.h"
-#include "CppTimer.h"
+#include "Include/mainwindow.h"
+#include "Include/CppTimer.h"
 #include <thread>
-#include "PulseSensor.h"
-#include "json_fastcgi_web_api.h"
+#include "Include/PulseSensor.h"
+#include "Include/json_fastcgi_web_api.h"
 
 
 
@@ -104,26 +104,64 @@ void signalHandler(int signum){
 
 void usage(void){
 	printf("\nUsage:\n"
-		"-h for help"
-		"-t [int] to put bpm threshold\n"
-		"-g [bool] 1 to plot in qtplot. Default: 1\n"
-		"-l [bool] 1 to play audio locally. Default: 1\n"
-		"-n [bool] 1 to set night time to now. Default: 0\n"
-		"-w [int] set waiting time to confirm sleep.\n"
-		"-s [bool, 0 or 1] 1 for simulated bpm. Default: 0\n");
+                 "./main [-h] for usage\n"
+                 "./main [-t <int>] to put bpm threshold\n"
+                 "./main [-g <bool>] 1 to plot in qtplot. Default: 1\n"
+                 "./main [-l <bool>] 1 to play audio locally. Default: 1\n"
+                 "./main [-n <bool>] 1 to set night time to now. Default: 0\n"
+                 "./main [-w <int> ]set waiting time to confirm sleep.\n"
+                 "./main [-s <bool>] 1 for simulated bpm. Default: 0\n");
 }
 
 
 int main(int argc, char *argv[])
 {
-	int mode = 0;
+	/**
+	 * Threshold of Beats per minute
+	 * Modifiable by using ./main -t <int>
+	 **/
 	int threshold = 77;
+	/**
+	 * bool value: if 1, then ecg will be plotted, if zero ecg will not be plotted
+	 * Can be changed by giving arguments like this: ./main -g 0 for graph not to be plotted
+	 * and ./main -g 1 for graph to be plotted. Default is 1
+	 **/
 	bool graph = 1;
+	/**
+	 * bool value: if 1, then program will run in simulation mode, if 0 then real data of bpm is used. 
+	 * Can be changed by giving arguments like this: ./main -s 0 for real bpm
+	 * and ./main -g 1 for simulated bpm. Default is 1
+	 **/
 	bool simulation = 0;
+
+	/**
+	 * bool value if 1, the audio will be played from this progrma itself. Default is 1.
+	 * can be changed while running the program by giving arguments like ./main -l 0
+	 **/
 	bool local_audio = 1;
+
+	/**
+	 * If we want to play the audio at any time during the day then nightTime should be set to now. For that
+	 * we need to set this value to 1. This can be done by passing the argument like: ./main -n 1. Default is 0
+	 *
+	 **/
 	bool nightTimeNow = 0;
+
+	/**
+	 * int value. The delay it takes the program to reach from the state of maybesleep to sleep.
+	 * Usually it must be half an our but it can be manipulated for testing purpose like this: ./main -w 60
+	 * It this example the program would wait for 30 seconds to go from maybesleep state to sleep state.
+	 **/
 	int surelySleptTime = 0;
+
+	/**
+	 * This variable is used to get the parameters from the terminal
+	 **/
 	char key;
+
+	/**
+	 * This variable is used to get the parameters from the terminal
+	 **/
 	char* value;
 	if(argc > 1){
 		//mode = atoi(argv[1]);
@@ -175,13 +213,14 @@ int main(int argc, char *argv[])
 	}
 	signal(SIGINT, signalHandler);
 	/**
-	 * SensorTimer runs in a thread
+	 * Pulse me runs in a c++ timer
 	 * It reads the analog data from pulse sensor and calculates BPM.
 	 * BPM is used for other analysis.
 	 **/
 	SensorTimer pulseMe(threshold, simulation, local_audio);
 	if(nightTimeNow)
 		pulseMe.setNigtTimeToNow();
+	//waiting time just after the bpm drops to threshold
 	if(surelySleptTime)
 		pulseMe.setSurelySleptTime(surelySleptTime);
 
@@ -189,12 +228,13 @@ int main(int argc, char *argv[])
   SENSORfastcgicallback sensorfastcgicallback;
   pulseMe.setCallback(&sensorfastcgicallback);
 
-
-    // Setting up the JSONCGI communication
-    // The callback which is called when fastCGI needs data
-    // gets a pointer to the SENSOR callback class which
-    // contains the samples. Remember this is just a simple
-    // example to have access to some data.
+   /**
+   * Setting up the JSONCGI communication
+   * The callback which is called when fastCGI needs data
+   * gets a pointer to the SENSOR callback class which
+   * contains the samples. Remember this is just a simple
+   * example to have access to some data.
+   **/
   JSONCGIADCCallback fastCGIADCCallback(&sensorfastcgicallback);
 
 
@@ -207,12 +247,12 @@ int main(int argc, char *argv[])
 	 * The QApplication will form the windows for the display of raw data read from the sensor.
 	 * This will block the control and the program will keep on runnig stuck here.
 	 **/
-   	QApplication a(argc, argv);
-   	SenseWindow w;
-	if(graph){
-   		w.showMaximized();
-   		a.exec();
-	}
+   	//QApplication a(argc, argv);
+   	//SenseWindow w;
+	//if(graph){
+   	//	w.showMaximized();
+   	//	a.exec();
+	//}
 
 	/**
 	 * If the graphing window is terminated by the user then the control will get stuck in the while loop which depends on
