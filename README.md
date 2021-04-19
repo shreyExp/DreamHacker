@@ -15,6 +15,7 @@
     This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.
     Then after a while start the audio stimulus.
     <br />
+    <br />
     <a href="http://docs.dreamhacker.co.uk/"><strong>Checkout docs »</strong></a>
     <br />
     <a href="https://github.com/shreyExp/DreamHacker/wiki"><strong>Read the wiki »</strong></a>
