@@ -1,12 +1,16 @@
-<h2 align="center">DreamHacker</h2> 
+<h1 align="center">Dream Hacker</h1> 
+<br />
 <div align="center">
    <a href="https://github.com/praveen1992/DreamHacker/">
-    <img src="https://github.com/shreyExp/DreamHacker/blob/praveen/documentation/images/LogoDreamHacker.jpeg" alt="Logo" width="250" height="250">
+    <img src="https://github.com/shreyExp/DreamHacker/blob/master/frontend/pictures/dreamHacker.png" alt="Logo" width="100%" height="auto">
   </a>
-  <p align="center">
-    Giving audio stimulus to a sleeping person to manipulate his dreams using raspberry pi. 
+   <br />
+   <br />
+  <p align="left">
+    Dream Hacker is program designed to help you better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
     <br />
 </div>
+
 
 
 
@@ -53,10 +57,10 @@ Then after a while start the audio stimulus.
 <!-- Project descirption -->
 
 ## About
-DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in mannipuation their dreams for more comfortable sleep using sound stimulus.
+DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in manipuation their dreams for more comfortable sleep using audio stimulus.
 
 Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
-The information will include bpm (beats per minute), ecg graph which will be recorded using sensors nad raspberry pi.
+The information will include bpm (beats per minute), the threshold and when the user has slept.
 
 <div align="center">
 
