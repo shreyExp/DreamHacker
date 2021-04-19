@@ -108,6 +108,8 @@ void SensorTimer::setPeriodOfSimulatedWave(int period){
 }
 
 void SensorTimer::stopNew(){
+	if(audio_pid > 0)
+		kill(audio_pid, SIGTERM);
 	stop();
 }
 
