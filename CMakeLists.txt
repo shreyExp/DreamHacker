@@ -6,7 +6,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
 endif()
 add_compile_options(-Wall -Wconversion -Wextra -pedantic)
-add_library(cpptimer STATIC Include/CppTimer.cpp)
+add_library(cpptimer STATIC src/CppTimer.cpp)
 TARGET_LINK_LIBRARIES(cpptimer rt fcgi ${CMAKE_THREAD_LIBS_INIT} curl)
 set_target_properties(cpptimer PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
 
@@ -24,13 +24,13 @@ find_library(wiringPi_LIB wiringPi)
 find_package(Threads REQUIRED)
 find_package( CURL )
 
-add_executable(main
-  Include/CppTimer.cpp
-  Include/mainwindow.cpp
-  main.cpp
+add_executable(drmhk
+  src/CppTimer.cpp
+  include/mainwindow.cpp
+  main/main.cpp
 )
 
-target_link_libraries(main
+target_link_libraries(drmhk
   Qt5::Widgets Qt5::PrintSupport Threads::Threads cpptimer ${QCustomPlot_LIBRARIES} ${wiringPi_LIB}  fcgi rt ${CMAKE_THREAD_LIBS_INIT} curl
   )
 
