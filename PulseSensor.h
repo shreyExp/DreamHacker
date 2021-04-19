@@ -1,13 +1,19 @@
 #include "CppTimer.h"
 
 
-// MCP3004/8 SETTINGS
+/**
+ * MCP3004/8 SETTINGS
+ **/
 #define BASE 100
 #define SPI_CHAN 0
 
-/**
- * Callback for new samples which needs to be implemented by the main program.
- * The function hasSample needs to be overloaded in the main program.
+
+/** class SensorCallback
+ * brief Callback class for sensor data
+ * details Callback for new samples which needs 
+ *         to be implemented by the main program.
+ *         The function hasSample needs to be
+ *         overloaded in the main program.
  **/
 class SensorCallback {
 public:
@@ -18,6 +24,11 @@ public:
 };
 
 
+
+/**
+ * This class reads data from a fake sensor in the background
+ * and calls a callback function whenever data is available.
+ **/
 class SensorTimer : public CppTimer {
 	private:
     		SensorCallback* sensorCallback = nullptr;
