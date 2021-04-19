@@ -9,7 +9,6 @@
   <p align="left">
     Dream Hacker is program designed to help you have better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
     <br />
-</div>
  
   <p align="center">
     This setup takes data from pulse sensor and time of the day etc, to predict when the person has slept.

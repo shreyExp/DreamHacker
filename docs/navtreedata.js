@@ -26,29 +26,28 @@ var NAVTREE =
 [
   [ "DreamHacker", "index.html", [
     [ "Structure", "md__s_t_r_u_c_t_u_r_e.html", [
-      [ "Social Media", "index.html#autotoc_md0", null ],
-      [ "Contents", "index.html#autotoc_md1", null ],
-      [ "About", "index.html#autotoc_md2", [
-        [ "Hardware", "index.html#autotoc_md3", null ],
-        [ "Software", "index.html#autotoc_md4", null ],
-        [ "Roadmap", "index.html#autotoc_md5", null ]
+      [ "Contents", "index.html#autotoc_md0", null ],
+      [ "About", "index.html#autotoc_md1", [
+        [ "Hardware", "index.html#autotoc_md2", null ],
+        [ "Software", "index.html#autotoc_md3", null ],
+        [ "Roadmap", "index.html#autotoc_md4", null ]
       ] ],
-      [ "Getting Started", "index.html#autotoc_md6", [
-        [ "Installation", "index.html#autotoc_md7", null ],
-        [ "Usage", "index.html#autotoc_md8", null ]
+      [ "Getting Started", "index.html#autotoc_md5", [
+        [ "Installation", "index.html#autotoc_md6", null ],
+        [ "Usage", "index.html#autotoc_md7", null ]
       ] ],
-      [ "Contributing", "index.html#autotoc_md9", null ],
-      [ "License", "index.html#autotoc_md10", null ],
-      [ "Contact", "index.html#autotoc_md11", null ],
-      [ "References", "index.html#autotoc_md12", null ],
-      [ "Overview", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md14", null ],
-      [ "In-detail", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md15", [
-        [ "<tt>./drmhk_autogen</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md16", null ],
-        [ "<tt>./frontend</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md17", null ],
-        [ "<tt>./include</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md18", null ],
-        [ "<tt>./main</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md19", null ],
-        [ "<tt>./src</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md20", null ],
-        [ "<tt>./test</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md21", null ]
+      [ "Contributing", "index.html#autotoc_md8", null ],
+      [ "License", "index.html#autotoc_md9", null ],
+      [ "Contact", "index.html#autotoc_md10", null ],
+      [ "References", "index.html#autotoc_md11", null ],
+      [ "Overview", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md13", null ],
+      [ "In-detail", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md14", [
+        [ "<tt>./drmhk_autogen</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md15", null ],
+        [ "<tt>./frontend</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md16", null ],
+        [ "<tt>./include</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md17", null ],
+        [ "<tt>./main</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md18", null ],
+        [ "<tt>./src</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md19", null ],
+        [ "<tt>./test</tt>", "md__s_t_r_u_c_t_u_r_e.html#autotoc_md20", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -78,8 +77,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_cpp_timer_8cpp.html",
-"moc__predefs_8h.html#a01c49eec2e7d5b02de85da36904eac4e",
-"moc__predefs_8h.html#a868c5b1405b26bc9592fa9f3248e99aa"
+"moc__predefs_8h.html#a01d0061df498c537ecd56d53f1130082",
+"moc__predefs_8h.html#a87140cc80075e8907e7bbfd910c5642a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
