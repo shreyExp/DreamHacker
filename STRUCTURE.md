@@ -15,7 +15,7 @@ In this section, all paths are relative to `DreamHacker`.
 
 ### `./drmhk_autogen`
 
-This houses the front-facing logic for `io_server`. Handles CLI flags via `getopts` and sets global variables as defined. Also allows running of a test function `tests` which isn't really tests.
+This houses the front-facing logic for `DreamHacker`. Handles CLI flags via `getopts` and sets global variables as defined. Also allows running of a test function `tests` which isn't really tests.
 
 ### `./frontend`
 
@@ -37,10 +37,9 @@ All header files for the project are to be declared here and added to `CMakeList
 Contains main.cpp file. This is the main program.
 
 ### `./src`
-Contains the *.cpp implementation files for *.h files present in the ./include directory
+Contains the  `*.cpp` implementation files for `*.h` files present in the ./include directory
 
 ### `./test`
-
 The test folder contains the test scenarios
 
 
