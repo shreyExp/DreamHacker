@@ -82,7 +82,7 @@ the following places:
 * [FaceBook](https://www.facebook.com/Dream-Hacker-103619898510175).
 * [Mail](mailto:2620969T@student.gla.ac.uk).
 
-Before you file an issue, make sure you have read the _[known issues](#issues)_.
+Before you file an issue, make sure you have read the _[known issues](https://github.com/shreyExp/DreamHacker/issues)_.
 
 ### Hardware
 
@@ -165,5 +165,5 @@ Team 39 in  Real Time Embedded Programming
 👤 **Shreyansh Singh (2611417s)**
 
 ## References
-
+* [jQuery <--> C++ fastcgi web API, Bernd Porr](https://github.com/berndporr/json_fastcgi_web_api)
 
