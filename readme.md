@@ -7,7 +7,7 @@
    <br />
    <br />
   <p align="left">
-    Dream Hacker is program designed to help you better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
+    Dream Hacker is program designed to help you have better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
     <br />
 </div>
 
@@ -57,7 +57,7 @@ Then after a while start the audio stimulus.
 <!-- Project descirption -->
 
 ## About
-DreamHacker is a flexible  tool which allows user to learn their sleep cycle, beats and other biological information about their sleep. It helps in manipuation their dreams for more comfortable sleep using audio stimulus.
+    Dream Hacker is program designed to help you have better dreams. Our projects monitors our users heart rate and plays an audio file chosen by the user. Once Dream Hacker detects the user has entered sleep ie. when the beats per minute is below a certain threshold it will play the selected audio.
 
 Website interface enables user to select the music they want to play while they are sleeping. They can also see their different information using web Interface. 
 The information will include bpm (beats per minute), the threshold and when the user has slept.
@@ -85,14 +85,14 @@ Before you file an issue, make sure you have read the _[known issues](#issues)_.
 ### Hardware
 
 * [Raspberry pi ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
-* Pulse Sensor
+* [Pulse Sensor](https://pulsesensor.com/)
 * Wires
 * Speakers
 * Breadboard
 
 ### Software
 
-[See Documentation] (https://shreyexp.github.io/DreamHacker/)
+[See Documentation](https://shreyexp.github.io/DreamHacker/)
 
 
 ### Roadmap
@@ -135,7 +135,9 @@ Software
 ### Usage
 - Put your audio files inside the directory Audio/.
 - Edit the audio.txt file with the name of the audio you want to play when the sleep starts. For example if you want to play `my_file.mp3` present in the Audio/ directory then write `Audio/my_file.mp3`. Make sure that the file has just one line.
-- If you want to run a simulation to test out the setup run the main function with 1 as the argument. `./main 1`. If you want to run the full program just run `./main`
+- Run ./main -h to explore what are the parameters which can be feeded as the input to the program.
+- __Example:__ If you want to run the program as a simulation  and set the beats per minute threshold to 70 then run `./main -s 1 -t 70`.
+- To run in default mode run `./main`
 
 ## Contributing
 
