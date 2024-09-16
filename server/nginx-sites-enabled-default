@@ -1,0 +1,27 @@
+server {
+        listen       80;
+        server_name  localhost;
+
+        root /var/www/html/DreamHack/frontend;
+        index index.php index.html index.htm;
+      
+        location /favicon.ico {
+          return 204;
+          access_log     off;
+          log_not_found  off;
+        } 
+
+        location /sensor/ {
+          include        fastcgi_params;
+          fastcgi_pass   unix:/tmp/sensorsocket;
+        }
+
+        location ~ \.php$ {
+           try_files $uri =404;
+           fastcgi_split_path_info ^(.+\.php)(/.+)$;
+           fastcgi_pass unix:/tmp/php-fpm.sock;
+           fastcgi_index index.php;
+           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+           include fastcgi_params;
+        }
+}

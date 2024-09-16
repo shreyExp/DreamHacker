@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+    padding: 2%;
+}
+h4 {
+    font-weight:500;
+}
+mainPoint {
+    text-align: center;
+    width: 200px;
+    padding:1%;
+    margin: 5%;
+    font-size: 60px;
+    border-radius: 25px;
+    border: 1px solid green;
+}
+
+.vl {
+    border-right: 4px solid grey;
+    height: auto;
+  }
+
+  .backButton {
+      text-align: center;
+      border: 1px red solid;
+  }
+
+  table, th, td {
+    text-align: center;
+    border: 1px dotted grey;
+  }
+  td{
+      width: 20%;
+      border: 1px dotted grey;
+  }
+  tr {
+    text-align: center;
+    border: 1px dotted grey;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+ .centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
